@@ -1,6 +1,6 @@
 # Overview of PikaScript modules
 
-We still take Keil's simulation project as an example. If you haven't obtained the simulation project, please refer to [1. Quick Start in Three Minutes](https://pikadoc.readthedocs.io/zh/latest/Keil%20%E4%BB% BF%E7%9C%9F%E5%B7%A5%E7%A8%8B.html)
+We still take Keil's simulation project as an example. If you haven't obtained the simulation project, please refer to [1. Quick Start in Three Minutes](https://pikadoc.readthedocs.io/en/latest/Keil%20%E4%BB%BF%E7%9C%9F%E5%B7%A5%E7%A8%8B.html)
 ### PikaScript modules and module interface
 We opened the pikascript folder and found that in addition to main.py, there are Device.py, PikaObj.py and PikaStdLib.py in the root directory of the folder. These three .py files correspond to three PikaScript **modules** (class package ), referred to as **package** (package), each .py file itself is called **module interface** (package interface). A module can contain several related classes.
 

@@ -1,6 +1,6 @@
 # PikaScript extension module development process
 
-We still take Keil's simulation project as an example. If you haven't obtained the simulation project, please refer to [1. Quick Start in Three Minutes](https://pikadoc.readthedocs.io/zh/latest/Keil%20%E4%BB% BF%E7%9C%9F%E5%B7%A5%E7%A8%8B.html)
+We still take Keil's simulation project as an example. If you haven't obtained the simulation project, please refer to [1. Quick Start in Three Minutes](https://pikadoc.readthedocs.io/en/latest/Keil%20%E4%BB%BF%E7%9C%9F%E5%B7%A5%E7%A8%8B.html)
 
 
 
