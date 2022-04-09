@@ -1,7 +1,7 @@
-PikaScript 开发文档
+PikaScript development documentation
 ====================================
 
-PikaScript是一个完全重写的超轻量级python引擎，零依赖，零配置，可以在少于4KB的RAM下运行(如stm32g030c8和stm32f103c8)，极易部署和扩展。
+PikaScript is a completely rewritten ultra-lightweight python engine with zero dependencies, zero configuration, and can run under less than 4KB of RAM (such as stm32g030c8 and stm32f103c8), making it extremely easy to deploy and scale.
 
 .. toctree::
    :numbered:
