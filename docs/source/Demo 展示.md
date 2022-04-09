@@ -1,40 +1,34 @@
 # Demo show
 
-I just want to use a microcontroller to run Python, I have to use a linux virtual machine + cross-compilation toolchain + command line to compile the micropython firmware, and I have to use the DfuSe tool to burn the firmware. After burning, I cannot use the C debugger to debug.
+I want to run a Python with a microcontroller, I have to use linux virtual machine + cross-compilation tool chain + command line compile micropython firmware, but also have to use the DfuSe tool to burn the firmware, burned also can not use the C debugger to debug.
 
-I want to expand my own C module, and I have to learn to use some macro functions that I don’t understand at all. I have to register it manually, and I have to write makeFile . After compiling, I still can’t debug C .
+I want to expand a C module of my own, but I have to learn to use some completely unintelligible macro functions, and I have to register them manually, and I have to write makeFile, and I can't debug C after compilation.
 
-I'm poor and can't afford STM32F4. I want to buy a **STM32F103C8T6** micropython development board. I searched Taobao and it seems that there is no one.
+I am poor, can not afford to buy STM32F4, want to buy a STM32F103C8T6 micropython development board, Taobao a search, seems not.
 
-Now C8T6 is also expensive, I still want to use **F0, use G0, and use domestic chip**, can I do it?
+Now the C8T6 is also expensive, I still want to use F0, use G0, with domestic chips, can it work?
 
-It seems that porting micropython to G0 is not very easy.
+It seems that it is not very easy to port micropython to G0.
 
-That? Is there another way to play?
+So? Is there another way to play?
 
-In other words, I want to **develop with Keil, debug with Keil, **I also want to use **the cheapest microcontroller, **and **developing C modules is very easy**.
+In other words, I want to develop with Keil, debug with Keil, and I want to use the cheapest microcontroller, and it's very easy to develop C modules.
 
-Can you play Python?
+This, can I play with Python?
 
 ![](assets/132941900-985ebc9e-fb65-48f6-8677-d3ebc65422ee.gif)
 
-Or, try PikaScript?
+How about trying PikaScript?
 
 What is PikaScript?
 
-PikaScript provides **Python** scripting support for **resource-constrained** MCUs that are **extremely easy to deploy and extend**. **Does not require an operating system**, can run **bare metal**, and **doesn't need a file system**.
+PikaScript provides extremely easy to deploy and extend Python scripting support for resource-constrained mcu. It doesn't require an OS, it runs bare metal, and it doesn't require a filesystem.
 
-PikaScript supports bare metal operation, at least can run in **RAM ≥ 4kB**, **FLASH ≥ 32kB** mcu, the recommended configuration is RAM ≥ 10kB, FLASH ≥ 64kB, such as stm32f103c8t6, ​​stm32g070RBT6 These are completely stress-free, even The recommended configuration has been met.
+PikaScript supports bare-metal operation, at least for mcu with RAM ≥ 4kB and FLASH ≥ 32kB, the recommended configuration is RAM ≥ 10kB and FLASH ≥ 64kB, such as stm32f103c8t6 and stm32g070RBT6, which have no pressure at all and even meet the recommended configuration.
 
-And supports IDE development such as **Keil, IAR, RT-Thread studio, segger embedded studio**, zero dependencies, zero configuration, out of the box, and easy to integrate into existing C projects.
-
-Having said so much, Liu Huaqiang has doubts. Do you think this script is familiar?
+And support Keil, IAR, RT-Thread studio, segger embedded studio and other IDE development, zero dependencies, zero configuration, out-of-the-box, extremely easy to integrate into the existing C project.
 
 ![](assets/1638666543673-423aafcb-0c29-49b3-8221-22fdc3c65199.png)
-
-I have a ~~fruit~~ script stall, can I buy your raw script eggs?
-
-Let's pick some demos for my brother to see.
 
 These are all demos of STM32G070RBT6.
 
@@ -68,9 +62,9 @@ while True:
     
 ````
 
-Take a look at this script, but it's all Python3 standard syntax.
+Look at the script, it's all Python3 standard syntax.
 
-Isn't this light on?
+The light is flashing.
 
 ![](assets/132943428-f2b365ca-140e-42f4-936c-db6a7d9f8dee.gif)
 
@@ -122,15 +116,15 @@ while True:
     
 ````
 
-The same few lines of script to get.
+Again a few lines of script fixes it.
 
 ![](assets/132944185-0a01b1ba-8cf7-4f9f-9d73-fe9cbcd52f0b.png)
 
-This is the result of the output.
+This is the output result.
 
-The maximum RAM occupied by these demos is only **3.56K**, the 1K stack is also 4.56K, and the maximum Flash occupancy is 30.4K. Taking the 20K RAM and 64K Flash of STM32F103C8T6 as the standard, the RAM is only ** Using less than 25%**, Flash only uses less than 50%**, it is simply too many resources to know what to do.
+The maximum value of RAM occupied by these demos is only 3.56K, including the 1K stack is also 4.56K, the maximum Flash occupation is 30.4K, using the STM32F103C8T6's 20K RAM and 64K Flash as the standard, RAM is only used up less than 25%, Flash is only used up less than 50%, simply more resources do not know how to spend. This is a lot of resources.
 
-Also running Python, we can simply compare the common chip STM32F405RG of micropython and the chip STM32G070CB running PikaScript this time
+Also running Python, we can briefly compare the common chip STM32F405RG for micropython and the chip STM32G070CB for PikaScript.
 
 ## RAM resource comparison
 
@@ -145,7 +139,8 @@ Also running Python, we can simply compare the common chip STM32F405RG of microp
 
 ## How about the expansion ability?
 
-In addition to device drivers, it is very easy to develop custom python script bindings for mcu under the development framework of pikascript. The following two demos are custom C module extensions. This demo is based on ARM- The 2D image driver library develops some python scripting interfaces.
+In addition to device drivers, developing custom python script bindings for mcu is very easy with the pikascript development framework. The following two demos are custom C module extensions that develop some python script interfaces based on the ARM-2D image driver library.
+
 ## A few small squares~
 
 ![](assets/132945282-bfd310df-8063-456d-b90c-6b798a2c8ed5.gif)
@@ -160,4 +155,4 @@ Of course, this is the github home page of PikaScript:
 PikaScript has prepared rich demos and development guides from shallow to deep for developers, and the guides will continue to be improved and maintained.
 
 ## Can it be commercialized?
-certainly! PikaScript adopts the MIT license, allowing modification and commercial use, but pay attention to retain the original author's signature.
+Of course! PikaScript uses the MIT protocol and allows modifications and commercialization, but be careful to keep the original author's byline.
