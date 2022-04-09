@@ -1,19 +1,19 @@
-# PikaStdTask 多任务
+# PikaStdTask multitasking
 
-PikaStdTask 多任务库提供了 Task （任务循环）的异步多任务功能。
-## 安装
+The PikaStdTask multitasking library provides asynchronous multitasking capabilities of Task (task loop).
+## Install
 
-1. 在 requestment.txt 中加入 PikaStdLib 的依赖，PikaStdLib 的版本号应当与内核的版本号相同。
-```
+1. Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
+````
 PikaStdLib==v1.6.1
-```
+````
 
-2. 运行 pikaPackage.exe
+2. Run pikaPackage.exe
 
 ## class Task():
-Task 类提供了任务循环功能，由 Task 类创建对象，即可创建一个任务循环。
-### Task 类的方法
-```python
+The Task class provides the task loop function, and a task loop can be created by creating an object of the Task class.
+### Methods of the Task class
+````python
 from PikaObj import *
 import PikaStdData
 
@@ -32,19 +32,19 @@ class Task(TinyObj):
     def call_when(self, fun_todo: any, fun_when: any):
         pass
 
-    # regist a function to be called periodically 
+    # register a function to be called periodically
     def call_period_ms(self, fun_todo: any, period_ms: int):
         pass
 
-    # run all registed function once
+    # run all registered function once
     def run_once(self):
         pass
 
-    # run all registed function forever
+    # run all registered function forever
     def run_forever(self):
         pass
 
-    # run all registed function until time is up
+    # run all registered function until time is up
     def run_until_ms(self, until_ms: int):
         pass
 
@@ -52,38 +52,38 @@ class Task(TinyObj):
     def platformGetTick(self):
         pass
 
-```
-### 使用方法：
+````
+### Instructions:
 
-1. 使用 `call_xxx()` 方法指定调用的方式，并将要执行的函数注册进 task 对象中。
-1. 使用 `run_xxx()` 方法指定任务循环执行的方式，并执行 `task` 对象中的所有函数。
-1. 和时间相关的功能，如 `call_period_ms()` ，`run_until_ms()`需要提供系统时钟，提供的方式为新建一个继承自 `PikaStdTask`的类，然后重写`platformGetTick()`方法。
-### 注意：
+1. Use the `call_xxx()` method to specify the calling method, and register the function to be executed in the task object.
+1. Use the `run_xxx()` methods to specify how the task loops and execute all functions in the `task` object.
+1. Time-related functions, such as `call_period_ms()` and `run_until_ms()`, need to provide the system clock by creating a new class that inherits from `PikaStdTask`, and then override the `platformGetTick()` method.
+### Notice:
 
-1. 所有被注册的函数应当是 **非阻塞** 的，否则会导致整个任务循环堵死。
-1. 任务循环不是实时的。
-### 用例：
+1. All registered functions should be **non-blocking**, otherwise the entire task loop will be blocked.
+1. The task loop is not real-time.
+### Example:
 
-1. 新建继承自 `PikaStdTask`的类。
-```python
+1. Create a new class that inherits from `PikaStdTask`.
+````python
 # STM32G0.py
 class Task(PikaStdTask.Task):
     # override
     def platformGetTick():
         pass
-```
+````
 
-2. 重写`platformGetTick()`方法。
-```c
+2. Override the `platformGetTick()` method.
+````c
 /* STM32G0_Task.c */
 
 void STM32G0_Task_platformGetTick(PikaObj* self) {
     obj_setInt(self, "tick", HAL_GetTick());
 }
-```
+````
 
-3. python 用例
-```python
+3. Python use cases
+````python
 import STM32G0
 import PikaPiZero
 import PikaStdLib
@@ -122,4 +122,4 @@ task.call_period_ms(led_task, 500)
 
 task.run_forever()
 
-```
+````

@@ -1,19 +1,19 @@
-# PikaDebug 调试器
+# PikaDebug debugger
 
-PikaDebug 调试器模块提供了断点调试等功能。
-## 安装
+The PikaDebug debugger module provides features such as breakpoint debugging.
+## Install
 
-1. 在 requestment.txt 中加入 PikaStdLib 的依赖，PikaStdLib 的版本号应当与内核的版本号相同。
-```
+1. Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
+````
 PikaStdLib==v1.6.1
-```
+````
 
-2. 运行 pikaPackage.exe
+2. Run pikaPackage.exe
 
 ## class Debuger():
-Debuger 类提供了调试器功能，由 Debuger 类创建对象，即可创建一个调试器。
-### Debuger 类的方法
-```c
+The Debuger class provides the debugger function. By creating an object of the Debuger class, a debugger can be created.
+### Debuger class methods
+````c
 class Debuger(TinyObj):
     def __init__(self):
         pass
@@ -21,12 +21,12 @@ class Debuger(TinyObj):
     def set_trace(self):
         pass
     
-```
-`__init__()`方法是创建对象时执行的方法，用户不需要了解。`set_trace()`方法可以在代码中放置一个断点，代码执行至断点处时会停止，并开启`(pika-debug)`终端，用户可以在终端中输入命令（c : 继续运行、q : 结束调试)，或者 python 交互式调用 ( `printf(i)`、`i = 10`）。
+````
+The `__init__()` method is the method executed when the object is created, and the user does not need to know about it. The `set_trace()` method can place a breakpoint in the code. When the code execution reaches the breakpoint, it will stop and open the `(pika-debug)` terminal. The user can enter commands in the terminal (c : continue running, q : to end debugging), or a python interactive call ( `printf(i)`, `i = 10`).
 ​
 
-用例：
-```python
+Example:
+````python
 import PikaDebug
 
 pkdb = PikaDebug.Debuger()
@@ -34,46 +34,46 @@ pkdb = PikaDebug.Debuger()
 i = 0
 while i < 10:
     i = i + 1
-    print('i :' + str(i))
+    print('i:' + str(i))
     # set a breakpoint here
     pkdb.set_trace()
-```
-命令示例：
-n：（next）继续运行至下一个断点。
-q：（quit）退出调试模式，并继续运行。
-p：（print) 打印变量，`p i`表示打印变量 `i`。
-交互式运行：直接执行交互式命令，如`print(i)`，`i = 2`等。
+````
+Command example:
+n: (next) continue to run to the next breakpoint.
+q: (quit) to exit debug mode and continue running.
+p: (print) print variable, `p i` means print variable `i`.
+Interactive run: Directly execute interactive commands, such as `print(i)`, `i = 2`, etc.
 
 ```bash
-# 调试记录示例
-i :1
+# Debug logging example
+i : 1
 (pika-debug) n
-i :2
+i : 2
 (pika-debug) n
-i :3
+i : 3
 (pika-debug) n
-i :4
+i : 4
 (pika-debug) p i
 4
 (pika-debug) print(i)
 4
 (pika-debug) i = 2
 (pika-debug) n
-i :3
+i : 3
 (pika-debug) n
-i :4
+i : 4
 (pika-debug) i = 9
 (pika-debug) n
-i :10
+i : 10
 (pika-debug) i = 2
 (pika-debug) n
-i :3
+i : 3
 (pika-debug) q
-i :4
-i :5
-i :6
-i :7
+i : 4
+i : 5
+i:6
+i : 7
 i :8
 i :9
-i :10
-```
+i : 10
+````

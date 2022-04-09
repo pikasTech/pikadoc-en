@@ -1,45 +1,45 @@
-# PikaStdLib  标准库
+# PikaStdLib standard library
 
-PikaStdLib 是 PikaScript 的自带内置库，是必须安装的库，包含了内存检查工具和系统对象。
-## 安装
+PikaStdLib is a built-in library of PikaScript, which must be installed. It includes memory checking tools and system objects.
+## Install
 
-1. 在 requestment.txt 中加入 PikaStdLib 的依赖，PikaStdLib 的版本号应当与内核的版本号相同。
-```
+1. Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
+````
 PikaStdLib==v1.6.1
-```
+````
 
-2. 运行 pikaPackage.exe
-## 导入
-在 main.py 中加入
-```python
+2. Run pikaPackage.exe
+## import
+Add in main.py
+````python
 #main.py
 import PikaStdLib
-```
+````
 ## class MemChecker()
-MemChecker 提供 PikaScript 的内存监控功能。可以用来查看内存占用，以及检查内存泄漏。
-```python
+MemChecker provides PikaScript's memory monitoring capabilities. Can be used to view memory usage and check for memory leaks.
+````python
 def max(self):
-```
-打印最大的内存占用值。
-```python
+````
+Print the maximum memory footprint value.
+````python
 def now(self):
-```
-打印当前的内存占用值。
-```python
+````
+Print the current memory usage value.
+````python
 def getMax(self)->float:
-```
-返回最大的内存占用值
-```python
+````
+Returns the largest memory footprint
+````python
 def getNow(self)->float
-```
-返回当前的内存占用值。
-```python
+````
+Returns the current memory usage value.
+````python
 def resetMax(self)
-```
-重置内存最大占用值
-**用例：**
+````
+Reset the maximum memory usage value
+**Example:**
 
-```python
+````python
 # main.py
 import PikaStdLib
 mem = PikaStdLib.MemChecker()
@@ -49,24 +49,24 @@ print('mem used now:')
 mem.resetMax()
 print('mem used max:' + str(mem.getMax()))
 print('mem used now:' + str(mem.getNow()))
-```
+````
 ## class SysObj()
-SysObj 用于提供内置函数，main.py 中执行的脚本是由根对象执行的，而根对象由 SysObj 类创建，因此 SysObj 类中的方法就是内置函数。
-```python
+SysObj is used to provide built-in functions, the scripts executed in main.py are executed by the root object, and the root object is created by the SysObj class, so the methods in the SysObj class are built-in functions.
+````python
 def type(arg: any):
-```
-打印变量的类型
-```python
+````
+print variable type
+````python
 def remove(argPath: str):
-```
-删除变量/对象，在删除时使用字符串，例如 `remove('a')`。
-```python
+````
+To remove a variable/object, use a string when removing, e.g. `remove('a')`.
+````python
 def int(arg: any) -> int:
 def float(arg: any) -> float:
 def str(arg: any) -> str:
-```
-用于类型转换
-```python
+````
+for type conversion
+````python
 def print(arg:any):
-```
-继承自 BaseObj，提供打印输出。暂不支持格式化输出。
+````
+Inherited from BaseObj, provides print output. Formatted output is not currently supported.

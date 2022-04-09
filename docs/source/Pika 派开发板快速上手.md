@@ -1,58 +1,58 @@
-# Pika 派开发板快速上手
+# Pika Pie Development Board Quick Start
 
-今天我们不聊驱动开发还有架构原理这些令人头大的硬核内容，我们就单纯的用 Pika 派开发板玩玩 Python 编程！在单片机上点亮一个“人生苦短，我用 Python ”的成就！
+Today, we will not talk about the hard-core content of driver development and architectural principles. We will simply use the Pika Pie development board to play Python programming! Light up a "Life is too short, I use Python" achievement on the microcontroller!
 
-[视频链接](https://www.bilibili.com/video/BV1kg411K7W2)
+[Video link](https://www.bilibili.com/video/BV1kg411K7W2)
 
-## 开发板获取
+## Development board acquisition
 
-如果手里还没有 Pika 派开发板的话，可以用下面的链接购买：
+If you don't have a Pika Pie development board yet, you can buy it from the link below:
 
-[https://item.taobao.com/item.htm?spm=a21dvs.23580594.0.0.52de3d0dt7rqAx&ft=t&id=654947372034](https://item.taobao.com/item.htm?spm=a21dvs.23580594.0.0.52de3d0dt7rqAx&ft=t&id=654947372034)
+[https://item.taobao.com/item.htm?spm=a21dvs.23580594.0.0.52de3d0dt7rqAx&ft=t&id=654947372034](https://item.taobao.com/item.htm?spm=a21dvs.23580594.0.0.52 de3d0dt7rqAx&ft=t&id=654947372034)
 
-开发板长下面这个样子，板载一个 STM32G0 芯片，上面有4个炫彩 RGB ，采用 Type-C 接口。
+The development board looks like this. It has an STM32G0 chip onboard with 4 colorful RGBs and a Type-C interface.
 
-可选配置：
+Optional:
 
-- Lite 青春版：STM32G030 + CH340 串口芯片 64k flash 8k ram
+- Lite Youth Edition: STM32G030 + CH340 serial port chip 64k flash 8k ram
 
-- Pro 专业版：STM32G030 + DAPLink 调试器 64K flash 8k ram
+- Pro version: STM32G030 + DAPLink debugger 64K flash 8k ram
 
-- Plus 顶配版：STM32G070 + DAPLink 调试器 128k flash 32k ram
+- Plus top version: STM32G070 + DAPLink debugger 128k flash 32k ram
 
 ![](assets/1641204913846-15059096-75ac-4aa1-9c5f-27cbde8d77d9.png)
-这个开发板由 PikaScript 项目官方支持，持续滚动更新，PikaScript 的最新内核，最新功能，都可以在这个开发板上抢先体验到。
+This development board is officially supported by the PikaScript project and continues to be updated continuously. The latest kernel and latest functions of PikaScript can be experienced on this development board.
 
 
-这个开发板也由项目官方适配了丰富外设模块、包括 GPIO、TIME、ADC、IIC、LCD、KEY、PWM 等模块的驱动都已经开发好，可以直接用 python 进行编程。
-## 视频教程
+This development board has also been officially adapted by the project with a wealth of peripheral modules, including GPIO, TIME, ADC, IIC, LCD, KEY, PWM and other modules drivers have been developed and can be programmed directly with python.
+## Video tutorials
 [https://space.bilibili.com/5365336/channel/seriesdetail?sid=1034902](https://space.bilibili.com/5365336/channel/seriesdetail?sid=1034902)
-## 如何给单片机下载Python程序
-下载方法非常简单，只需要连接上 Type-C 数据线就可以了。
+## How to download the Python program for the microcontroller
+The download method is very simple, just connect the Type-C data cable.
 
 
 ![](assets/200332_3e87979e_5521445.png)
 
 
-我们用一根 USB 数据线，连接电脑和 Pika 派开发板，就可以下载程序了。
-下载程序的时候，需要使用一个串口助手工具，我们可以使用正点原子开发的 XCOM 助手，在正点原子的论坛可以下载到。
+We use a USB data cable to connect the computer and the Pika Pie development board, and we can download the program.
+When downloading the program, you need to use a serial port assistant tool. We can use the XCOM assistant developed by Punctual Atom, which can be downloaded from the Punctual Atom forum.
 [http://www.openedv.com/thread-279749-1-1.html](http://www.openedv.com/thread-279749-1-1.html)
 
 ![](assets/200618_b8f264a8_5521445.png)
-选择好 COM 口，然后波特率选为 115200，再点打开串口，这时候，就和 Pika 派连接上了。直接发送一个 Pthon 脚本文件，就可以给 Pika 派下载 Python 程序了。为了验证下载能不能成功，我们使用 PikaScript 源码仓库里面的示例 Python 脚本。
-我们进入 PikaScript 的代码仓库
+Select the COM port, then select the baud rate as 115200, and then click to open the serial port. At this time, it is connected to the Pika Pie. Simply send a Pthon script file to download the Python program to Pika Pie. To verify that the download was successful, we use the sample Python scripts in the PikaScript source repository.
+We enter the code repository of PikaScript
 [https://gitee.com/Lyon1998/pikascript](https://gitee.com/Lyon1998/pikascript)
-惯例点一个 Star~
-![](assets/201054_c22a0714_5521445.png "屏幕截图.png")
-然后我们点击 examples 文件夹，里面放的就是可以运行的 Python 例程。
+It is customary to click a Star~
+![](assets/201054_c22a0714_5521445.png "screenshot.png")
+Then we click on the examples folder, which contains the Python routines that can be run.
 ![](assets/201133_2caa690c_5521445.png)
-我们打开 GPIO 文件夹，来点亮一下流水灯看看~
+Let's open the GPIO folder and light up the water lamp to see~
 ![](assets/201304_ee6f19c7_5521445.png)
-GPIO 文件夹里面的 main.py 就是 GPIO 的示例代码了
+The main.py in the GPIO folder is the sample code for GPIO
 ![](assets/201351_226525cc_5521445.png)
-我们可以点开 main.py 看看~
+We can open main.py and see~
 
-```python
+````python
 import PikaStdLib
 import machine
 
@@ -67,9 +67,9 @@ io1.enable()
 io1.low()
 
 print('hello pikascript')
-print('mem.max :')
+print('mem.max:')
 mem.max()
-print('mem.now :')
+print('mem.now:')
 mem.now()
 
 while True:
@@ -78,141 +78,141 @@ while True:
     io1.high()
     time.sleep_ms(500)
     
-```
-先不解释里面的内容，我们直接下载这个脚本看看。
-我们也在桌面新建一个 main.py 文件，然后把这段代码复制进去。
+````
+Without explaining the content inside, let's download this script directly.
+We also create a new main.py file on the desktop, and then copy this code into it.
 
 ![](assets/201535_8f49da20_5521445.png)
 
-我们选择这个 main.py 文件
+We choose this main.py file
 ![](assets/201639_79a783b1_5521445.png)
-然后点击"发送文件", 就可以把脚本下载进去了！
-我们可以看到 [ OK ]: Programing ok! 的提示，这就是说明下载成功了！
+Then click "Send File" to download the script!
+We can see the [ OK ]: Programing ok! prompt, which means the download is successful!
 ![](assets/201816_13337449_5521445.png)
-这时开发板上面的 LED 就会闪动起来！
+At this time, the LED on the development board will flash!
 ![](assets/202935_f82345e6_5521445.png)
 
-恭喜你达成单片机玩 Python 的成就！
+Congratulations on your achievement of playing Python with a microcontroller!
 
-## GPIO的脚本里写了什么?
-下面我们来逐行解析一下 GPIO 的这个例程。
+## What is written in the GPIO script?
+Let's parse this GPIO routine line by line.
 
 
-```python
+````python
 import PikaStdLib
 import machine
-```
+````
 
 
-首先是第一行和第二行，这表示导入了两个模块，一个是`PikaStdLib`模块，一个是`machine`模块。PikaStdLib 是 PikaScript 的标准库，里面有一些系统的功能，比如可以检查内存的占用。第四行里面，我们就新建了一个 mem 对象，这个对象的类是 PikaStdLib.MemChecker()。
-```python
+The first line is the first and second line, which means that two modules are imported, one is the `PikaStdLib` module and one is the `machine` module. PikaStdLib is the standard library of PikaScript, which has some system functions, such as checking the memory usage. In the fourth line, we create a new mem object whose class is PikaStdLib.MemChecker().
+````python
 mem = PikaStdLib.MemChecker()
-```
-这个类有 max() 方法和 now() 方法，使用这两个方法，就可以打印出当前 PikaScript 所使用的内存大小。
-```python
+````
+This class has a max() method and a now() method. Using these two methods, you can print out the memory size currently used by PikaScript.
+````python
 print('hello pikascript')
-print('mem.max :')
+print('mem.max:')
 mem.max()
-print('mem.now :')
+print('mem.now:')
 mem.now()
-```
-我们可以看看串口的打印输出，可以看到最大的内存占用是 1.51kB，而当前的内存占用是 0.61kB，是不是很小！
+````
+We can look at the printout of the serial port, we can see that the maximum memory usage is 1.51kB, and the current memory usage is 0.61kB, is it very small!
 
-![屏幕截图.png](assets/203737_1509b9db_5521445.png "屏幕截图.png")
+![screenshot.png](assets/203737_1509b9db_5521445.png "screenshot.png")
 
-time 对象是通过 machine 的 Time() 类新建的，可以提供基本的延时功能。
+The time object is newly created through the Time() class of machine and can provide basic delay functions.
 
-```python
+````python
 time = machine.Time()
-```
-通过 time.sleep_ms() 方法，就可以按毫秒进行延时了，比如下面代码的作用就是延时500ms。
-```python
+````
+Through the time.sleep_ms() method, you can delay in milliseconds. For example, the function of the following code is to delay 500ms.
+````python
 time.sleep_ms(500)
-```
-io1 就是我们今天的主角了，这是一个 GPIO 对象，是用 machine .GPIO() 类新建的。
-```python
+````
+io1 is our protagonist today. This is a GPIO object, which is newly created with the machine .GPIO() class.
+````python
 io1 = machine.GPIO()
-```
-在新建了 io1 对象之后，我们要给这个 io 进行初始化，init() 用于对象初始化，在最前面使用，然后 setPin('PA8') 表示使用 PA8 口 setMode('out') 表示使用输出模式，而 enable() 表示启动 io1 的硬件，low() 将 io1 的电平拉低。PA8 上连接了 Pika 派上面的一个 led 灯，只要控制 PA8 的电平，就可以控制灯的亮灭了。
-```python
+````
+After creating a new io1 object, we need to initialize this io, init() is used for object initialization, used at the front, and then setPin('PA8') means using the PA8 port setMode('out') means using the output mode, And enable() means to start the hardware of io1, and low() pulls down the level of io1. A led light on the Pika Pie is connected to the PA8. As long as you control the level of the PA8, you can control the light on and off.
+````python
 io1.init()
 io1.setPin('PA8')
 io1.setMode('out')
 io1.enable()
 io1.low()
-```
-而在程序的主循环里面，对 io1 进行高低电平的切换，就可以使 LED 闪动了~
-```python
+````
+In the main loop of the program, switch the high and low levels of io1 to make the LED flash~
+````python
 while True:
     io1.low()
     time.sleep_ms(500)
     io1.high()
     time.sleep_ms(500)
-```
-## 其他的Python例程解读
+````
+## Interpretation of other Python routines
 ### ADC
-我们再解读一下 examples 里面的其他例程，比如这个 ADC 例程，就是读取 PA1 管脚上面的模拟电压值，然后打印出来~
-```python
+Let's interpret other routines in examples, such as this ADC routine, which is to read the analog voltage value on the PA1 pin, and then print it out~
+````python
 import PikaStdLib
 import machine
 
 time = machine.Time()
-adc1 = machine.ADC() #新建ADC对象
+adc1 = machine.ADC() #Create a new ADC object
 
-adc1.init() #初始化ADC对象
-adc1.setPin('PA1') #设置管脚
-adc1.enable() #启动硬件
+adc1.init() #Initialize ADC object
+adc1.setPin('PA1') #Set the pin
+adc1.enable() #Start the hardware
 
 while True:
-    val = adc1.read() #读一次ADC的值，存到val变量里
-    print('adc1 value:') #打印读到的内容
+    val = adc1.read() #Read the value of ADC once and store it in the val variable
+    print('adc1 value:') #Print what is read
     print(val)
-    time.sleep_ms(500) #等待0.5s
+    time.sleep_ms(500) #Wait for 0.5s
     
-```
-### UART
-下面是串口的例程，功能是读取收到的两个字节，然后打印出来
-```python
+````
+###UART
+The following is the routine of the serial port, the function is to read the received two bytes, and then print them out
+````python
 import PikaStdLib
 import machine
 
 time = machine.Time()
-uart = machine.UART() #新建串口对象
+uart = machine.UART() #Create a new serial port object
 uart.init()
-uart.setId(1) #设置串口号，使用串口1
-uart.setBaudRate(115200) #设置波特率
-uart.enable() #启动硬件
+uart.setId(1) #Set the serial port number, use serial port 1
+uart.setBaudRate(115200) #Set the baud rate
+uart.enable() #Start hardware
 
 while True:
     time.sleep_ms(500)
-    readBuff = uart.read(2) #读取两个字符
+    readBuff = uart.read(2) #read two characters
     print('read 2 char:')
-    print(readBuff) #打印出来
+    print(readBuff) # print out
 
-```
-### PWM
-再下面这个是 PWM 的例程，可以指定管脚输出PWM波，可以设置频率和占空比
-```python
+````
+###PWM
+The following is the PWM routine, you can specify the pin to output the PWM wave, you can set the frequency and duty cycle
+````python
 import PikaStdLib
 import machine
 
 time = machine.Time()
 pwm = machine.PWM()
-pwm.setPin('PA8') #设置PWM输出管脚
-pwm.setFrequency(2000) #设置频率
-pwm.setDuty(0.5) #设置占空比为50%
+pwm.setPin('PA8') #Set PWM output pin
+pwm.setFrequency(2000) #Set the frequency
+pwm.setDuty(0.5) #Set the duty cycle to 50%
 pwm.enable()
 
 while True:
     time.sleep_ms(500)
     pwm.setDuty(0.5)
     time.sleep_ms(500)
-    pwm.setDuty(0.001) #设置占空比为0.1%
+    pwm.setDuty(0.001) #Set the duty cycle to 0.1%
 
-```
-### RGB
-再下面这个就是 RGB 的例程了~
-```python
+````
+###RGB
+Then the following is the RGB routine~
+````python
 import machine
 
 import PikaStdLib
@@ -222,11 +222,11 @@ adc = machine.ADC()
 pin = machine.GPIO()
 pwm = machine.PWM()
 uart = machine.UART()
-rgb = machine.RGB() #新建RGB对象
+rgb = machine.RGB() #Create a new RGB object
 mem = PikaStdLib.MemChecker()
 
-rgb.init() #初始化对象
-rgb.enable() #启动硬件
+rgb.init() #Initialize the object
+rgb.enable() #Start hardware
 
 print('hello 2')
 print('mem used max:')
@@ -234,20 +234,20 @@ mem.max()
 
 while True:
     print('flowing')
-    rgb.flow() #RGB流水灯流动
+    rgb.flow() #RGB water light flow
 
 
-```
-这个例程可以驱动板载的4个 RGB 流水灯~
+````
+This routine can drive the onboard 4 RGB water lights~
 
 ![](assets/205338_ae2e2de2_5521445.png)
 
 ### LCD
-还有一个 LCD 的例程，可以在 LCD 上面显示一个小方块，而你可以使用板载的四个按键控制小方块运动~
+There is also an LCD routine that can display a small square on the LCD, and you can use the four onboard buttons to control the movement of the small square~
 
 ![](assets/210940_f30be3d5_5521445.png)
 
-```python
+````python
 from PikaObj import *
 import PikaStdLib
 
@@ -255,152 +255,152 @@ import machine
 
 lcd = machine.LCD()
 lcd.init()
-lcd.clear('white') #初始化LCD 背景填充为白色
+lcd.clear('white') #Initialize LCD background fill with white
 mem = PikaStdLib.MemChecker()
-key = machine.KEY() #新建按键对象，获得板载的按键输入
+key = machine.KEY() #Create a new key object and get the onboard key input
 key.init()
 time = machine.Time()
 h = 10
 w = 10
 x = 10
-y = 10 #用来表示小方块的高、宽和坐标
+y = 10 # used to represent the height, width and coordinates of the small square
 x_last = x
-y_last = y #记录上一次的位置，用来擦除
-is_update = 0 #控制刷新屏幕的标志变量
+y_last = y #Record the last position for erasing
+is_update = 0 #Control the flag variable that refreshes the screen
 print('mem used max:')
 mem.max()
-lcd.fill(x, y, w, h, 'blue') #绘制蓝色小方块
+lcd.fill(x, y, w, h, 'blue') # draw small blue squares
 while True:
-    key_val = key.get() # 获得按键的值
+    key_val = key.get() # get the value of the key
     if key_val != -1:
         x_last = x
         y_last = y
-        is_update = 1 #启动刷新
+        is_update = 1 #Start refresh
     if key_val == 0:
-        x = x + 5 #改变小方块的坐标
+        x = x + 5 #change the coordinates of the small square
     if key_val == 1:
         y = y - 5
     if key_val == 2:
         y = y + 5
     if key_val == 3:
         x = x - 5
-    if is_update: #刷新屏幕
+    if is_update: #Refresh the screen
         is_update = 0
-        lcd.fill(x_last, y_last, w, h, 'white') #擦掉上一个位置
-        lcd.fill(x, y, w, h, 'blue') #绘制新位置
+        lcd.fill(x_last, y_last, w, h, 'white') #Erase the previous position
+        lcd.fill(x, y, w, h, 'blue') # draw a new position
 
-```
-当你熟悉了 LCD 驱动之后，可以试试自己开发小游戏哦~
-## 交互式运行
-main.py 执行完毕后，就会进入交互式运行，因此只要取消 main.py 中的 `while True :`，使其能够执行完退出，就可以进入交互式运行。
+````
+When you are familiar with the LCD driver, you can try to develop your own mini-games~
+## run interactively
+After main.py is executed, it will enter the interactive operation, so as long as the `while True :` in main.py is canceled, so that it can complete the execution and exit, you can enter the interactive operation.
 ![](assets/1641953728408-8fbffe1c-643a-4f18-855e-5d60578eb194.jpeg)
-交互式运行支持单行，多行输入，和通用 Python 用法一致。建议使用 PuTTY 串口终端。
-输入 `exit()` 则会直接重启系统。
-**注意事项**：
+Interactive execution supports single-line and multi-line input, consistent with general Python usage. It is recommended to use PuTTY serial terminal.
+Entering `exit()` will directly restart the system.
+**Precautions**:
 
-1. 固件版本需要不低于**v1.3.2。**
-1. 如果使用 PuTTY 终端无法正常运行，请使用 XCOM。
-1. 在终端中应全部使用英文输入法。
-1. 缩进应使用4个空格，不要使用TAB键。
-## LCD屏幕安装
-1. 参考下图焊接长脚排母
+1. The firmware version needs to be no less than **v1.3.2. **
+1. If using the PuTTY terminal does not work, use XCOM.
+1. All English input methods should be used in the terminal.
+1. Indent should use 4 spaces, do not use the TAB key.
+## LCD screen installation
+1. Refer to the figure below to solder the long pin headers
 
   ![](assets/1641957159752-18f9f608-8389-4a43-9c1d-ea6ce44c3e4a.png)
 
-2. 插上屏幕，参考绿色小旗的方向，屏幕能亮就说明插的方向是对的，插反了不会亮
+2. Plug in the screen, refer to the direction of the green flag, if the screen can be lit, it means that the direction of the plug is correct, if it is plugged in reversely, it will not light up.
 
   ![](assets/1641957159517-c3adbb12-118a-4c9f-9662-c1801df59276.png)
-## 固件升级
-Pika派的固件是滚动更新的，会不断推出新的固件版本，不断提供新的功能，而有一些新的功能只有升级固件才能玩到，所以学会升级固件也是很重要的~
-### 自己编译固件
-固件是一个 Keil 工程，编译非常简单。
-下载固件工程：
-进入 pikascript 官网 [http://pikascript.com](http://pikascript.com)
-Lite 版和 Pro版使用 stm32g030 平台。
-Plus 版使用  stm32g070 平台。
-然后点击 "开始生成"。
-（选择平台后会自动选择默认的模块)
+## Firmware upgrade
+The firmware of Pika Pie is updated on a rolling basis, and new firmware versions will be released continuously to provide new functions, and some new functions can only be played by upgrading the firmware, so it is also very important to learn to upgrade the firmware~
+### Compile the firmware yourself
+The firmware is a Keil project and compilation is very simple.
+Download the firmware project:
+Enter pikascript official website [http://pikascript.com](http://pikascript.com)
+The Lite and Pro versions use the stm32g030 platform.
+The Plus version uses the stm32g070 platform.
+Then click "Start Generation".
+(The default module will be automatically selected after selecting the platform)
 ![](assets/1644129110261-049ad5bb-21af-40e2-9533-a1c8c86790f1.png)
-直接打开 Keil 工程就可以编译了。
-编译时需要使用不低于 V5.36 的 Keil，需要激活。
+Just open the Keil project and compile it.
+When compiling, you need to use Keil not lower than V5.36, which needs to be activated.
 ![](assets/1642145123916-644fdd52-a1d3-41be-bd74-8a9e05386397.png)
 
-编译得到的 .bin 在 MDK/stm32g030c8/stm32g030c8.bin 。
+The compiled .bin is in MDK/stm32g030c8/stm32g030c8.bin .
 
-### 直接下载编译好的固件
-如果你想用现成的固件也可以直接下载编译好的~
+### Download the compiled firmware directly
+If you want to use the ready-made firmware, you can also download the compiled one directly~
 ![](assets/210126_d14c9754_5521445.png)
 
-点击下载就可以获得最新的固件了~
+Click to download to get the latest firmware~
 ![](assets/210155_5248a47c_5521445.png)
 
-### 串口Bootloader升级
-升级固件也是使用串口就可以了，在升级时，需要用前面到自己编译的固件或者直接下载的 .bin 固件。
-目前支持串口 Bootloader 升级的版本有：
+### Serial Bootloader upgrade
+To upgrade the firmware, you can also use the serial port. When upgrading, you need to use the firmware compiled by yourself or the .bin firmware you downloaded directly.
+Currently, the versions that support serial bootloader upgrade are:
 
-- Lite 青春版
-- Pro 专业版
+- Lite Youth Edition
+- Pro Professional Edition
 
-下面需要让 pika 派进入升级模式，我们按住开发板上面的 SW0 键，同时按下 RST 键，就可以进入升级模式了。
+Next, we need to let the pika pie enter the upgrade mode. We press and hold the SW0 key on the development board and press the RST key at the same time to enter the upgrade mode.
 
 ![](assets/210422_3acb9ed0_5521445.png)
 
-在升级模式下，我们可以看到串口的提示信息
+In the upgrade mode, we can see the prompt information of the serial port
 
 ![](assets/210526_b7b28342_5521445.png)
 
-然后我们用串口助手选择刚才下载的 stm32g030c8.bin 文件，通过串口发送。
-识别到固件后会显示 Reciving....
+Then we use the serial port assistant to select the stm32g030c8.bin file just downloaded and send it through the serial port.
+After the firmware is recognized, Reciving....
 
 ![](assets/210611_2fd707d0_5521445.png)
 
-发送完毕后再按一下 RST 键重启，就完成升级了！
-如果能够正常启动，那么就说明升级成功。
+After sending, press the RST key to restart, and the upgrade is complete!
+If it can be started normally, then the upgrade is successful.
 
-### 使用SWD升级
-Lite 版自行连接 J-Link \ DAP-Link \ ST-Link 即可SWD升级。
-Pro 版和 Plus 版板载 DAP-Link，直接连接USB即可SWD升级。
-Lite 版和 Pro版使用 [bsp/stm32g030](https://gitee.com/Lyon1998/pikascript/tree/master/bsp/stm32g030c8) 工程。
-Plus 版使用  [bsp/stm32g070](https://gitee.com/Lyon1998/pikascript/tree/master/bsp/stm32g070cb) 工程。
-在使用SWD升级时，应选择"部分擦除"的下载方式
+### Upgrade using SWD
+The Lite version can connect to J-Link \ DAP-Link \ ST-Link to upgrade SWD.
+The Pro version and Plus version have onboard DAP-Link, which can be upgraded by SWD directly by connecting to USB.
+The Lite and Pro versions use the [bsp/stm32g030](https://gitee.com/Lyon1998/pikascript/tree/master/bsp/stm32g030c8) project.
+The Plus version uses the [bsp/stm32g070](https://gitee.com/Lyon1998/pikascript/tree/master/bsp/stm32g070cb) project.
+When using SWD to upgrade, the download method of "Partial Erase" should be selected
 ![](assets/1642144820993-a1c6c5e9-e3ca-4406-aa93-3ae3911738f6.png)
 
-### 使用固件下载Python程序
-固件在编译时会加载 pikascript/main.py 作为默认 Python 程序。
-在下载固件前，按 SW0 + RST 擦除 flash 后，就会从固件 Python 程序启动。
-## ARM-2D GUI引擎
-pika 派支持运行 ARM-2D GUI 引擎
+### Download Python program using firmware
+The firmware loads pikascript/main.py as the default Python program when compiled.
+Before downloading the firmware, after pressing SW0 + RST to erase the flash, it will boot from the firmware Python program.
+## ARM-2D GUI engine
+pika pie supports running ARM-2D GUI engine
 
 ![](assets/1642347518780-02431025-393e-41b0-bfea-e3f932a86b54.png)
 
-使用方法：
+Instructions:
 
-1. 获取 bsp/stm32g030 工程。
-1. 使用 examples/ARM-2D/PikaPiZero 中的工程文件，main.py 和 requestment.txt 替换。
+1. Obtain the bsp/stm32g030 project.
+1. Use the project files in examples/ARM-2D/PikaPiZero, replace main.py and requestment.txt.
 
 ![](assets/1642347593663-fae37327-369e-4480-9c3e-8d9440c6870d.png)
 
-3. 按住开发板上面的 SW0 键，同时按下 RST 键，擦除 flash。
-3. 重新运行包管理器，预编译，编译工程，使用 SWD/Bootloader 刷入工程。
+3. Press and hold the SW0 key on the development board and press the RST key at the same time to erase the flash.
+3. Re-run the package manager, precompile, compile the project, and flash the project using SWD/Bootloader.
 
 
 
-## 常见问题
-1 按 sw0 + rst 进不了升级模式：
-第一批发货的板子没有刷 bootloader，需要手动刷一次，使用 jlink / stlink / DAPlink 等，刷入 pikascript/bsp/pikapizero/bootloader 即可
-2 进不了 bootloader / 疑似卡死无法运行：
-检查串口助手，不能使用 dtr / rts 控制，推荐使用正点原子的 xcom 助手。
-3 下载 python 脚本卡死：
-第一次下载 python 程序时，不要下载 LCD 程序，先下载一个 gpio 程序，再下载 LCD 程序即可。
-其他情况下下载卡死，重启重新下载即可，如果还不行就重刷固件再下载。
-4 工程编译报错，缺少文件：
-工程需要远程拉取模块和预编译，需要先运行 pikascript/pikaPackage.exe 和 pikascript/rust-msc-win10-latest.exe 再编译工程。
-## 原理图
-### Lite青春版
+## common problem
+1 Press sw0 + rst to enter the upgrade mode:
+The first batch of boards shipped did not have the bootloader. You need to manually flash it once. Use jlink / stlink / DAPlink, etc., and flash into pikascript/bsp/pikapizero/bootloader.
+2 Cannot enter the bootloader / Suspected to be stuck and unable to run:
+Check the serial port assistant, you cannot use dtr / rts control, it is recommended to use the xcom assistant of punctual atom.
+3 Download python script stuck:
+When downloading the python program for the first time, do not download the LCD program, first download a gpio program, and then download the LCD program.
+In other cases, the download is stuck, and you can restart the download again. If it still doesn't work, re-flash the firmware and download it again.
+4 Project compilation error, missing files:
+The project needs to pull modules and precompile remotely. You need to run pikascript/pikaPackage.exe and pikascript/rust-msc-win10-latest.exe before compiling the project.
+## Schematic
+### Lite Youth Edition
 ![](assets/1641204367325-7c0751ac-7fe8-4029-a4c2-ee6ebb1e2733.png)
-### Pro专业版
+### Pro Professional Edition
 ![](assets/1641733841411-d3a3ed0f-4609-49eb-9985-b3a635e72b51.png)
-### Plus顶配版
+### Plus top version
 ![](assets/1641733943438-bdd0d52f-1e34-4a8e-a3bb-c53508ce4fc1.png)
 ### LCD
 ![](assets/1645715736921-0dcd26b4-732b-42bf-b17a-1ef3ce3d3ea6.png)

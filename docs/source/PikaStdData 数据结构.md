@@ -1,29 +1,29 @@
-# PikaStdData 数据结构
+# PikaStdData data structure
 
-PikaStdData 数据结构库提供了 List （列表），Dict（字典）数据结构。
-## 安装
+PikaStdData data structure library provides List (list), Dict (dictionary) data structure.
+## Install
 
-1. 在 requestment.txt 中加入 PikaStdLib 的依赖，PikaStdLib 的版本号应当与内核的版本号相同。
-```
+1. Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
+````
 PikaStdLib==v1.6.1
-```
+````
 
-2. 运行 pikaPackage.exe
-## 导入
-在 main.py 中加入
-```python
+2. Run pikaPackage.exe
+## import
+Add in main.py
+````python
 #main.py
 import PikaStdData
-```
+````
 ## class List():
-List 类提供了 List 列表功能，由 List 类创建对象，即可创建一个列表。
-如：
-```python
+The List class provides the List list function. By creating an object of the List class, a list can be created.
+Such as:
+````python
 import PikaStdData
 list = PikaStdData.List()
-```
-### List 类的方法
-```python
+````
+### Methods of the List class
+````python
     # add an arg after the end of list
     def append(self, arg: any):
         pass
@@ -39,14 +39,14 @@ list = PikaStdData.List()
     # get the length of list
     def len(self) -> int:
         pass
-```
-注意，`set()` 方法的索引不能够超出 List 的长度，如果要添加列表的成员，需要使用 `append()`方法。
-### 使用 '[]' 中括号索引列表
-List 对象可以使用 '[]' 进行索引。`list[1] = a`等效于 `list.set(1, a)`，`a = list[1]`等效于`a = list.get(1)`。
-### 使用 for 循环遍历 List
-List 对象支持 for 循环遍历
-例：
-```python
+````
+Note that the index of the `set()` method cannot exceed the length of the List. If you want to add members of the list, you need to use the `append()` method.
+### Use '[]' brackets to index the list
+List objects can be indexed using '[]'. `list[1] = a` is equivalent to `list.set(1, a)`, and `a = list[1]` is equivalent to `a = list.get(1)`.
+### Use for loop to iterate over List
+List objects support for loop traversal
+example:
+````python
 import PikaStdData
 list = PikaStdData.List()
 list.append(1)
@@ -55,16 +55,16 @@ list.append(23.44)
 for item in list:
     print(item)
 
-```
+````
 ## class Dict():
-Dict 类提供了 Dict 字典功能，由 Dict 类创建对象，即可创建一个字典。
-如：
-```python
+The Dict class provides the Dict dictionary function, and a dictionary can be created by creating an object of the Dict class.
+Such as:
+````python
 import PikaStdData
 dict = PikaStdData.Dict()
-```
-### Dict 类的方法
-```python
+````
+### Dict class methods
+````python
     # get an arg by the key
     def get(self, key: str) -> any:
         pass
@@ -76,13 +76,13 @@ dict = PikaStdData.Dict()
     # remove an arg by the key
     def remove(self, key: str):
         pass
-```
-### 使用 '[]' 中括号索引字典
-Dict 对象可以使用 '[]' 进行索引。`dict['x'] = a`等效于 `dict.set('x', a)`，`a = dict['x']`等效于`a = dict.get('x')`。
-### 使用 for 循环遍历 Dict
-Dict 对象支持 for 循环遍历
-例：
-```python
+````
+### Index dictionary using '[]' brackets
+Dict objects can be indexed using '[]'. `dict['x'] = a` is equivalent to `dict.set('x', a)` and `a = dict['x']` is equivalent to `a = dict.get('x') `.
+### Using a for loop to iterate over a Dict
+Dict objects support for loop traversal
+example:
+````python
 import PikaStdData
 dict = PikaStdData.Dict()
 dict['a'] = 1
@@ -91,35 +91,35 @@ dict['c'] = 23.44
 for item in dict:
     print(item)
 
-```
+````
 ## class ByteArray(List)
 
-[注意]: PikaStdData 的版本至少需要 v1.5.3
+[Note]: The version of PikaStdData requires at least v1.5.3
 
-ByteArray 类提供了 ByteArray 字节数组功能，由 ByteArray 类创建对象，即可创建一个字节数组。
+The ByteArray class provides the ByteArray byte array function. By creating an object of the ByteArray class, a byte array can be created.
 
-如：
-```python
+Such as:
+````python
 import PikaStdData
 bytes = PikaStdData.ByteArray()
-```
+````
 
-ByteArray 类继承自 List 类，可以使用 List 类的方法。
+The ByteArray class inherits from the List class and can use the methods of the List class.
 
-### ByteArray 类的方法
+### Methods of the ByteArray class
 
 ``` python
     # convert a string to ByteArray
     def fromString(self, s:str):
         pass
-```
-用例:
+````
+Example:
 ``` python
 >>> bytes = PikaStdData.ByteArray()
 >>> bytes.fromString('test')
 >>> for byte in bytes:
-...     print(byte)
-... 
+... print(byte)
+...
 116
 101
 115
@@ -130,4 +130,4 @@ ByteArray 类继承自 List 类，可以使用 List 类的方法。
 255
 >>> print(bytes[5])
 15
-```
+````

@@ -1,37 +1,37 @@
-# Pika 对象 PikaObj
-## 头文件
-```c
+# Pika object PikaObj
+## head File
+````c
 #include "PikaObj.h"
-```
-## 概述
+````
+## Overview
 
-1. 对象API是以 **obj_** 为前缀的一系列函数。
-1. 对象API提供了**在 C 中访问 Python 对象**的一系列接口。**在模块开发中使用频率最高。**
-1. 对象API本身也是使用面向对象的思想设计的，这些函数的第一个入口参数都是被操作对象的指针。
-1. 一个对象由属性和方法两个部分组成，因此对象API也分为属性和方法两个部分。
-## 数据类型
-对象本身的数据类型是 PikaObj，所有 Python 对象在 C 中访问时均使用这个数据类型。
-```c
+1. The object API is a series of functions prefixed with **obj_**.
+1. The Object API provides a series of interfaces for accessing Python objects in C. ** Most frequently used in module development. **
+1. The object API itself is also designed using object-oriented ideas. The first entry parameters of these functions are pointers to the objects to be operated.
+1. An object consists of two parts: properties and methods, so the object API is also divided into two parts: properties and methods.
+## type of data
+The data type of the object itself is PikaObj, which is used by all Python objects when accessed in C.
+````c
 struct PikaObj_t {
     /* list */
     Args* list;
 };
 typedef struct PikaObj_t PikaObj;
-```
-PikaObj 内部维护了一个参数表，参数表中包含了属性信息、类信息、方法信息等。
-**注意不要直接访问 PikaObj 内部的参数表**，请使用对象 API 访问 PikaObj。这是因为对象 API 作为对外接口，是长期稳定的，而内部实现则会随着内核代码的迭代经常变动，**直接操作 PikaObj 内部将极大损失后向兼容性。**
+````
+PikaObj internally maintains a parameter table, which contains attribute information, class information, method information, etc.
+**Be careful not to directly access the parameter table inside PikaObj**, please use the object API to access PikaObj. This is because the object API, as an external interface, is stable for a long time, and the internal implementation will change frequently with the iteration of the kernel code. Directly operating the interior of PikaObj will greatly lose backward compatibility. **
 
-## 对象属性API
-这一部分 API 提供了对 Python 对象属性的访问。
-### 基本类型的属性
-PikaObj 支持**整形、浮点型、指针、字串**四种基本类型的属性。使用set 和 get 方法即可读写一个对象的属性。
+## Object Properties API
+This part of the API provides access to Python object properties.
+### Attributes of primitive types
+PikaObj supports ** integer, floating point, pointer, string** four basic types of attributes. Use the set and get methods to read and write properties of an object.
 ​
 
-PikaObj 的对象是**动态**的，因此可以随时为对象新增新的属性（静态对象的属性在构造时确定）。
+PikaObj objects are **dynamic**, so new properties can be added to the object at any time (the properties of static objects are determined at construction time).
 ​
 
-基本类型属性的 API 有如下这些：
-```c
+The APIs for primitive type properties are as follows:
+````c
 /* set API */
 int32_t obj_setInt(PikaObj* self, char* argPath, int64_t val);
 int32_t obj_setPtr(PikaObj* self, char* argPath, void* pointer);
@@ -42,74 +42,74 @@ void* obj_getPtr(PikaObj* self, char* argPath);
 float obj_getFloat(PikaObj* self, char* argPath);
 char* obj_getStr(PikaObj* self, char* argPath);
 int64_t obj_getInt(PikaObj* self, char* argPath);
-```
-基本类型属性的命名方式为 obj_set[Type] 和 obj_get[Type]。
+````
+Primitive type properties are named as obj_set[Type] and obj_get[Type].
 ​
 
 
-1. 第一个输入参数为要操作的对象指针。
-1. 第二个输入参数为属性名/属性地址。
+1. The first input parameter is the object pointer to be manipulated.
+1. The second input parameter is attribute name/attribute address.
 
-PikaObj 支持对象嵌套，可以访问子对象的属性，在访问子对象属性时，第二个参数为属性地址，在访问本对象的属性时，第二个值为属性名。
-```c
+PikaObj supports object nesting and can access properties of sub-objects. When accessing properties of sub-objects, the second parameter is the property address, and when accessing properties of this object, the second value is property name.
+````c
 // set an Int type arg, the arg name is "a".
 obj_setInt(self, "a", 1);
 // set an Int type arg for subObjcet , the arg path is "subObj.a".
 obj_setInt(self, "subObj.a", 1);
-```
+````
 
-3. set 方法的第三个输入参数为写入的属性值，get 方法的返回值为读取的属性值。
-3. set 方法的返回值为错误码，为 0 表示无错误发生。
-### 泛型属性
-PikaObj 支持泛型属性，同样提供 set 方法和 get 方法。输入参数和返回值与基本类型相似。
-```c
+3. The third input parameter of the set method is the written property value, and the return value of the get method is the read property value.
+3. The return value of the set method is an error code, 0 means no error occurred.
+### Generic properties
+PikaObj supports generic properties and also provides set and get methods. Input parameters and return values ​​are similar to primitive types.
+````c
 int32_t obj_setArg(PikaObj* self, char* argPath, Arg* arg);
 Arg* obj_getArg(PikaObj* self, char* argPath);
-```
-泛型属性在使用时需要转换为基本类型。
+````
+Generic properties need to be converted to primitive types when used.
 ​
 
-使用以下 API 可以判断泛型属性的当前类型。
-```c
+Use the following API to determine the current type of a generic property.
+````c
 ArgType arg_getType(Arg* self);
-```
-使用以下的 API 可以将泛型属性转换为基本类型。
-```c
+````
+Use the following API to convert generic properties to primitive types.
+````c
 int64_t arg_getInt(Arg* self);
 float arg_getFloat(Arg* self);
 void* arg_getPtr(Arg* self);
 char* arg_getStr(Arg* self);
-```
-### 属性管理
+````
+### Property management
 
-1. 判断一个属性是否存在，返回值为 1 表示存在。
-```c
+1. Determine whether an attribute exists, and the return value is 1 to indicate existence.
+````c
 int32_t obj_isArgExist(PikaObj* self, char* argPath);
-```
+````
 
-2. 删除一个属性
-```c
+2. Delete an attribute
+````c
 int32_t obj_removeArg(PikaObj* self, char* argPath);
-```
-返回值为错误码，为 0 表示成功。
-## 对象方法 API
-对象方法 API 分为方法注册和方法调用两部分，**方法注册部分由预编译器代理**，模块开发者只需要使用方法调用 API 即可。
-### 方法调用 API
-```c
+````
+The return value is an error code, 0 means success.
+## Object method API
+The object method API is divided into two parts: method registration and method invocation. The **method registration part is proxied by the precompiler**, and the module developer only needs to use the method to call the API.
+### Method call API
+````c
 void obj_run(PikaObj* self, char* cmd);
-```
-obj_run 是一个万能的 API，可以直接运行 Python 脚本，并且支持多行脚本。
-第一个入口参数是对象的指针，第二个入口参数是字符串形式的 Python 脚本。
-要注意的是，传入多行脚本时，应当传入完整的代码块。
+````
+obj_run is a versatile API that can directly run Python scripts and supports multi-line scripts.
+The first entry parameter is a pointer to the object, and the second entry parameter is the Python script as a string.
+Note that when passing in a multi-line script, you should pass in a complete block of code.
 
-## 抛出异常
-可以在模块中使用 obj_setErrorCode 抛出异常，用户可以自定义异常处理方法（继续运行或停止运行）。
-抛出异常通常在 C 模块的方法中使用，传入当前方法的 self 对象指针即可，errCode 设置为非零即可触发异常。
-obj_setSysOut 方法常配合 obj_setErrorCode 方法使用，用于提供调试信息，该调试信息会在异常触发时显示在终端。
+## Throw an exception
+An exception can be thrown using obj_setErrorCode in the module, and the user can customize the exception handling method (continue running or stop running).
+Throwing an exception is usually used in the method of the C module, just pass in the self object pointer of the current method, and set errCode to non-zero to trigger the exception.
+The obj_setSysOut method is often used in conjunction with the obj_setErrorCode method to provide debugging information, which will be displayed on the terminal when the exception is triggered.
 
-```c
+````c
 /* set Error Code, if the errCode is not 0, an exaption would be throw out */
 void obj_setErrorCode(PikaObj* self, int32_t errCode);
 /* print out exaption infomation */
 void obj_setSysOut(PikaObj* self, char* str);
-```
+````

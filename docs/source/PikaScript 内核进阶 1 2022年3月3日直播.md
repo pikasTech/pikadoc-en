@@ -1,51 +1,51 @@
-# PikaScript 内核进阶
+# PikaScript kernel advanced
 
-[视频连接](https://www.bilibili.com/video/BV12Z4y167SP)
+[Video link](https://www.bilibili.com/video/BV12Z4y167SP)
 
-## 大纲
-一、内核开发概览
+## outline
+1. Overview of kernel development
 
-二、内核开发环境搭建
+Second, the construction of the kernel development environment
 
-三、测试驱动开发
+3. Test Driven Development
 
-四、内核分发与上下游
+4. Kernel distribution and upstream and downstream
 
-## 内核开发概览
-内核开发环境: linux
+## Kernel development overview
+Kernel development environment: linux
 
-内核部署环境: mcu ( ARM, Risc-V, Others )
+Kernel deployment environment: mcu ( ARM, Risc-V, Others )
 ​
 
-### 选择 linux 的原因
-#### 内核本身需求：跨平台能力、稳定性
-只有跨平台，才能跨平台
-只有充分测试，才能稳定
+### Reasons to choose linux
+#### Kernel requirements: cross-platform capability, stability
+Only cross-platform, cross-platform
+Only fully tested can it be stable
 ​
 
-#### 开发需求：平台主流、调试方便、测试工具齐全
-使用主流平台，主流技术，一次只造一个轮子
+#### Development requirements: mainstream platform, convenient debugging, complete testing tools
+Use mainstream platforms, mainstream technologies, and build only one wheel at a time
 
 
-#### 团队需求：避免依赖硬件、开发环境统一
-降低新成员加入的难度，解决物理距离的阻碍（快递费很贵）
-降低试错成本（全用硬件测试板子烧了怎么办）
-简化开发环境搭建（你的软件在我电脑上怎么用不了啊）
+#### Team requirements: Avoid relying on hardware, unified development environment
+Reduce the difficulty of joining new members and solve the obstacle of physical distance (the express fee is very expensive)
+Reduce the cost of trial and error (what should I do if the hardware test board is burned)
+Simplify the construction of the development environment (why can't your software be used on my computer)
 
 
-#### 项目需求：易于部署自动化设施、CI-CD、易于软件分发
-自动化一切可以自动化的步骤，降低维护成本
+#### Project requirements: easy to deploy automation facilities, CI-CD, easy software distribution
+Automate all steps that can be automated to reduce maintenance costs
 
-### 内核开发步骤
+### Kernel development steps
 
 ![](assets/yuque_diagram.jpg)
 
-实机测试前占了95%的工作量
+95% of the workload before the real machine test
 ​
 
-## 内核环境搭建
+## Kernel environment construction
 
 
-## 测试驱动开发
-实现功能->编写单元测试
-## 内核分发与上下游
+## Test Driven Development
+Implement functionality -> write unit tests
+## Kernel distribution and upstream and downstream

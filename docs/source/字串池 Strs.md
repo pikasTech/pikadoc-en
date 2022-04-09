@@ -1,18 +1,18 @@
-# 字串池 Strs
-## 头文件
-```c
+# String pool Strs
+## head File
+````c
 #include "dataStrs.h"
-```
-## 概述
+````
+## Overview
 
-1. Strs字串池API是以 strs 为前缀的一系列函数。
-1. 字串池为字符串提供提供**动态的内存空间**，支持**任意长度**的字符串，一个字串池能够存储**任意多个**字符串。
-1. 提供**方便的内存管理**，在销毁字串池时，池内的所有字符串内存会被自动**批量销毁**。
-1. 提供**安全的操作方式**，在使用strs API时，被引用的字符串**不会被修改**。所有修改在**新申请的内存区**产生。因此不会出现**悬空指针**，被引用的字符串**被篡改**之类的严重安全问题。
-1. Strs字串池API是使用面向对象的思想设计的，这些函数的第一个入口参数都是被操作字串池的指针。
-## 数据类型
-Strs的数据类型是Args，内部维护一个参数表。
-```c
+1. The Strs string pool API is a series of functions prefixed with strs.
+1. The string pool provides **dynamic memory space** for strings, supports **any length** strings, and a string pool can store **any number of** strings.
+1. Provide **convenient memory management**, when destroying the string pool, all the string memory in the pool will be automatically **batch destroyed**.
+1. Provide a **safe operation method**, when using the strs API, the quoted string **will not be modified**. All modifications are made in the **newly allocated memory area**. Therefore, there will be no serious security problems such as dangling pointers and tampered strings.
+1. The Strs string pool API is designed using object-oriented ideas. The first entry parameters of these functions are pointers to the operated string pool.
+## type of data
+The data type of Strs is Args, and a parameter table is maintained internally.
+````c
 typedef Link Args;
-```
-**注意不要直接访问字串池的参数表**，请使用Strs API访问Strs，以获得**内存安全性**和**最大的向后兼容性**。
+````
+**Be careful not to directly access the string pool's parameter table**, use the Strs API to access Strs for **memory safety** and **maximum backward compatibility**.

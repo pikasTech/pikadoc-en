@@ -1,79 +1,79 @@
-# 如何贡献 PikaScript 模块
-## 帮助完善已有的模块
+# How to contribute PikaScript modules
+## Help improve existing modules
 
 
-### 拉取最新的模块
+### Pull the latest module
 
-- 在向已有的模块添加新的内容时，请确保已经拉取了最新的模块。
+- When adding new content to an existing module, make sure you have pulled the latest module.
 
-- 拉取最新的模块的方法是在 requestment.txt 中使用 latest 版本。
+- The way to pull the latest module is to use the latest version in requestment.txt.
 
-例如：
-```
+E.g:
+````
 STM32G0==latest
-```
+````
 
-- **删除 reqeustment.txt 中需要开发的模块**，防止误操作（比如再次拉取模块）导致正在开发的模块被覆盖掉。
-### 修改模块并测试
+- **Delete the modules that need to be developed in reqeustment.txt**, to prevent misoperation (such as pulling the module again) causing the module being developed to be overwritten.
+### Modify the module and test
 
-- 为模块添加新的 Python 接口 --> [module].py
-- 或者提供更好的实现 --> pikascript-lib/[module]/*.c
+- Add new Python interface for modules --> [module].py
+- Or provide a better implementation --> pikascript-lib/[module]/*.c
 
-- （可选）在 pikascript/README.md 和 pikascript/README_zh.md 中更新模块信息。
+- (Optional) Update module information in pikascript/README.md and pikascript/README_zh.md.
 
-### 提交模块的文件
-   - fork 一份 pikascript 仓库，然后 clone 到本地。
+### Submit the module's files
+   - fork a pikascript repository, then clone it locally.
 
 ![](assets/1638664526181-09b00c29-fc72-429a-bb99-3f009eae141e.png)
 
-   - 复制 [module].py 到 pikascript-lib/[module] 文件夹中。
-   - 复制整个修改后的 pikascript-lib/[module] 文件夹到 fork 后的 pikascript/package 文件夹中。
-   - git add 添加文件，并 git commit 提交一次。
-   - git log 查看提交后的 commit id，在 fork 后的 pikascript/packages.toml 中填写新的版本名，并复制当前的 commit id。
+   - Copy [module].py to pikascript-lib/[module] folder.
+   - Copy the entire modified pikascript-lib/[module] folder into the forked pikascript/package folder.
+   - git add adds files, and git commit commits once.
+   - git log View the commit id after the commit, fill in the new version name in pikascript/packages.toml after fork, and copy the current commit id.
 
-例如：
+E.g:
 
-```
+````
 [[packages]]
 name = "STM32G0"
 releases = [
   "v1.0.2 0052a28582ac8a85cc48e1d676d9a3be5cb1b93f",
-  "<新的版本名> <当前的commit id>",
+  "<new version name> <current commit id>",
 ]
-```
+````
 
-   - git commit -a再提交一次，添加packages.toml的修改。
-   - git push到你fork后的仓库中。
-   - 提交pull request。
+   - git commit -a commits again, adding modifications to packages.toml.
+   - git push to your forked repository.
+   - Submit a pull request.
 
 ![](assets/1638664500423-e4ad59fa-e476-48f0-b7ec-89f98eb70e6c.png)
-## 提交新的模块
+## Commit the new module
 
-- 新建[module].py文件和pikascript-lib/[module]文件夹。
-- 开发和测试新的模块。
-- （可选）在 pikascript/README.md 和 pikascript/README_zh.md 中更新模块信息。
-- 提交模块的文件
-   - fork一份pikascript仓库，然后clone到本地。
+- Create a new [module].py file and pikascript-lib/[module] folder.
+- Develop and test new modules.
+- (Optional) Update module information in pikascript/README.md and pikascript/README_zh.md.
+- Submit the module's files
+   - Fork a pikascript repository, then clone it locally.
 
 ![](assets/1638664526181-09b00c29-fc72-429a-bb99-3f009eae141e.png)
 
-   - 复制[module].py到pikascript-lib/[module]文件夹中。
-   - 复制整个pikascript-lib/[module]文件夹到fork后的pikascript/package文件夹中。
-   - git add 添加文件，并git commit 提交一次。
-   - git log 查看提交后的commit id，在fork后的pikascript/packages.toml中新增新的模块，填写模块名、版本名和当前的commit id。
+   - Copy [module].py to pikascript-lib/[module] folder.
+   - Copy the entire pikascript-lib/[module] folder to the forked pikascript/package folder.
+   - git add adds files, and git commit commits once.
+   - git log View the submitted commit id, add a new module to pikascript/packages.toml after fork, and fill in the module name, version name and current commit id.
 
-例如：
+E.g:
 
-```
+````
 [[packages]]
-name = "<新模块名>"
+name = "<new module name>"
 releases = [
-  "<新的版本名> <当前的commit id>",
+  "<new version name> <current commit id>",
 ]
-```
+````
 
-   - git commit -a再提交一次，添加packages.toml的修改。
-   - git push到你fork后的仓库中。
-   - 提交pull request。
+   - git commit -a commits again, adding modifications to packages.toml.
+   - git push to your forked repository.
+   - Submit a pull request.
 
 ![](assets/1638664500423-e4ad59fa-e476-48f0-b7ec-89f98eb70e6c.png)

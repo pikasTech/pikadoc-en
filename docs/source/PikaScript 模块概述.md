@@ -1,15 +1,15 @@
-# PikaScript 模块概述
+# Overview of PikaScript modules
 
-我们依然以keil的仿真工程为例，如果还没有获得仿真工程，请参考[1.三分钟快速上手](https://pikadoc.readthedocs.io/zh/latest/Keil%20%E4%BB%BF%E7%9C%9F%E5%B7%A5%E7%A8%8B.html)
-### PikaScript模块与模块接口
-我们打开pikascript文件夹，发现文件夹根目录下除了main.py，还有Device.py，PikaObj.py和PikaStdLib.py，这三个.py文件分别对应三个PikaScript **模块** (class package)，简称 **包** (package)，每个.py文件本身称为 **模块接口** (package interface)。一个模块中可以包含若干个相关性较强的类。
+We still take Keil's simulation project as an example. If you haven't obtained the simulation project, please refer to [1. Quick Start in Three Minutes](https://pikadoc.readthedocs.io/zh/latest/Keil%20%E4%BB% BF%E7%9C%9F%E5%B7%A5%E7%A8%8B.html)
+### PikaScript modules and module interface
+We opened the pikascript folder and found that in addition to main.py, there are Device.py, PikaObj.py and PikaStdLib.py in the root directory of the folder. These three .py files correspond to three PikaScript **modules** (class package ), referred to as **package** (package), each .py file itself is called **module interface** (package interface). A module can contain several related classes.
 
 ![](assets/1638582993068-0a8afe28-baa2-41ad-bac1-6626d50192ad.png)
-每一个 PikaScript **模块** 由 **模块接口** 和 **模块实现** (package implement)两部分组成。
-我们先打开 Device.py 查看一下内容，在后续的文档中我们会称 Device.py 为 **Device模块接口**。
-以下就是 Device.py 的全部内容。
+Each PikaScript **module** consists of **module interface** and **module implementation** (package implement) two parts.
+Let's open Device.py first to see the content. In subsequent documents, we will call Device.py **Device module interface**.
+The following is the entire content of Device.py.
 
-```python
+````python
 # Device.py
 from PikaObj import *
 
@@ -26,41 +26,41 @@ class Uart(TinyObj):
         pass
     def printName(self):
         pass
-```
+````
 
 
-可以看到，Device.py 中使用 pyhon 标准语法定义了两个类，分别是 `LED` 类和 `Uart` 类，这两个类都继承自`TinyObj`。
+As you can see, two classes are defined in Device.py using python standard syntax, namely `LED` class and `Uart` class, both of which inherit from `TinyObj`.
 
 
-LED类中定义了两个方法，分别是 `on()` 方法和 `off()` 方法，而`Uart`类则定义了 `send(data:str)` 方法、 `setName(name:str)` 方法和 `printName()` 方法。
+The LED class defines two methods, the `on()` method and the `off()` method, while the `Uart` class defines the `send(data:str)` method, `setName(name:str) ` method and the `printName()` method.
 
 
-可以看到，这些方法都有一个特点，与其说这是方法的 **定义**，不如说是方法的 **声明**（注解），因为所有的方法实现都pass 掉了，都没有写实现。而且方法的入口参数都是带有 **类型声明** 的。比如`data:str`就表示一个`data` 参数，参数类型为 `str` 即字符串类型。
+It can be seen that these methods have a characteristic. It is not so much the **definition** of the method, but the **declaration** (annotation) of the method, because all the method implementations have been passed and not written. accomplish. And the entry parameters of the method are all with **type declaration**. For example, `data:str` represents a `data` parameter, and the parameter type is `str`, which is a string type.
 
 
-这是因为这个模块的模块实现是由 C 语言编写的，也就是说，PikaScript的所有模块，都是使用 python 语法编写声明，而使用 C 语言编写实现。PikaScript 的模块开发是一种 **面向接口** 编程的 **混合编程** 技术。
+This is because the module implementation of this module is written in C language, that is, all modules of PikaScript use python syntax to write declarations, and use C language to write implementations. Module development in PikaScript is a **hybrid programming** technique for **interface-oriented** programming.
 
 
-然而在使用已有的模块时，是不需要了解模块实现的，只需要了解模块接口，即可使用这个模块。
+However, when using an existing module, you do not need to understand the implementation of the module. You only need to understand the interface of the module to use this module.
 
 
-### 导入并调用模块
+### Import and call the module
 
 
-下面我们看一下如何使用这个模块。
+Let's take a look at how to use this module.
 
 
-我们打开工程中的main.py，见名知意，这个文件是PikaScript的入口文件。
+We open the main.py in the project, as the name implies, this file is the entry file of PikaScript.
 
 
-main.py的内容如下
+The content of main.py is as follows
 
 
-```python
+````python
 # main.py
-from PikaObj import  *
+from PikaObj import *
 import Device
-import PikaStdLib 
+import PikaStdLib
 
 led = Device.LED()
 uart = Device.Uart()
@@ -74,43 +74,43 @@ print('mem used max:')
 mem.max()
 print('mem used now:')
 mem.now()
-```
+````
 
 
-导入一个已经编写好的模块是非常简单的，比如导入Device模块，只需要`import Device`即可，要注意的是所有的.py文件应当放在pikascript文件架的根目录下。
+Importing a module that has already been written is very simple, such as importing the Device module, just `import Device`, it should be noted that all .py files should be placed in the root directory of the pikascript file shelf.
 
 
-调用方法则使用`uart.setName('com')`这种形式，这都是Python的标准语法，不需要过多介绍。
+The calling method uses the form of `uart.setName('com')`, which is the standard syntax of Python and does not need too much introduction.
 
 
-在main.py中写好模块的调用后，双击rust-msc-v0.5.0.exe即可预编译PikaScript工程，预编译的输出文件在pikascrip-api文件夹内。
+After writing the module call in main.py, double-click rust-msc-v0.5.0.exe to precompile the PikaScript project, and the precompiled output file is in the pikascript-api folder.
 
 
 ![](assets/1638582989556-feafe97a-037f-44b2-8f2c-55ddf8f041ea.png)
 
 
-pika预编译器会为导入的模块生成.h声明文件和-api.c构造器文件。文件名以模块名开头，每个类对应一个.h文件和一个-api.c文件。
+The pika precompiler generates .h declaration files and -api.c constructor files for imported modules. The file names start with the module name, and each class corresponds to a .h file and an -api.c file.
 
 
 ![](assets/1638582990457-2540db61-f185-4100-8b63-4d6d599c3b0e.png)
 
 
-而PikaMain-api.c和PikaMain.h则是对应了一个特殊的类，这个类是PikaScript的主类，由main.py编译而成。
+PikaMain-api.c and PikaMain.h correspond to a special class, which is the main class of PikaScript and is compiled from main.py.
 
 
 ![](assets/1638582990858-10783588-5ff0-469e-b64d-50e56e2357bc.png)
 
 
-pikaScript.c和pikaScript.h则是根据main.py编译出的初始化函数，运行初始化函数时，会自动执行启动脚本。
+pikaScript.c and pikaScript.h are initialization functions compiled according to main.py. When the initialization function is run, the startup script will be automatically executed.
 
 
 ![](assets/1638582992822-6c4a7f39-a379-4c66-991a-1935ec3bfa7a.png)
 
 
-在现在的main.py中，启动脚本是写在最外层的方法调用，也就是:
+In the current main.py, the startup script is written in the outermost method call, that is:
 
 
-```python
+````python
 led = Device.LED()
 uart = Device.Uart()
 mem = PikaStdLib.MemChecker()
@@ -123,13 +123,13 @@ print('mem used max:')
 mem.max()
 print('mem used now:')
 mem.now()
-```
+````
 
 
-编译出的pikaScriptInit()初始化函数对应的是:
+The compiled pikaScriptInit() initialization function corresponds to:
 
 
-```c
+````c
 PikaObj * pikaScriptInit(){
     PikaObj * pikaMain = newRootObj("pikaMain", New_PikaMain);
     obj_run(pikaMain,
@@ -150,4 +150,4 @@ PikaObj * pikaScriptInit(){
             "\n");
     return pikaMain;
 }
-```
+````
