@@ -6,7 +6,7 @@
 ## Overview
 
 1. The object API is a series of functions prefixed with **obj_**.
-1. The Object API provides a series of interfaces for accessing Python objects in C. ** Most frequently used in module development. **
+1. The Object API provides a series of interfaces for accessing Python objects in C. **Most frequently used in module development. **
 1. The object API itself is also designed using object-oriented ideas. The first entry parameters of these functions are pointers to the objects to be operated.
 1. An object consists of two parts: properties and methods, so the object API is also divided into two parts: properties and methods.
 ## type of data
@@ -24,7 +24,7 @@ PikaObj internally maintains a parameter table, which contains attribute informa
 ## Object Properties API
 This part of the API provides access to Python object properties.
 ### Attributes of primitive types
-PikaObj supports ** integer, floating point, pointer, string** four basic types of attributes. Use the set and get methods to read and write properties of an object.
+PikaObj supports **integer, floating point, pointer, string** four basic types of attributes. Use the set and get methods to read and write properties of an object.
 ​
 
 PikaObj objects are **dynamic**, so new properties can be added to the object at any time (the properties of static objects are determined at construction time).

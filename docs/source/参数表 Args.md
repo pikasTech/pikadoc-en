@@ -39,7 +39,7 @@ The pointer to the parameter table is passed in, and the parameter table is dest
 ## CRUD API
 This part of the API provides the addition, deletion, modification and query of the parameter table.
 ### Basic types of additions, deletions, modifications and inspections
-Args parameter table supports ** integer, floating point, pointer, string** four basic types of parameters. Use the set and get methods to read and write parameters in a parameter table.
+Args parameter table supports **integer, floating point, pointer, string** four basic types of parameters. Use the set and get methods to read and write parameters in a parameter table.
 ​
 
 The Args parameter table is **dynamic**, so new parameters can be added to the parameter table at any time.

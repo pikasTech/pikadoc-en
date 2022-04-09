@@ -13,7 +13,7 @@
 
 ![](assets/1638664526181-09b00c29-fc72-429a-bb99-3f009eae141e.png)
 
-- Create a new folder in the [repository after fork]/bsp directory, then copy it into the template project, use the git command to add files, and push it to the pikascript repository after **fork.
+- Create a new folder in the [repository after fork]/bsp directory, then copy it into the template project, use the git command to add files, and push it to the pikascript repository after **fork**.
   
 ```shell
 cd pikascript/bsp

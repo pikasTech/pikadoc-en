@@ -18,7 +18,7 @@ In the README.md in the bsp folder, the current platform support and the usage o
 [Click here for the latest form](https://gitee.com/Lyon1998/pikascript#2%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81%E5%88%97 %E8%A1%A8)
 ![](assets/1639629972025-ca8fdf74-5dc2-472e-8497-5bc163bccdf4.png)
 ![](assets/1639629981607-43c6b771-34bf-45ac-9a66-8604f705ddff.png)
-You can help PikaScript extend this table by contributing **driver modules** or **bsp**, please refer to the **New Platform Porting Guide**, **Module Development** and **Package Management* in the documentation for details. *part.
+You can help PikaScript extend this table by contributing **driver modules** or **bsp**, please refer to the **New Platform Porting Guide**, **Module Development** and **Package Management** in the documentation for details.
 
 ## Engineering structure
 Taking CH32V103 as an example, a PikaScript project includes the following parts.
@@ -35,7 +35,7 @@ Taking CH32V103 as an example, a PikaScript project includes the following parts
 ​
 
 
-3. The above is the main part of PikaScript, which is divided into two parts: the kernel and the module. The kernel is the file in pikascript/src. You can choose a version and add it to compile. No modification is required. **
+3. The above is the main part of PikaScript, which is divided into two parts: the kernel and the module. The kernel is the file in pikascript/src. You can choose a version and add it to compile. **No modification is required. **
 
 
 
@@ -45,11 +45,12 @@ For how to use modules and how to make modules, please refer to the **Module Dev
 ​
 
 
-5. The top layer is the Python script that the PikaScript project can support. The Python script can be directly interpreted and run. There are various ways to load the script, including ** pre-compiled into firmware, interactive operation, serial port download of Python scripts**, etc., pre-compiled For firmware, please refer to the **Module Development** section, and for interactive operation and serial port download, please refer to the **New Platform Porting** section.
+5. The top layer is the Python script that the PikaScript project can support. The Python script can be directly interpreted and run. There are various ways to load the script, including **pre-compiled into firmware, interactive operation, serial port download of Python scripts**, etc., pre-compiled For firmware, please refer to the **Module Development** section, and for interactive operation and serial port download, please refer to the **New Platform Porting** section.
 
-**Only modules imported in main.py will be compiled into the firmware, ** so main.py can also play the role of ** trimming modules **.
+**Only modules imported in main.py will be compiled into the firmware, ** so main.py can also play the role of **trimming modules **.
+
 ## module management
-** Launchers, kernels and modules can all be managed using the package manager. **
+**Launchers, kernels and modules can all be managed using the package manager. **
 Therefore, the PikaScript folder in the BSP only contains the package manager **pikaPackage.exe** itself, the **requestment.txt** module description file and the **main.py** sample script three files.
 ​
 
