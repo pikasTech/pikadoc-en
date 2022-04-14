@@ -24,15 +24,15 @@ Similar to GCC, PikaScript also provides different optimization modes. The curre
   
 ### Enable user configuration
 
-User configuration is not enabled by default. The way to enable user configuration is to add compile-time macro definition ``` PIKA_CONFIG_ENABLE ```. Then create the ```` pika_config.h ``` header file.
+User configuration is not enabled by default. The way to enable user configuration is to add compile-time macro definition ``` PIKA_CONFIG_ENABLE ```. Then create the ```pika_config.h``` header file.
 
-It should be noted that the ``` PIKA_CONFIG_ENABLE ``` macro should be added to the compile options, such as keil:
+It should be noted that the ```PIKA_CONFIG_ENABLE ``` macro should be added to the compile options, such as keil:
 
 ![](assets/160849244-40fe7fa8-0e93-4791-8f14-bc044bbd0d59.png)
 
 ### Configuration items
 
-Available configuration items and default configuration are in the ``pika_config_valid.h``` header file.
+Available configuration items and default configuration are in the ```pika_config_valid.h``` header file.
 
 [https://gitee.com/Lyon1998/pikascript/blob/master/src/pika_config_valid.h](https://gitee.com/Lyon1998/pikascript/blob/master/src/pika_config_valid.h)
 
@@ -78,7 +78,7 @@ As can be seen from ```pika_config_valid.h```, the default optimization option o
 ````
 ### Sample code
 
-[https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g070cb/Booter/pika_config.h](https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g070cb/Booter/ pika_config.h)
+[https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g070cb/Booter/pika_config.h](https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g070cb/Booter/pika_config.h)
 
 ## Dependency configuration
 
@@ -129,6 +129,6 @@ void __platform_error_handle(void);
 - Memory management - replace malloc free memory management algorithm
   
 ### Sample code:
-- [https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g030c8/Booter/pika_config.c](https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g030c8/Booter /pika_config.c)
+- [https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g030c8/Booter/pika_config.c](https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g030c8/Booter/pika_config.c)
   
 - [https://gitee.com/Lyon1998/pikascript/blob/master/package/pikaRTThread/pika_config.c](https://gitee.com/Lyon1998/pikascript/blob/master/package/pikaRTThread/pika_config.c )
