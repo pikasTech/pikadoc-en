@@ -1,6 +1,8 @@
 PikaScript development documentation
 ====================================
 
+中文文档: https://pikadoc.readthedocs.io/zh/latest/index.html
+
 PikaScript is a completely rewritten ultra-lightweight python engine with zero dependencies, zero configuration, and can run under less than 4KB of RAM (such as stm32g030c8 and stm32f103c8), making it extremely easy to deploy and scale.
 
 .. toctree::
