@@ -14,10 +14,6 @@ So? Is there another way to play?
 
 In other words, I want to develop with Keil, debug with Keil, and I want to use the cheapest microcontroller, and it's very easy to develop C modules.
 
-This, can I play with Python?
-
-![](assets/132941900-985ebc9e-fb65-48f6-8677-d3ebc65422ee.gif)
-
 How about trying PikaScript?
 
 What is PikaScript?
@@ -27,8 +23,6 @@ PikaScript provides extremely easy to deploy and extend Python scripting support
 PikaScript supports bare-metal operation, at least for mcu with RAM ≥ 4kB and FLASH ≥ 32kB, the recommended configuration is RAM ≥ 10kB and FLASH ≥ 64kB, such as stm32f103c8t6 and stm32g070RBT6, which have no pressure at all and even meet the recommended configuration.
 
 And support Keil, IAR, RT-Thread studio, segger embedded studio and other IDE development, zero dependencies, zero configuration, out-of-the-box, extremely easy to integrate into the existing C project.
-
-![](assets/1638666543673-423aafcb-0c29-49b3-8221-22fdc3c65199.png)
 
 These are all demos of STM32G070RBT6.
 
