@@ -15,7 +15,7 @@ The transplanted bare metal MCU project is in the pikascript/bsp directory, and 
 ## Support list
 In the README.md in the bsp folder, the current platform support and the usage of bsp are marked.
 (The table below is not up-to-date)
-[Click here for the latest form](https://gitee.com/Lyon1998/pikascript#2%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81%E5%88%97 %E8%A1%A8)
+[Click here for the latest form](https://gitee.com/Lyon1998/pikascript#2%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8)
 ![](assets/1639629972025-ca8fdf74-5dc2-472e-8497-5bc163bccdf4.png)
 ![](assets/1639629981607-43c6b771-34bf-45ac-9a66-8604f705ddff.png)
 You can help PikaScript extend this table by contributing **driver modules** or **bsp**, please refer to the **New Platform Porting Guide**, **Module Development** and **Package Management** in the documentation for details.
