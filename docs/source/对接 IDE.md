@@ -2,13 +2,14 @@
 ## Overview
 The toolset that PikaScript needs to interface with the IDE includes:
 
-1. Package manager pikaPackage.exe
+Package manager pikaPackage.exe
 
 Refer to **package manager and module management** related documents
 
-2. Precompiler rust-msc-latest-win10.exe
+Precompiler rust-msc-latest-win10.exe
 
 Refer to **module development** related documents
+
 ## calling method
 ### 1. Start path:
 
