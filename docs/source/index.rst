@@ -37,7 +37,7 @@ PikaScript is a completely rewritten ultra-lightweight python engine with zero d
    如何贡献 PikaScrpt BSP
    如何贡献 PikaScript 模块
    如何贡献内核
-   对接 ID
+   对接 IDE
    优化内存占用、配置 libc
    直接运行字节码
    商业合作方式
