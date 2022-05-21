@@ -70,7 +70,7 @@ For example, if you want to increase the runtime stack of the PikaScript virtual
 #define PIKA_STACK_BUFF_SIZE 512
 ````
 
-As can be seen from ```pika_config_valid.h```, the default optimization option of PikaScript ``` PIKA_OPTIMIZE ``` is ``` PIKA_OPTIMIZE_SIZE ```, if you need to switch to speed optimization, you can use ``` Write in `pika_config.h```
+As can be seen from ```pika_config_valid.h```, the default optimization option of PikaScript ``` PIKA_OPTIMIZE ``` is ``` PIKA_OPTIMIZE_SIZE ```, if you need to switch to speed optimization, you can write in ```pika_config.h```
 
 ```` c
 #undef PIKA_OPTIMIZE
