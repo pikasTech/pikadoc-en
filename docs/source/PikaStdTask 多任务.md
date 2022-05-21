@@ -3,16 +3,20 @@
 The PikaStdTask multitasking library provides asynchronous multitasking capabilities of Task (task loop).
 ## Install
 
-1. Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
+Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
+
 ````
 PikaStdLib==v1.6.1
 ````
 
-2. Run pikaPackage.exe
+Run pikaPackage.exe
 
 ## class Task():
+
 The Task class provides the task loop function, and a task loop can be created by creating an object of the Task class.
+
 ### Methods of the Task class
+
 ````python
 from PikaObj import *
 import PikaStdData
@@ -53,18 +57,25 @@ class Task(TinyObj):
         pass
 
 ````
+
 ### Instructions:
 
-1. Use the `call_xxx()` method to specify the calling method, and register the function to be executed in the task object.
-1. Use the `run_xxx()` methods to specify how the task loops and execute all functions in the `task` object.
-1. Time-related functions, such as `call_period_ms()` and `run_until_ms()`, need to provide the system clock by creating a new class that inherits from `PikaStdTask`, and then override the `platformGetTick()` method.
+Use the `call_xxx()` method to specify the calling method, and register the function to be executed in the task object.
+
+Use the `run_xxx()` methods to specify how the task loops and execute all functions in the `task` object.
+
+Time-related functions, such as `call_period_ms()` and `run_until_ms()`, need to provide the system clock by creating a new class that inherits from `PikaStdTask`, and then override the `platformGetTick()` method.
+
 ### Notice:
 
-1. All registered functions should be **non-blocking**, otherwise the entire task loop will be blocked.
-1. The task loop is not real-time.
+All registered functions should be **non-blocking**, otherwise the entire task loop will be blocked.
+
+The task loop is not real-time.
+
 ### Example:
 
-1. Create a new class that inherits from `PikaStdTask`.
+Create a new class that inherits from `PikaStdTask`.
+
 ````python
 # STM32G0.py
 class Task(PikaStdTask.Task):
@@ -73,7 +84,8 @@ class Task(PikaStdTask.Task):
         pass
 ````
 
-2. Override the `platformGetTick()` method.
+Override the `platformGetTick()` method.
+
 ````c
 /* STM32G0_Task.c */
 
@@ -82,7 +94,8 @@ void STM32G0_Task_platformGetTick(PikaObj* self) {
 }
 ````
 
-3. Python use cases
+Python use cases
+
 ````python
 import STM32G0
 import PikaPiZero
