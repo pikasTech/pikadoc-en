@@ -141,7 +141,7 @@ Example:
 >>> bytes = PikaStdData.ByteArray()
 >>> bytes.fromString('test')
 >>> for byte in bytes:
-... print(byte)
+...     print(byte)
 ...
 116
 101
