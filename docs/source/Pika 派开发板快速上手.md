@@ -8,7 +8,7 @@ Today, we will not talk about the hard-core content of driver development and ar
 
 If you don't have a Pika Pie development board yet, you can buy it from the link below:
 
-[https://item.taobao.com/item.htm?spm=a21dvs.23580594.0.0.52de3d0dt7rqAx&ft=t&id=654947372034](https://item.taobao.com/item.htm?spm=a21dvs.23580594.0.0.52 de3d0dt7rqAx&ft=t&id=654947372034)
+[https://item.taobao.com/item.htm?spm=a21dvs.23580594.0.0.52de3d0dt7rqAx&ft=t&id=654947372034](https://item.taobao.com/item.htm?spm=a21dvs.23580594.0.0.52de3d0dt7rqAx&ft=t&id=654947372034)
 
 The development board looks like this. It has an STM32G0 chip onboard with 4 colorful RGBs and a Type-C interface.
 
@@ -25,6 +25,7 @@ This development board is officially supported by the PikaScript project and con
 
 
 This development board has also been officially adapted by the project with a wealth of peripheral modules, including GPIO, TIME, ADC, IIC, LCD, KEY, PWM and other modules drivers have been developed and can be programmed directly with python.
+
 ## Video tutorials
 [https://space.bilibili.com/5365336/channel/seriesdetail?sid=1034902](https://space.bilibili.com/5365336/channel/seriesdetail?sid=1034902)
 ## How to download the Python program for the microcontroller
@@ -35,21 +36,35 @@ The download method is very simple, just connect the Type-C data cable.
 
 
 We use a USB data cable to connect the computer and the Pika Pie development board, and we can download the program.
+
 When downloading the program, you need to use a serial port assistant tool. We can use the XCOM assistant developed by Punctual Atom, which can be downloaded from the Punctual Atom forum.
+
 [http://www.openedv.com/thread-279749-1-1.html](http://www.openedv.com/thread-279749-1-1.html)
 
 ![](assets/200618_b8f264a8_5521445.png)
+
 Select the COM port, then select the baud rate as 115200, and then click to open the serial port. At this time, it is connected to the Pika Pie. Simply send a Pthon script file to download the Python program to Pika Pie. To verify that the download was successful, we use the sample Python scripts in the PikaScript source repository.
+
 We enter the code repository of PikaScript
+
 [https://gitee.com/Lyon1998/pikascript](https://gitee.com/Lyon1998/pikascript)
+
 It is customary to click a Star~
+
 ![](assets/201054_c22a0714_5521445.png "screenshot.png")
+
 Then we click on the examples folder, which contains the Python routines that can be run.
+
 ![](assets/201133_2caa690c_5521445.png)
+
 Let's open the GPIO folder and light up the water lamp to see~
+
 ![](assets/201304_ee6f19c7_5521445.png)
+
 The main.py in the GPIO folder is the sample code for GPIO
+
 ![](assets/201351_226525cc_5521445.png)
+
 We can open main.py and see~
 
 ````python
@@ -80,21 +95,29 @@ while True:
     
 ````
 Without explaining the content inside, let's download this script directly.
+
 We also create a new main.py file on the desktop, and then copy this code into it.
 
 ![](assets/201535_8f49da20_5521445.png)
 
 We choose this main.py file
+
 ![](assets/201639_79a783b1_5521445.png)
+
 Then click "Send File" to download the script!
+
 We can see the [ OK ]: Programing ok! prompt, which means the download is successful!
+
 ![](assets/201816_13337449_5521445.png)
+
 At this time, the LED on the development board will flash!
+
 ![](assets/202935_f82345e6_5521445.png)
 
 Congratulations on your achievement of playing Python with a microcontroller!
 
 ## What is written in the GPIO script?
+
 Let's parse this GPIO routine line by line.
 
 
@@ -105,10 +128,13 @@ import machine
 
 
 The first line is the first and second line, which means that two modules are imported, one is the `PikaStdLib` module and one is the `machine` module. PikaStdLib is the standard library of PikaScript, which has some system functions, such as checking the memory usage. In the fourth line, we create a new mem object whose class is PikaStdLib.MemChecker().
+
 ````python
 mem = PikaStdLib.MemChecker()
 ````
+
 This class has a max() method and a now() method. Using these two methods, you can print out the memory size currently used by PikaScript.
+
 ````python
 print('hello pikascript')
 print('mem.max:')
@@ -116,6 +142,7 @@ mem.max()
 print('mem.now:')
 mem.now()
 ````
+
 We can look at the printout of the serial port, we can see that the maximum memory usage is 1.51kB, and the current memory usage is 0.61kB, is it very small!
 
 ![screenshot.png](assets/203737_1509b9db_5521445.png "screenshot.png")
@@ -126,14 +153,18 @@ The time object is newly created through the Time() class of machine and can pro
 time = machine.Time()
 ````
 Through the time.sleep_ms() method, you can delay in milliseconds. For example, the function of the following code is to delay 500ms.
+
 ````python
 time.sleep_ms(500)
 ````
 io1 is our protagonist today. This is a GPIO object, which is newly created with the machine .GPIO() class.
+
 ````python
 io1 = machine.GPIO()
 ````
+
 After creating a new io1 object, we need to initialize this io, init() is used for object initialization, used at the front, and then setPin('PA8') means using the PA8 port setMode('out') means using the output mode, And enable() means to start the hardware of io1, and low() pulls down the level of io1. A led light on the Pika Pie is connected to the PA8. As long as you control the level of the PA8, you can control the light on and off.
+
 ````python
 io1.init()
 io1.setPin('PA8')
@@ -141,7 +172,9 @@ io1.setMode('out')
 io1.enable()
 io1.low()
 ````
+
 In the main loop of the program, switch the high and low levels of io1 to make the LED flash~
+
 ````python
 while True:
     io1.low()
@@ -149,7 +182,9 @@ while True:
     io1.high()
     time.sleep_ms(500)
 ````
+
 ## Interpretation of other Python routines
+
 ### ADC
 Let's interpret other routines in examples, such as this ADC routine, which is to read the analog voltage value on the PA1 pin, and then print it out~
 ````python
@@ -170,8 +205,10 @@ while True:
     time.sleep_ms(500) #Wait for 0.5s
     
 ````
-###UART
+
+### UART
 The following is the routine of the serial port, the function is to read the received two bytes, and then print them out
+
 ````python
 import PikaStdLib
 import machine
@@ -190,8 +227,10 @@ while True:
     print(readBuff) # print out
 
 ````
-###PWM
+### PWM
+
 The following is the PWM routine, you can specify the pin to output the PWM wave, you can set the frequency and duty cycle
+
 ````python
 import PikaStdLib
 import machine
@@ -210,8 +249,10 @@ while True:
     pwm.setDuty(0.001) #Set the duty cycle to 0.1%
 
 ````
-###RGB
+### RGB
+
 Then the following is the RGB routine~
+
 ````python
 import machine
 
@@ -238,11 +279,13 @@ while True:
 
 
 ````
+
 This routine can drive the onboard 4 RGB water lights~
 
 ![](assets/205338_ae2e2de2_5521445.png)
 
 ### LCD
+
 There is also an LCD routine that can display a small square on the LCD, and you can use the four onboard buttons to control the movement of the small square~
 
 ![](assets/210940_f30be3d5_5521445.png)
@@ -290,8 +333,11 @@ while True:
         lcd.fill(x, y, w, h, 'blue') # draw a new position
 
 ````
+
 When you are familiar with the LCD driver, you can try to develop your own mini-games~
+
 ## run interactively
+
 After main.py is executed, it will enter the interactive operation, so as long as the `while True :` in main.py is canceled, so that it can complete the execution and exit, you can enter the interactive operation.
 ![](assets/1641953728408-8fbffe1c-643a-4f18-855e-5d60578eb194.jpeg)
 Interactive execution supports single-line and multi-line input, consistent with general Python usage. It is recommended to use PuTTY serial terminal.
@@ -310,9 +356,13 @@ Entering `exit()` will directly restart the system.
 2. Plug in the screen, refer to the direction of the green flag, if the screen can be lit, it means that the direction of the plug is correct, if it is plugged in reversely, it will not light up.
 
   ![](assets/1641957159517-c3adbb12-118a-4c9f-9662-c1801df59276.png)
+  
 ## Firmware upgrade
+
 The firmware of Pika Pie is updated on a rolling basis, and new firmware versions will be released continuously to provide new functions, and some new functions can only be played by upgrading the firmware, so it is also very important to learn to upgrade the firmware~
+
 ### Compile the firmware yourself
+
 The firmware is a Keil project and compilation is very simple.
 Download the firmware project:
 Enter pikascript official website [http://pikascript.com](http://pikascript.com)
@@ -335,6 +385,7 @@ Click to download to get the latest firmware~
 ![](assets/210155_5248a47c_5521445.png)
 
 ### Serial Bootloader upgrade
+
 To upgrade the firmware, you can also use the serial port. When upgrading, you need to use the firmware compiled by yourself or the .bin firmware you downloaded directly.
 Currently, the versions that support serial bootloader upgrade are:
 
@@ -358,6 +409,7 @@ After sending, press the RST key to restart, and the upgrade is complete!
 If it can be started normally, then the upgrade is successful.
 
 ### Upgrade using SWD
+
 The Lite version can connect to J-Link \ DAP-Link \ ST-Link to upgrade SWD.
 The Pro version and Plus version have onboard DAP-Link, which can be upgraded by SWD directly by connecting to USB.
 The Lite and Pro versions use the [bsp/stm32g030](https://gitee.com/Lyon1998/pikascript/tree/master/bsp/stm32g030c8) project.
@@ -366,6 +418,7 @@ When using SWD to upgrade, the download method of "Partial Erase" should be sele
 ![](assets/1642144820993-a1c6c5e9-e3ca-4406-aa93-3ae3911738f6.png)
 
 ### Download Python program using firmware
+
 The firmware loads pikascript/main.py as the default Python program when compiled.
 Before downloading the firmware, after pressing SW0 + RST to erase the flash, it will boot from the firmware Python program.
 ## ARM-2D GUI engine
@@ -386,6 +439,7 @@ Instructions:
 
 
 ## common problem
+
 1 Press sw0 + rst to enter the upgrade mode:
 The first batch of boards shipped did not have the bootloader. You need to manually flash it once. Use jlink / stlink / DAPlink, etc., and flash into pikascript/bsp/pikapizero/bootloader.
 2 Cannot enter the bootloader / Suspected to be stuck and unable to run:
@@ -395,12 +449,21 @@ When downloading the python program for the first time, do not download the LCD 
 In other cases, the download is stuck, and you can restart the download again. If it still doesn't work, re-flash the firmware and download it again.
 4 Project compilation error, missing files:
 The project needs to pull modules and precompile remotely. You need to run pikascript/pikaPackage.exe and pikascript/rust-msc-win10-latest.exe before compiling the project.
+
 ## Schematic
+
 ### Lite Youth Edition
+
 ![](assets/1641204367325-7c0751ac-7fe8-4029-a4c2-ee6ebb1e2733.png)
+
 ### Pro Professional Edition
+
 ![](assets/1641733841411-d3a3ed0f-4609-49eb-9985-b3a635e72b51.png)
+
 ### Plus top version
+
 ![](assets/1641733943438-bdd0d52f-1e34-4a8e-a3bb-c53508ce4fc1.png)
+
 ### LCD
+
 ![](assets/1645715736921-0dcd26b4-732b-42bf-b17a-1ef3ce3d3ea6.png)
