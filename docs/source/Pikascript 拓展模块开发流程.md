@@ -18,6 +18,7 @@ from PikaObj import *
 
 
 We can open the PikaObj.pyi file to see the class interfaces inside
+
 ```python
 # PikaObj.pyi
 class TinyObj:
@@ -41,7 +42,7 @@ Now we can create new classes inside Math.pyi. For example, if we want to create
 Then we want Adder to provide addition operations for plastic and floating-point data, so we can add the byInt and byFloat methods.
 
 ```python
-# Math.py
+# Math.pyi
 class Adder(TinyObj):
     def byInt(self, a:int, b:int)->int:
         pass
