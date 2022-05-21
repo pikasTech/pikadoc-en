@@ -37,7 +37,7 @@ You can see that there are two classes `TinyObj` and `BaseObj`, which are the ba
 
 ### Writing class interfaces
 
-Now we can create new classes inside Math.pyi. For example, if we want to create a new `Adder` class to implement the relevant addition operations, we can add the Adder class inside Math.py. To save memory, the Adder class inherits from the TinyObj base class.
+Now we can create new classes inside Math.pyi. For example, if we want to create a new `Adder` class to implement the relevant addition operations, we can add the Adder class inside Math.pyi. To save memory, the Adder class inherits from the TinyObj base class.
 
 Then we want Adder to provide addition operations for plastic and floating-point data, so we can add the byInt and byFloat methods.
 
