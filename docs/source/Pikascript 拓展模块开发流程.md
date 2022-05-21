@@ -8,7 +8,7 @@ We still use keil's simulation project as an example, if you haven't got the sim
 To write a new module, you first need to write a module interface file, for example, to write a math calculation module Math, the first step is to write Math.pyi.
 
 
-If you want to create a new class from the PikaScript base class, you need to import PikaObj module, import PikaObj module should use `from PikaObj import *` way of introduction, actually Pika pre-compiler will not compile the module imported using `from` syntax, this is written just to get This is just to get smart syntax hints from the python editor, PikaObj is built into the Pika runtime kernel.
+If you want to create a new class from the PikaScript base class, you need to import PikaObj module, import PikaObj module should use `from PikaObj import *` way of introduction, actually Pika pre-compiler will not compile the module imported using `from` syntax, this is written just to get smart syntax hints from the python editor, PikaObj is built into the Pika runtime kernel.
 
 
 ```python
