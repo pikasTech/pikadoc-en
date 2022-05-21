@@ -100,7 +100,7 @@ found that the compilation reported an error, suggesting that there are four fun
 This is normal because we did not write implementations for the classes of the Math module before, and we will write implementations for those classes below.
 
 
-For the convenience of module management, we put all the implementation files in the pikascript-lib folder, the
+For the convenience of module management, we put all the implementation files in the pikascript-lib folder.
 
 
 ![](assets/131120029-81c9b91f-2669-40cf-86da-78d72bce81c8.png)
