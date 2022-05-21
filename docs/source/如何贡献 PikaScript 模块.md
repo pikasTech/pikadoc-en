@@ -26,7 +26,7 @@ STM32G0==latest
 
 ![](assets/1638664526181-09b00c29-fc72-429a-bb99-3f009eae141e.png)
 
-   - Copy [module].py to pikascript-lib/[module] folder.
+   - Copy [module].pyi to pikascript-lib/[module] folder.
    - Copy the entire modified pikascript-lib/[module] folder into the forked pikascript/package folder.
    - git add adds files, and git commit commits once.
    - git log View the commit id after the commit, fill in the new version name in pikascript/packages.toml after fork, and copy the current commit id.
@@ -49,7 +49,7 @@ releases = [
 ![](assets/1638664500423-e4ad59fa-e476-48f0-b7ec-89f98eb70e6c.png)
 ## Commit the new module
 
-- Create a new [module].py file and pikascript-lib/[module] folder.
+- Create a new [module].pyi file and pikascript-lib/[module] folder.
 - Develop and test new modules.
 - (Optional) Update module information in pikascript/README.md and pikascript/README_zh.md.
 - Submit the module's files
@@ -57,7 +57,7 @@ releases = [
 
 ![](assets/1638664526181-09b00c29-fc72-429a-bb99-3f009eae141e.png)
 
-   - Copy [module].py to pikascript-lib/[module] folder.
+   - Copy [module].pyi to pikascript-lib/[module] folder.
    - Copy the entire pikascript-lib/[module] folder to the forked pikascript/package folder.
    - git add adds files, and git commit commits once.
    - git log View the submitted commit id, add a new module to pikascript/packages.toml after fork, and fill in the module name, version name and current commit id.
