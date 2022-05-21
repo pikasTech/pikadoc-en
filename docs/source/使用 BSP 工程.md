@@ -58,10 +58,10 @@ Only modules imported in main.py will be compiled into the firmware, so main.py 
 
 Therefore, the PikaScript folder in the BSP only contains the package manager **pikaPackage.exe** itself, the **requestment.txt** module description file and the **main.py** sample script three files.
 
-requestment.txt uses the same module description syntax as general python. Running pikaPackage.exe directly can identify request.txt in the current folder and pull the corresponding module.
+requestment.txt uses the same module description syntax as general python. Running pikaPackage.exe directly can identify requestment.txt in the current folder and pull the corresponding module.
 
 
-Taking request.txt in the bsp of stm32g030 as an example, the pulled modules are:
+Taking requestment.txt in the bsp of stm32g030 as an example, the pulled modules are:
 
 - Kernel: pikascript-core
 - Standard library: PikaStdLib
