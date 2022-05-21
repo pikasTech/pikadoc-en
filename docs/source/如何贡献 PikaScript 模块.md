@@ -16,7 +16,7 @@ STM32G0==latest
 - **Delete the modules that need to be developed in reqeustment.txt**, to prevent misoperation (such as pulling the module again) causing the module being developed to be overwritten.
 ### Modify the module and test
 
-- Add new Python interface for modules --> [module].py
+- Add new Python interface for modules --> [module].pyi
 - Or provide a better implementation --> pikascript-lib/[module]/*.c
 
 - (Optional) Update module information in pikascript/README.md and pikascript/README_zh.md.
