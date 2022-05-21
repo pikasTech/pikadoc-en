@@ -10,13 +10,13 @@ If you encounter compatibility problems during use, you can file an issue at [gi
 
    Import the pikascript package
 
-   ![image](assets/159112436-d8814770-0e86-4016-a529-7053d7256df9.png)
+   ![](assets/159112436-d8814770-0e86-4016-a529-7053d7256df9.png)
 
-   ![image](assets/159112451-20335611-fb55-42da-b1ec-c6e9878333b3.png)
+   ![](assets/159112451-20335611-fb55-42da-b1ec-c6e9878333b3.png)
 
-   ![image](assets/159112459-36030f2a-69f7-4e8f-8b3f-57011eaff82b.png)
+   ![](assets/159112459-36030f2a-69f7-4e8f-8b3f-57011eaff82b.png)
 
-   ![image](assets/159112482-378a549c-fb3b-4be6-b72e-a02b8e1217f3.png)
+   ![](assets/159112482-378a549c-fb3b-4be6-b72e-a02b8e1217f3.png)
 
    Add RT_WEAK before rt_vsnprintf in rt-thread/src/kservice.c **(only for rt_thread version 4.1.0 and below)**
 
@@ -78,7 +78,6 @@ Refer to the **Support Serial Port Download Python** part of the document.
 
    Modify pikascript-latest/requestment.txt, then right-click the project, Sconscripts Update, you can install the module/modify the module version, and precompile.
 
-<img src="assets/1639531121038-abc40292-62fe-4a30-b074-7101714f6db7.jpeg" style="zoom:33%;" />
-
+![](assets/1639531121038-abc40292-62fe-4a30-b074-7101714f6db7.jpeg)
 
 For more usage, please refer to the **package manager**, **module usage, module development** part of the documentation.
