@@ -11,7 +11,7 @@ Let's start by opening Device.pyi to see the contents, we will call Device.pyi t
 Here is the entire contents of Device.pyi.
 
 ```python
-# Device.py
+# Device.pyi
 from PikaObj import *
 
 class LED(TinyObj):
