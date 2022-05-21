@@ -3,19 +3,24 @@
 PikaStdLib is a built-in library of PikaScript, which must be installed. It includes memory checking tools and system objects.
 ## Install
 
-1. Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
+Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
+
 ````
 PikaStdLib==v1.6.1
 ````
 
-2. Run pikaPackage.exe
+Run pikaPackage.exe
+
 ## import
+
 Add in main.py
 ````python
 #main.py
 import PikaStdLib
 ````
+
 ## class MemChecker()
+
 MemChecker provides PikaScript's memory monitoring capabilities. Can be used to view memory usage and check for memory leaks.
 ````python
 def max(self):
