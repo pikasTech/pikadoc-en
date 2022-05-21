@@ -1,28 +1,34 @@
 # PikaStdData data structure
 
 PikaStdData data structure library provides List (list), Dict (dictionary) data structure.
+
 ## Install
 
-1. Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
+Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
 ````
 PikaStdLib==v1.6.1
 ````
 
-2. Run pikaPackage.exe
+Run pikaPackage.exe
+
 ## import
 Add in main.py
 ````python
 #main.py
 import PikaStdData
 ````
+
 ## class List():
+
 The List class provides the List list function. By creating an object of the List class, a list can be created.
 Such as:
 ````python
 import PikaStdData
 list = PikaStdData.List()
 ````
+
 ### Methods of the List class
+
 ````python
     # add an arg after the end of list
     def append(self, arg: any):
@@ -40,11 +46,17 @@ list = PikaStdData.List()
     def len(self) -> int:
         pass
 ````
+
 Note that the index of the `set()` method cannot exceed the length of the List. If you want to add members of the list, you need to use the `append()` method.
+
 ### Use '[]' brackets to index the list
+
 List objects can be indexed using '[]'. `list[1] = a` is equivalent to `list.set(1, a)`, and `a = list[1]` is equivalent to `a = list.get(1)`.
+
 ### Use for loop to iterate over List
+
 List objects support for loop traversal
+
 example:
 ````python
 import PikaStdData
@@ -56,14 +68,19 @@ for item in list:
     print(item)
 
 ````
+
 ## class Dict():
+
 The Dict class provides the Dict dictionary function, and a dictionary can be created by creating an object of the Dict class.
 Such as:
+
 ````python
 import PikaStdData
 dict = PikaStdData.Dict()
 ````
+
 ### Dict class methods
+
 ````python
     # get an arg by the key
     def get(self, key: str) -> any:
@@ -77,10 +94,15 @@ dict = PikaStdData.Dict()
     def remove(self, key: str):
         pass
 ````
+
 ### Index dictionary using '[]' brackets
+
 Dict objects can be indexed using '[]'. `dict['x'] = a` is equivalent to `dict.set('x', a)` and `a = dict['x']` is equivalent to `a = dict.get('x') `.
+
 ### Using a for loop to iterate over a Dict
+
 Dict objects support for loop traversal
+
 example:
 ````python
 import PikaStdData
@@ -92,6 +114,7 @@ for item in dict:
     print(item)
 
 ````
+
 ## class ByteArray(List)
 
 [Note]: The version of PikaStdData requires at least v1.5.3
