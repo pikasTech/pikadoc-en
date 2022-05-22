@@ -20,7 +20,7 @@ In the README.md in the bsp folder, the current platform support and the usage o
 
 (The table below is not up-to-date)
 
-[Click here for the latest form](https://github.com/pikastech/pikascript#2%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8)
+[Click here for the latest form](https://github.com/pikastech/pikascript#mcu-support)
 
 ![](assets/1639629972025-ca8fdf74-5dc2-472e-8497-5bc163bccdf4.png)
 
