@@ -41,4 +41,3 @@ PikaScript is a completely rewritten ultra-lightweight python engine with zero d
    优化内存占用、配置 libc
    直接运行字节码
    商业合作方式
-   PikaScript 内核进阶 1 2022年3月3日直播
