@@ -4,7 +4,7 @@ PikaScript has been added to the [RT-Thread package](https://packages.rt-thread.
 
 The PikaScript package supports **full RT-Thread BSP**.
 ![](assets/1638840464842-02580253-48dc-4dcc-94a4-e62f1b596b38.png)
-If you encounter compatibility problems during use, you can file an issue at [gitee](https://github.com/pikastech/pikascript), [github](https://github.com/pikasTech/pikascript) or [ Forum](https://whycan.com/f_55.html) to ask questions.
+If you encounter compatibility problems during use, you can file an issue at [github](https://github.com/pikasTech/pikascript) or [ Forum](https://whycan.com/f_55.html) to ask questions.
 
 ## Install
 
