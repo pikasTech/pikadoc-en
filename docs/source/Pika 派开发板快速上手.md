@@ -47,7 +47,7 @@ Select the COM port, then select the baud rate as 115200, and then click to open
 
 We enter the code repository of PikaScript
 
-[https://gitee.com/Lyon1998/pikascript](https://gitee.com/Lyon1998/pikascript)
+[https://github.com/pikastech/pikascript](https://github.com/pikastech/pikascript)
 
 It is customary to click a Star~
 
@@ -412,8 +412,8 @@ If it can be started normally, then the upgrade is successful.
 
 The Lite version can connect to J-Link \ DAP-Link \ ST-Link to upgrade SWD.
 The Pro version and Plus version have onboard DAP-Link, which can be upgraded by SWD directly by connecting to USB.
-The Lite and Pro versions use the [bsp/stm32g030](https://gitee.com/Lyon1998/pikascript/tree/master/bsp/stm32g030c8) project.
-The Plus version uses the [bsp/stm32g070](https://gitee.com/Lyon1998/pikascript/tree/master/bsp/stm32g070cb) project.
+The Lite and Pro versions use the [bsp/stm32g030](https://github.com/pikastech/pikascript/tree/master/bsp/stm32g030c8) project.
+The Plus version uses the [bsp/stm32g070](https://github.com/pikastech/pikascript/tree/master/bsp/stm32g070cb) project.
 When using SWD to upgrade, the download method of "Partial Erase" should be selected
 ![](assets/1642144820993-a1c6c5e9-e3ca-4406-aa93-3ae3911738f6.png)
 

@@ -12,7 +12,7 @@ The transplanted bare metal MCU project is in the pikascript/bsp directory, and 
 
 (simulation-keil-dev and pico-dev are not listed. These two bsp can only be used in the warehouse and are used to develop the kernel.)
 
-[https://gitee.com/Lyon1998/pikascript/tree/master/bsp](https://gitee.com/Lyon1998/pikascript/tree/master/bsp)
+[https://github.com/pikastech/pikascript/tree/master/bsp](https://github.com/pikastech/pikascript/tree/master/bsp)
 ![](assets/1638605947761-93b30636-099f-4c7c-a432-6aae5e2d8b53.png)
 
 ## Support list
@@ -20,7 +20,7 @@ In the README.md in the bsp folder, the current platform support and the usage o
 
 (The table below is not up-to-date)
 
-[Click here for the latest form](https://gitee.com/Lyon1998/pikascript#2%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8)
+[Click here for the latest form](https://github.com/pikastech/pikascript#2%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81%E5%88%97%E8%A1%A8)
 
 ![](assets/1639629972025-ca8fdf74-5dc2-472e-8497-5bc163bccdf4.png)
 

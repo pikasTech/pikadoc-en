@@ -4,7 +4,7 @@ PikaScript has been added to the [RT-Thread package](https://packages.rt-thread.
 
 The PikaScript package supports **full RT-Thread BSP**.
 ![](assets/1638840464842-02580253-48dc-4dcc-94a4-e62f1b596b38.png)
-If you encounter compatibility problems during use, you can file an issue at [gitee](https://gitee.com/Lyon1998/pikascript), [github](https://github.com/pikasTech/pikascript) or [ Forum](https://whycan.com/f_55.html) to ask questions.
+If you encounter compatibility problems during use, you can file an issue at [gitee](https://github.com/pikastech/pikascript), [github](https://github.com/pikasTech/pikascript) or [ Forum](https://whycan.com/f_55.html) to ask questions.
 
 ## Install
 
@@ -32,7 +32,7 @@ If you encounter compatibility problems during use, you can file an issue at [gi
 
    Use the pikaRTThread module in packages/pikascript-latest/requestment.txt (included by default).
 
-The latest default [requestment.txt](https://gitee.com/Lyon1998/pikascript/blob/master/port/rt-thread/requestment.txt) can be viewed here.
+The latest default [requestment.txt](https://github.com/pikastech/pikascript/blob/master/port/rt-thread/requestment.txt) can be viewed here.
 
    Type "pika" in msh to **start** PikaScript in a thread.
 

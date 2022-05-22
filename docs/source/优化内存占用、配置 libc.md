@@ -34,7 +34,7 @@ It should be noted that the ```PIKA_CONFIG_ENABLE ``` macro should be added to t
 
 Available configuration items and default configuration are in the ```pika_config_valid.h``` header file.
 
-[https://gitee.com/Lyon1998/pikascript/blob/master/src/pika_config_valid.h](https://gitee.com/Lyon1998/pikascript/blob/master/src/pika_config_valid.h)
+[https://github.com/pikastech/pikascript/blob/master/src/pika_config_valid.h](https://github.com/pikastech/pikascript/blob/master/src/pika_config_valid.h)
 
 Intercept the important part for explanation:
 
@@ -78,11 +78,11 @@ As can be seen from ```pika_config_valid.h```, the default optimization option o
 ````
 ### Sample code
 
-[https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g070cb/Booter/pika_config.h](https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g070cb/Booter/pika_config.h)
+[https://github.com/pikastech/pikascript/blob/master/bsp/stm32g070cb/Booter/pika_config.h](https://github.com/pikastech/pikascript/blob/master/bsp/stm32g070cb/Booter/pika_config.h)
 
 ## Dependency configuration
 
-PikaScript can be configured by creating ``pika_config.c``, rewriting the weak functions in [PikaPlagform.h](https://gitee.com/Lyon1998/pikascript/blob/master/src/PikaPlatform.h) 's dependencies.
+PikaScript can be configured by creating ``pika_config.c``, rewriting the weak functions in [PikaPlagform.h](https://github.com/pikastech/pikascript/blob/master/src/PikaPlatform.h) 's dependencies.
 ```` c
 /* interrupt config */
 void __platform_enable_irq_handle(void);
@@ -129,6 +129,6 @@ void __platform_error_handle(void);
 - Memory management - replace malloc free memory management algorithm
   
 ### Sample code:
-- [https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g030c8/Booter/pika_config.c](https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g030c8/Booter/pika_config.c)
+- [https://github.com/pikastech/pikascript/blob/master/bsp/stm32g030c8/Booter/pika_config.c](https://github.com/pikastech/pikascript/blob/master/bsp/stm32g030c8/Booter/pika_config.c)
   
-- [https://gitee.com/Lyon1998/pikascript/blob/master/package/pikaRTThread/pika_config.c](https://gitee.com/Lyon1998/pikascript/blob/master/package/pikaRTThread/pika_config.c )
+- [https://github.com/pikastech/pikascript/blob/master/package/pikaRTThread/pika_config.c](https://github.com/pikastech/pikascript/blob/master/package/pikaRTThread/pika_config.c )

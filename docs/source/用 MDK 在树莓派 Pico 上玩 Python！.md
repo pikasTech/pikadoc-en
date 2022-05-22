@@ -35,7 +35,7 @@ And deeply integrated with rt-thread, it can support rt-thread full series of BS
 Let's get to the point and see how to develop with MDK on the Raspberry Pi pico and play with Python.
 Instructions for use:
 
-[https://gitee.com/Lyon1998/pikascript/tree/master/bsp/pico#pikascript-in-pico](https://gitee.com/Lyon1998/pikascript/tree/master/bsp/pico#pikascript-in-pico)
+[https://github.com/pikastech/pikascript/tree/master/bsp/pico#pikascript-in-pico](https://github.com/pikastech/pikascript/tree/master/bsp/pico#pikascript-in-pico)
 
 If you can see the following information on the serial port, it means the operation is successful!
 
