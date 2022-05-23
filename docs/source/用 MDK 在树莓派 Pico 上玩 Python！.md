@@ -42,7 +42,7 @@ If you can see the following information (or similar) on the Debug(printf) View,
 
 Enjoy!
 
-For getting technical support, please check the forum and/or raising issues. Thank you.
+For getting technical support, please check the forum and/or raise issues on github. Thank you.
 
 https://whycan.com/f_55.html
 
