@@ -1,6 +1,6 @@
 # Play Python on Raspberry Pi Pico with MDK
 
-It is well known that MicroPython supports the Raspberry Pi Pico, and we see there some room to improve, not only about the memory footprint, but also about the way to bind your own the c modules. It's not rare to see people in the community complain about the complexity and debugging experience.
+It is well known that MicroPython supports the Raspberry Pi Pico, and we see there some room to improve, not only about the memory footprint, but also about the way to bind your own c modules. It's not rare to see people in the community complain about the complexity and debugging experience.
 
 The resources and price of the Raspberry Pi Pico are really good, it is fun to play with, not to mention there is a big community behind it. One question for most of the MCU developer is that can we use MDK to develop Raspberry Pi Pico and play with PikaScript? Why not? Thanks to a open-source project called [Pico_Template](https://github.com/GorgonMeducer/Pico_Template), dream becomes reality. Please note that Pico_Template allows you to compile the latest pico-sdk using the Arm Compiler 6, debug without an extra pico and retarget printf to MDK without using any Serial2USB adapter. 
 
@@ -8,9 +8,9 @@ For details, see:
 
 [I'm going to use MDK to develop Raspberry Pi Pico, how come!](Http://mp.weixin.qq.com/s?__biz=MzAxMzc2ODMzNg==&mid=2656103324&idx=1&sn=f1d3ece87c81eeaa7d402f3cba60dc8f&chksm=8039c863b74e4175edc806b4e329c25e75b6372df53f07565bd9a46cfbf13a3c4cd9e20c08cc#rd)
 
-As we mentioned before, binding C modules in MicroPython is very complicated and difficult to debug. Is there a more convenient way to do that for python running on MCUs? 
+As we mentioned before, binding C modules in MicroPython is very complicated and difficult to debug. Is there a more convenient way to do it for python running on MCUs? 
 
-YES! Our answer to this question is PikaScript. PikaScript is a completely rewritten ultra-lightweight python vitual machine, with zero dependency, simple configuration, ultra-low memory footprint, i.e. you can use it under less than 4KB of SRAM. With framework based C module development tools, your API calling written in Python can be automatically connect to the your C module. Cannot be more simple or convenient, isn't it? No need to manually handle any global tables, macro functions, module registration, etc.
+YES! Our answer to this question is PikaScript. PikaScript is a completely rewritten ultra-lightweight python vitual machine, with zero dependency on toolchain, simple configuration, ultra-low memory footprint (i.e. you can use it with less than 4KB of SRAM). Using framework based C module development tools, your API calling written in Python can be automatically connect to the your C modules. Cannot be more simple or convenient, isn't it? No need to manually handle any global tables, macro functions, module registration, etc.
 
 PikaScript provides MDK projects, hence you can debug C modules with python scripts.  
 
