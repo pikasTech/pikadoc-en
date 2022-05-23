@@ -1,4 +1,4 @@
-# Play Python on Raspberry Pi Pico with MDK
+# Play Python on Raspberry Pi Pico in MDK
 
 It is well known that MicroPython supports the Raspberry Pi Pico, and we see there some room to improve, not only about the memory footprint, but also about the way to bind your own c modules. It's not rare to see people in the community complain about the complexity and debugging experience.
 
