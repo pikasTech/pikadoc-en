@@ -22,7 +22,7 @@ For example: stm32g0, stm32f1, ch32, apm32, cm32, as well as Pingtou's w801, Bol
 
 ![](assets/1640497097904-f2b13577-44ee-4510-a7ce-e18dd01aaa20.webp)
 
-The very popular ESP32C3, Godson architecture, and this time the Raspberry Pi Pico discussed in this document.
+The very popular ESP32C3, Godson architecture.
 
 ![](assets/1640497097922-8490fdc1-ba88-48a4-888b-3859384ca650.webp)
 
