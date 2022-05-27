@@ -42,8 +42,5 @@ If you can see the following information (or similar) on the Debug(printf) View,
 
 Enjoy!
 
-For getting technical support, please check the forum and/or raise issues on github. Thank you.
+For getting technical support, please raise issues on github. Thank you.
 
-https://whycan.com/f_55.html
-
-![](assets/1640497099365-67930749-d3a2-4f70-9320-73da30f72659.webp)
