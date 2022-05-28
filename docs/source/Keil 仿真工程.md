@@ -1,7 +1,8 @@
 # How to Get Started with PikaScript using KEIL Simulator
 
 In this article, we introduce a way of playing PikaScript without any hardware, i.e. using simulation in MDK. 
-The target board of simulation is stm32f103, and you experience the fun of pikascript immediately after by downloading the project.
+The target board of simulation is stm32f103, and you can experience the fun of pikascript immediately after downloading the project.
+
 ### Create project
 Enter pikascript official website [http://pikascript.com](http://pikascript.com)
 
