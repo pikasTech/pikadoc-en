@@ -1,3 +1,3 @@
-https://pikadoc.readthedocs.io/zh/latest/
+https://pikadoc.readthedocs.io/en/latest/
 
-https://readthedocs.org/projects/pikadoc/
+https://readthedocs.org/projects/pikadoc-en/
