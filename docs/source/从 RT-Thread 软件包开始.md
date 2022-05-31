@@ -38,7 +38,9 @@ The latest default [requestment.txt](https://github.com/pikastech/pikascript/blo
 
 The initial startup will execute the /pikascript-latest/main.py initialization script. After execution, enter pika **interactive running** mode,
 Enter "exit()" to return to msh, enter "pika" again to enter pikascript, and enter directly into interactive mode.
-![](assets/1639058943232-9f0e0f78-0c8e-4b80-9283-6113c2450edf.png)
+
+![](https://user-images.githubusercontent.com/88232613/171087985-dbf74d08-f15a-4f67-8758-e387db15a0dd.png)
+
 **Option 2: Automatically start at boot**
 
    Enter the package detailed configuration
