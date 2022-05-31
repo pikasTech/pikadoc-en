@@ -129,7 +129,7 @@ Also running Python, we can briefly compare the common chip STM32F405RG for micr
 ![](assets/132944745-e9cf598d-e75f-40bb-873e-911819d535b7.png)
 ## Reference price comparison (take the price of 10 pieces of Lichuang Mall on September 11, 2021 as a reference)
 
-![](assets/132944757-2b5cfda8-f93f-4456-8d7f-4e4767954056.png)
+![image](https://user-images.githubusercontent.com/88232613/171085508-e788518b-ec2e-48f3-8fc8-9327b54a2dbb.png)
 
 ## How about the expansion ability?
 
