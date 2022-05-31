@@ -94,7 +94,7 @@ Let's add the two newly compiled -api.c files we just made to the project and tr
 found that the compilation reported an error, suggesting that there are four functions not found in the definition.
 
 
-![](assets/131119786-823a96e3-7ab3-45f8-8c7c-282ba9b7b863.png)
+![](https://user-images.githubusercontent.com/88232613/171089164-6f834db5-3e54-4297-93b6-81927f36d57d.png)
 
 
 This is normal because we did not write implementations for the classes of the Math module before, and we will write implementations for those classes below.
@@ -102,15 +102,11 @@ This is normal because we did not write implementations for the classes of the M
 
 For the convenience of module management, we put all the implementation files in the pikascript-lib folder.
 
-
-![](assets/131120029-81c9b91f-2669-40cf-86da-78d72bce81c8.png)
-
+![](https://user-images.githubusercontent.com/88232613/171089246-ebf24d32-53b1-471b-8c3f-594a96943df5.png)
 
 Under the pikascript-lib folder, create a new Math folder to hold the implementation code for the Math module.
 
-
-![](assets/131120240-a4001fa4-1fd2-4b6b-82a2-191834ed781b.png)
-
+![image](https://user-images.githubusercontent.com/88232613/171089357-1e97e43a-a797-41ad-9d6a-a5a810526e8a.png)
 
 Then create a new .c file in the Math folder. It is recommended to use the naming scheme "module_class_name.c" to create a new .c file for each class to improve the clarity of the code.
 
