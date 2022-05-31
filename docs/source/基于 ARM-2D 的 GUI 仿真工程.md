@@ -175,17 +175,58 @@ The source code of python is in simulation-rtt-qemu-arm2d/packages/pikascript/ma
 ![](assets/139679915-45d1362e-7066-4829-ae83-b4bbc5d0aaa0.png)
 
 
-The following is the content of main.py, create a new box object, and then set the color and position, you can try to change the color to 'red' or change the coordinates to see, you can also create another screen.elems.b2 try .
+The following is the content of main.py, create a new box object, and then set the color and position, you can try to change the color to 'white' or change the coordinates to see, you can also create another screen.elems.b2 try .
 
 
-![](assets/139680125-11ff47b3-e75e-47f4-8dd7-5b310c5be16c.png)
+``` python
 
+import PikaStdLib
+import Arm2D
+
+mem = PikaStdLib.MemChecker()
+
+win = Arm2D.Window()
+win.init()
+win.background.setColor('white')
+
+win.elems.b1 = Arm2D.Box()
+win.elems.b1.init()
+win.elems.b1.setColor('blue')
+win.elems.b1.move(100, 100)
+i = 0
+x0 = 100
+y0 = 100
+sizeX0 = 50
+sizeY0 = 50
+alpha0 = 180
+isIncrace = 1
+loopTimes = 0
+
+print('hello pikaScript')
+print('mem used max:')
+mem.max()
+print('mem used now:')
+mem.now()
+while True:
+    win.elems.b1.move(x0 + i * 2, y0 + i * 1)
+    win.elems.b1.setAlpha(alpha0 - i * 1)
+    win.elems.b1.setSize(sizeX0 + i * 2, sizeY0 + i * 1)
+    win.update()
+    if isIncrace > 0:
+        i = i + 1
+        if i > 160:
+            isIncrace = 0
+    if isIncrace < 1:
+        i = i - 1
+        if i < 0:
+            isIncrace = 1
+            loopTimes = loopTimes + 1
+
+```
 
 Remember to precompile after each modification to convert python to .c file in the project
 
-
-![](assets/139680376-b9681759-971a-43f7-9282-ee0e35a367a5.png)
-
+![](https://user-images.githubusercontent.com/88232613/171087328-3ff8f8be-2415-4a24-9c5f-b4b4fe6e81e6.png)
 
 Then compile again, enter the simulation, and you can see the effect. This time I changed the square to red.
 
