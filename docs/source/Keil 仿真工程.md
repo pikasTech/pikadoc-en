@@ -8,48 +8,34 @@ Enter pikascript official website [http://pikascript.com](http://pikascript.com)
 
 Select simulation-keil and click "Start Generation"
 
-![](assets/1644128841425-378e4391-426d-4dc3-bb2d-934e8facd22e.png)
-
+![](https://user-images.githubusercontent.com/88232613/171085761-685500a7-dbbc-417c-979e-fefc34dd5c76.png)
 
 
 Unzip the downloaded zip archive and open the project
 
 ![](assets/130745821-864038df-d8b0-41d2-97e8-199815d0d57d.png)
 
-
-
-
 ### Run the simulation project
 Make sure you have select the simulator as the debugging target
 
-![](assets/130747706-b912e09f-3f68-495a-a69f-f8f7500b1e4e.png)
-
-
+![](https://user-images.githubusercontent.com/88232613/171085849-c2213242-5d88-4fda-a651-81f7187088b7.png)
 
 Compile and debug:
 
-![](assets/130747350-70ffa319-f04d-4f26-a75b-61864a19b8d8.png)
-
-
+![](https://user-images.githubusercontent.com/88232613/171086774-faf8a9b8-7ad8-4241-aad5-34e49ae9e01b.png)
 
 Once entering the debug session, make sure you have opened the serial windows as shown below:
 
 ![](assets/130747952-42073ba1-c4c4-4acb-9495-766cd5731374.png)
 
-
-
 run and check the output:
 
-![](assets/130748221-53fff9f6-6427-417d-b95a-3fa52a57eeaf.png)
-
-
+![](https://user-images.githubusercontent.com/88232613/171086180-ddeec7eb-39c6-47ec-bcd2-4d7380e8b703.png)
 
 ### How to Change a different python script
 Open main.py in any editor, e.g. vscode:
 
-![](assets/130748847-477facfb-e16e-4e0e-8876-d66efd0ae48c.png)
-
-
+![](https://user-images.githubusercontent.com/88232613/171086868-3ac1b9f6-c59f-4306-9b43-edf45844a203.png)
 
 In main.py, you might see something similar:
 
@@ -74,10 +60,8 @@ mem.now()
 ````
 
 This script uses standard python3 syntax. Suppose we have updated this script, so how to make it run in the microcontroller?
-​
 
 The interesting part is, pikascript uses a method similar to java, i.e. it is semi-compiled and semi-interpreted. For example, classes and methods are to be compiled, while method-calls and object-creation/destruction are to be interpreted at runtime. .
-​
 
 The pikascript compilation is a two-step process:
 1. Use the pikascript precompiler to compile the .py files into .c and .h files in pikascript-api.
@@ -87,8 +71,7 @@ Double-click `rust-msc-vxx.yy.zz.exe` to run the pika precompiler which is writt
 
 **NOTE**: Here `xx.yy.zz` is the version number.
 
-![](assets/130749341-d12b7985-3685-419c-b9b8-8a09ae6f73d3.png)
-
+![](https://user-images.githubusercontent.com/88232613/171086391-7b6c5ee0-53b1-4800-bfe8-34f586974947.png)
 
 If you want to make sure the updated script is compiled as required, please 1) delete all files in the `pikascript-api` folder, 2) run the precompiler and 3) check whether the .c and .h files have been generated or not. 
 
@@ -132,8 +115,7 @@ As you can see, we have added 4 new lines to main.py. Let's compile and run.
 
 Compile `pikascript-api`
 
-![](assets/130751195-40944d60-7d56-48a9-9f47-cab87d77d5a8.png)
-
+![](https://user-images.githubusercontent.com/88232613/171086456-c3ede545-3f94-422f-acb6-711e634b468e.png)
 
 Compile the keil project and enter the debugging session:
 
@@ -142,8 +124,7 @@ Compile the keil project and enter the debugging session:
 
 run and watch the output
 
-![](assets/130751653-cad627c2-367c-45a6-8c5f-686c7514df3c.png)
-
+![](https://user-images.githubusercontent.com/88232613/171086558-7ee7aeca-eb2d-4cd1-ac5a-21aa6e6f9d7e.png)
 
 As shown above, there are 3 new lines in the output, indicating that our modification works as expected.
 
