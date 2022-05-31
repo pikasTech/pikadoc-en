@@ -3,7 +3,8 @@
 Enter pikascript official website [http://pikascript.com](http://pikascript.com)
 Select the platform, module, and click "Start Build".
 (The default module will be automatically selected after selecting the platform)
-![](assets/1644129110261-049ad5bb-21af-40e2-9533-a1c8c86790f1.png)
+
+![](https://user-images.githubusercontent.com/88232613/171087433-75476a62-ab79-4517-a7be-81683d726d81.png)
 
 ## The source of the project
 The transplanted bare metal MCU project is in the pikascript/bsp directory, and each folder in it is a transplanted bare metal project.
@@ -28,10 +29,10 @@ In the README.md in the bsp folder, the current platform support and the usage o
 
 You can help PikaScript extend this table by contributing **driver modules** or **bsp**, please refer to the **New Platform Porting Guide**, **Module Development** and **Package Management** in the documentation for details.
 
-## Engineering structure
+## Projcet structure
 Taking CH32V103 as an example, a PikaScript project includes the following parts.
 
-![](assets/1638631568309-cbc19553-75be-4915-900a-72fe700b4d16.png)
+![](https://user-images.githubusercontent.com/88232613/171087652-22dfa35b-4b1c-4248-a5b8-f57bc11e3086.png)
 
 1. The first is the part of the BSP folder except the PikaScript folder. This part is the real BSP, including the basic peripheral library provided by the manufacturer, CMSIS and other common libraries on some platforms. You can get it sorted.
 
