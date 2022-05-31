@@ -24,9 +24,7 @@ There is a method, that is, the PikaStdDevice standard device driver module.
 
 ## module structure
 
-
-
-![](assets/1638681382807-901fa254-8323-4a9b-92ef-4e5b6e8ad5f9.png)
+![](https://user-images.githubusercontent.com/88232613/171090021-2c5667b2-4656-4e44-9ade-f869e047007e.png)
 
 PikaStdDevice is an abstract device driver module that defines all user APIs. As long as the driver modules of each platform inherit from PikaStdDevice, they can obtain the same user API, and PikaStdDevice will indirectly call the platform driver and rewrite the underlying layer through polymorphism. The platform driver can work on different platforms.
 
