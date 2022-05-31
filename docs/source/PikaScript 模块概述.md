@@ -86,27 +86,19 @@ The call method uses the form `uart.setName('com')`, which is standard Python sy
 
 After writing the module calls in main.py, double-click on rust-msc-v0.5.0.exe to pre-compile the PikaScript project, the pre-compiled output file is in the pikascrip-api folder.
 
-
 ![](assets/1638582989556-feafe97a-037f-44b2-8f2c-55ddf8f041ea.png)
-
 
 The pika pre-compiler generates .h declaration files and -api.c constructor files for the imported modules. The filenames start with the module name and each class corresponds to one .h file and one -api.c file.
 
-
-![](assets/1638582990457-2540db61-f185-4100-8b63-4d6d599c3b0e.png)
-
+![](https://user-images.githubusercontent.com/88232613/171088787-0e7239ef-0081-434e-9461-59d5c162a6ba.png)
 
 And PikaMain-api.c and PikaMain.h correspond to a special class that is the main PikaScript class, compiled from main.py.
 
-
-![](assets/1638582990858-10783588-5ff0-469e-b64d-50e56e2357bc.png)
-
+![](https://user-images.githubusercontent.com/88232613/171088880-83247a92-2b1c-4d3f-a075-b4811132e54e.png)
 
 pikaScript.c and pikaScript.h, on the other hand, are initialization functions compiled from main.py. When the initialization functions are run, the startup script is automatically executed.
 
-
-![](assets/1638582992822-6c4a7f39-a379-4c66-991a-1935ec3bfa7a.png)
-
+![](https://user-images.githubusercontent.com/88232613/171089013-7a690617-3972-436b-966b-75c6e975c497.png)
 
 In the current main.py, the startup script is written in the outermost method call, which is:
 
