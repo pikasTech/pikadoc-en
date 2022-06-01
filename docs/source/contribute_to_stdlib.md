@@ -1,4 +1,4 @@
-## How to contribute to the standard library
+# How to contribute to the standard library
 
 ## What are PikaScript standard libraries?
 
