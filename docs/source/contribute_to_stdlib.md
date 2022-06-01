@@ -1,45 +1,47 @@
-# 如何贡献标准库
+## How to contribute to the standard library
 
-## PikaScript 标准库是什么？
+## What are PikaScript standard libraries?
 
-PikaScript 标准库是一系列跨平台的常用工具库，比如 string, time 等等，这些库有一些提供了和 CPython 一致或者类似的 API, 有些提供了 MCU 开发的常用工具。
+PikaScript standard libraries are a set of cross-platform libraries for common tools such as string, time, etc.
+
+Some of these libraries provide APIs consistent with or similar to CPython, and some provide common tools for MCU development.
+
+## PikaScript standard library development environment construction
+
+The PikaScript standard library is cross-platform, so it can't use the proprietary resources of the platform (e.g. stm32), to ensure this, the standard library is developed on linux platform.
+
+PikaScript deploys GoogleTest unit testing framework on linux platform to provide test cases for these standard libraries, GoogleTest can be run on the developer's local machine and also automatically in the cloud (based on Github Actions).
+
+PikaScript's linux development platform needs to install go, rust, GoogleTest, GoogleBenchmark, valgrind and other tools, which is rather tedious, in order to simplify the construction of the development platform, PikaScript provides a Docker-based development environment.
+
+The Docker-based development environment can be installed with one click, and the development environment is guaranteed to be consistent for all developers.
+
+The Docker-based development environment can be installed with one click and all developers' development environments are the same. 
 
 
+### Build Docker container
 
-## PikaScript 标准库的开发环境搭建
+Please make sure you have installed Docker on the host:
 
-PikaScript 标准库是跨平台的，所以不能够使用平台（比如 stm32）专有的资源，为了确保这一点，标准库都是在 linux 的平台开发的。
+- Install Docker directly on Linux platform
+- Install Docker-Desktop on Windows platform
 
-如何确保标准库的可用性呢？PikaScript 在 linux 平台部署了 GoogleTest 单元测试框架，可以为这些标准库提供测例，GoogleTest 可以在开发者的本地机器运行，也会在每次提交到 github 的 master 分支后自动在云端运行（基于Github Actions）。
+(For windows platform, you can use the following command in wsl.)
 
-PikaScript 的 linux 开发平台需要安装 go，rust，GoogleTest，GoogleBenchmark，valgrind 等等工具，比较繁琐，为了简化开发平台的搭建，PikaScript 提供了基于 Docker 的开发环境，基于 Docker 的开发环境可以一键安装，并保证所有开发者的开发环境都是一致的。
-
-在 Docker 的构建脚本中已经完成了换源操作，所以不需要使用 vpn，即可在中国大陆顺利的搭建 Docker 开发环境。
-
-
-### 构建 Docker 容器
-
-请确认已经在宿主机安装好了 Docker:
-
-- Linux 平台直接安装 Docker
-- Windows 平台安装 Docker-Desktop
-
-（如果是 windows 平台，可以在 wsl 中使用下面的命令。）
-
-step1: 克隆仓库
+step1: Clone the repository
 
 ``` shell
 git clone https://gitee.com/lyon1998/pikascript
 cd pikascript/docker 
 ```
 
-step2: 构建 Docker 镜像，然后启动容器
+step2: Build the Docker image, then start the container
 ```
 sh build.sh
 sh run.sh
 ```
 
-step3: 初始化 port/linux
+step3: Initialize the port/linux
 
 ``` shell	
 cd port/linux
@@ -47,64 +49,66 @@ sh pull-core.sh
 sh init.sh
 ```
 
-step4: 运行 GoogleTest 和 BenchMark 
+step4: Run GoogleTest and Benchmark 
 ``` shell
 sh gtest.sh
 sh ci_benchmark.sh
 ```
 
-step5: 运行 REPL
+step5: Run REPL
 ``` shell
 sh run.sh
 ```
 
-## 使用 VSCODE 连接到容器进行开发
+## Use VSCODE to connect to the container for development
 
-### 启动
+### Start
 
-VSCODE 提供了连接到容器进行开发的工具，连接后开发体验就和在容器外部一样好。
+VSCODE provides tools to connect to containers for development, and the development experience is as good as if you were outside the container.
 
-在 VSCODE 侧边栏选择远程，Containers，pikadev，然后点击打开目录，即可在 VSCODE 中连接到 Dockder 内部。
+Select Remote, Containers, pikadev in the VSCODE sidebar, then click Open Directory to connect to Docker inside VSCODE.
 
 ![](assets/image-20220601001455518.png)
 
-初次打开需要等待一些插件自动安装，以后再打开就可以直接启动了。
+The first time you open it, you need to wait for some plugins to be installed automatically, then you can open it again and start it directly.
 
 ![](assets/image-20220601001641800.png)
 
- cd 到 ~/pikascript/port/linux, 然后输入 `code .`，切换工作路径到 pikascript/port/linux
+ cd to ~/pikascript/port/linux, then type `code . ` to switch the working path to pikascript/port/linux
 
 ![](assets/image-20220601001904516.png)
 
-### 开发
+### Development
 
-标准库的 pyi 声明文件在 package/pikascript 目录下，标准库包括了 PikaStdLib.pyi, PikaStdData.pyi, PikaDebug.pyi, PikaStdTask.pyi 等，实现文件在 PikaStdLib 文件夹下。
+The pyi declaration files for the standard library are in the package/pikascript directory. The standard library includes PikaStdLib.pyi, PikaStdData.pyi, PikaDebug.pyi, PikaStdTask.pyi, etc.
+
+ The implementation files are in the PikaStdLib folder.
 
 ![](assets/image-20220601002350438.png)
 
-然后可以为标准库增加类，或者函数，例如，为 `PikaStdData.String` 类增加一个 `startswith()` 方法，首先在 PikaStdData.pyi 中的 `String` 类下面新增 ` startswith() ` 方法的声明。
+Then you can add classes, or functions to the standard library, for example, add a `startswith()` method to the `PikaStdData.String` class by first adding a declaration for the `startswith()` method under the `String` class in PikaStdData.pyi.
 
 ![](assets/image-20220601003457155.png)
 
-然后运行：
+Then run.
 
 ```
 sh init.sh
 ```
 
-进行预编译和重新配置 CMake。
+to pre-compile and reconfigure CMake.
 
-再打开 `PikaStdData_String.h`，会发现自动生成的 startswith 方法的 c 函数声明。
+Then open ``PikaStdData_String.h`` and you will find the c function declaration for the automatically generated startswith method.
 
 ![](assets/image-20220601003545995.png)
 
-接着在 PikaStdData_String.c 中实现这个函数。
+Next, implement this function in PikaStdData_String.c.
 
 ![](assets/image-20220601003710360.png)
 
-### 测试
+### Testing
 
-然后可以运行 GoogleTest，查看是否破坏了原有的代码。
+Then you can run GoogleTest to see if it breaks the original code.
 
 ```
 sh gtest.sh 
@@ -112,15 +116,15 @@ sh gtest.sh
 
 ![](assets/image-20220601003830732.png)
 
-如果测试都通过了，就可以编写功能测试的代码了。
+If the tests all pass, you can write the code for the functional tests.
 
-测试代码在 test 目录下。
+The test code is in the test directory.
 
 ![](assets/image-20220601003945867.png)
 
-标准库的测试可以放在 pikaMain-test.cpp 下。
+The tests for the standard library can be placed under pikaMain-test.cpp.
 
-一个测例的内容如下，首先是用 TEST 宏声明一个测例，然后填入测试组的名字，和测例的名字，测试组的名字和当前文件的其他测例一致即可，测试名字需要和其他测例不同。
+The contents of a test case are as follows: first, declare a test case with the TEST macro, then fill in the name of the test group, and the name of the test case, the name of the test group can be the same as the other test cases in the current file, the test name needs to be different from the other test cases.
 
 ```C
 TEST(<test group>, <test name>){
@@ -133,15 +137,15 @@ TEST(<test group>, <test name>){
 }
 ```
 
-测例主要分为三个部分：
+The measurement example is divided into three main parts.
 
-- 运行
+- Running
 
-- 判定
+- Judgment
 
-- 析构
+- Analysis
 
-  下面是一个典型的测例，我们复制这个测例，然后修改测例名。
+  Here is a typical test case, we copy this test case and change the name of the test case.
 
   ``` C
   TEST(pikaMain, a_signed) {
@@ -162,7 +166,7 @@ TEST(<test group>, <test name>){
   }
   ```
 
-我们修改 `obj_run()` 的部分，运行一段 python 脚本，然后取出结果使用 EXPECT_EQ 宏对结果进行判定。
+We modify the `obj_run()` part, run a python script, and then take the result and use the EXPECT_EQ macro to determine the result.
 
 ``` C
 TEST(pikaMain, string_startswith) {
@@ -172,7 +176,7 @@ TEST(pikaMain, string_startswith) {
     /* run */
     obj_run(pikaMain, 
     "a = PikaStdData.String('test')\n"
-    "res1 = a.startswith('te')\n"
+    "res1 = a.starswith('te')\n"
     "res2 = a.startswith('st')\n"
     );
     /* collect */
@@ -189,23 +193,25 @@ TEST(pikaMain, string_startswith) {
 }
 ```
 
-`EXPECT_EQ`  宏是由 GoogleTest 提供的，作用是判定两个值是否相等，如果不相等，则 GoogleTest 会抛出错误，可以查看 GoogleTest 的文档了解更多。
+The `EXPECT_EQ` macro is provided by GoogleTest to determine if two values are equal, if not, GoogleTest will throw an error, you can check GoogleTest's documentation to learn more.
 
-然后我们再运行 GoogleTest
+Then we run GoogleTest again
 
 ```
 sh gtest.sh
 ```
 
-可以看到，测例个数为 331，比之前的 330 多了一个，而且都通过了，这说明测试是成功的。
+As you can see, the number of test cases is 331, one more than the previous 330, and they all pass, which means the test is successful.
 
 ![](assets/image-20220601005050927.png)
 
-### 提交
+### Commit
 
-测试通过后，就可以提交这个修改了，在提交修改之前，你需要先 fork PikaScript 的仓库，Gitee 和 Github 均可。
+Once the test passes, you can commit the changes.
 
-第一次提交时，需要修改你的提交信息，包括你的用户名，email，和 fork 后的仓库地址。
+Before committing the changes, you need to fork the PikaScript repository, Gitee and Github are both available.
+
+The first time you commit, you need to change your commit information, including your username, email, and the repository address after fork.
 
 ```
 git config --global user.name < your user name >
@@ -213,40 +219,41 @@ git config --global user.email < your email >
 git config remote.origin.url < your forked git repo url >
 ```
 
-运行
+Run
 
 ```
 sh push-core.sh
 ```
 
-将修改后的代码提交到 ~/pikascript/package/PikaStdLib。
+Commit the modified code to ~/pikascript/package/PikaStdLib.
 
-然后运行
+Then run
 
 ```
 git commit -a
 ```
 
-输入 commit 信息，如果你不熟悉 vim，请自行了解 vim 的基础使用方法。
+Enter the commit information, and if you are not familiar with vim, learn the basics of using vim yourself.
 
 ![](assets/image-20220601005532339.png)
 
-接下来就可以提交了
+Next you can commit
 
 ``` 
 git push
 ```
 
-如果出现冲突，可以先
+If there is a conflict, you can first
 
 ```
 git pull --rebase
 ```
 
-然后再 `git push` 提交，更多 git 的用法请参考 git 使用手册。
+and then ``git push``. For more information on how to use git, see the git manual.
 
 ![](assets/image-20220601005949285.png)
 
-然后在 gitee / github 中发起 Pull Request
+Then launch a Pull Request in gitee / github
 
 ![](assets/image-20220601010131920.png)
+
