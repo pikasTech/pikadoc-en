@@ -1,4 +1,4 @@
-# How to contribute PikaScript modules
+# How to contribute to modules
 ## Help improve existing modules
 
 
