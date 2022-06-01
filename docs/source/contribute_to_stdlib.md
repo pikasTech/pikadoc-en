@@ -129,7 +129,7 @@ The contents of a test case are as follows: first, declare a test case with the 
 ```C
 TEST(<test group>, <test name>){
 
-	/* do something */
+    /* do something */
 
     /* assert */
     
