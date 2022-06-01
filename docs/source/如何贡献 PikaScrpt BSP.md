@@ -9,7 +9,7 @@
 
 - Clean up **compiled products**, leaving only project files and source code. (The compilation products include intermediate files .o .d , binary products .bin, .hex , executable files .exe , etc.).
 
-- Clean up the **auto-pull** and **auto-generate** codes in the pikascript folder. Only the main.py, request.txt, and pikaPackage.exe files can be kept in the pikascript folder.
+- Clean up the **auto-pull** and **auto-generate** codes in the pikascript folder. Only the main.py, requsetment.txt, and pikaPackage.exe files can be kept in the pikascript folder.
 
 - Clean up unused source code and libraries, and control the size of the project to within 50MB. If the size of the project is still larger than 50MB after cleaning, you can create a new special warehouse to place the BSP, and only place a README.md containing a link to the special warehouse in pikscript/bsp.
 
