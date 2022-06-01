@@ -16,9 +16,6 @@ PikaScript's linux development platform needs to install go, rust, GoogleTest, G
 
 The Docker-based development environment can be installed with one click, and the development environment is guaranteed to be consistent for all developers.
 
-The Docker-based development environment can be installed with one click and all developers' development environments are the same. 
-
-
 ### Build Docker container
 
 Please make sure you have installed Docker on the host:
