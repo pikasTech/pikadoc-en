@@ -43,12 +43,6 @@ We scroll down from the homepage of the code repository, see Get PikaScript, and
 ![](assets/139675454-596829d1-0325-42ab-96c5-f3d3d369d7d4.png)
 
 
-The same is true on Gitee, you can choose one.
-
-
-![](assets/139675486-0f63e7b4-669d-4370-80ad-134c0f28f203.png)
-
-
 Next, put PikaPackage.exe on the disk where you want to download PikaScript. In order to save your C drive, you can put PikaPackage.exe on the D drive, which can be any location on the D drive.
 
 
