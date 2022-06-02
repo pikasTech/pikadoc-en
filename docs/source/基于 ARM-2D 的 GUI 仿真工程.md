@@ -103,7 +103,7 @@ We enter the simulation-rtt-qemu-arm2d/packages/pikascrpt directory, which is th
 ![](assets/139678258-e2cdc50d-475b-435a-af8c-7c19cc3a218d.png)
 
 
-For the convenience of version management, pikascript uses request.txt to manage the version of the kernel and modules, so there is no source code of pikascript in this folder, only a request.txt file. If you are familiar with pip, you will find this file and the version used by pip The description file is exactly the same.
+For the convenience of version management, pikascript uses request.txt to manage the version of the kernel and modules, so there is no source code of pikascript in this folder, only a requestment.txt file. If you are familiar with pip, you will find this file and the version used by pip The description file is exactly the same.
 
 
 ![](assets/139678404-9b747c0a-6508-4f6d-b0ca-671560f31fbd.png)
