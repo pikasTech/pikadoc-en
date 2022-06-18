@@ -1,4 +1,4 @@
-# parameter list Args
+# Parameter list Args
 ## head File
 ````c
 #include "dataArgs.h"

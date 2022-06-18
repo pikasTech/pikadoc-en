@@ -1,4 +1,4 @@
-# use BSP project
+# Use BSP project
 ## create project
 Enter pikascript official website [http://pikascript.com](http://pikascript.com)
 Select the platform, module, and click "Start Build".
