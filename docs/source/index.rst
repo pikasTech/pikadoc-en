@@ -17,7 +17,7 @@ https://github.com/pikasTech/pikadoc-en
    :maxdepth: 2
 
    index_intro
-   index_get-started
+   index_get-start
    index_porting
    index_module
    index_stdlib
