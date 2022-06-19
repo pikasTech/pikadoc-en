@@ -52,7 +52,7 @@ class BaseDev(TinyObj):
 
 - The device classes in `PikaStdDevice` (e.g. GPIO) all inherit from `BaseDev`, so they all get the `addEventCallBack` method and can register callbacks.
 
-[/package/PikaStdDevice/PikaStdDevice.pyi](https://gitee.com/Lyon1998/pikascript/blob/master/package/PikaStdDevice/PikaStdDevice. pyi)
+[/package/PikaStdDevice/PikaStdDevice.pyi](https://github.com/pikastech/pikascript/blob/master/package/PikaStdDevice/PikaStdDevice.pyi)
 
 ``` python
 class GPIO(BaseDev):
@@ -60,22 +60,22 @@ class GPIO(BaseDev):
 ```
 After the platform driver inherits from `PikaStdDevice.GPIO`, it also gets the `addEventCallBack` method.
 
-[/package/TemplateDevice/TemplateDevice.pyi](https://gitee.com/Lyon1998/pikascript/blob/master/package/TemplateDevice/ TemplateDevice.pyi)
+[/package/TemplateDevice/TemplateDevice.pyi](https://github.com/pikastech/pikascript/blob/master/package/TemplateDevice/TemplateDevice.pyi)
 
 ``` python
 # TemplateDevice.pyi
 class GPIO(PikaStdDevice.GPIO):
     # overrid
---
+...
     def platformGetEventId(self): ...
----
+...
 ```
 
 Just override the `platformGetEventId` platform method to be able to support registration callbacks.
 
 For example.
 
-[/package/TemplateDevice/TemplateDevice_GPIO.c](https://gitee.com/Lyon1998/pikascript/blob/master/package/TemplateDevice/ TemplateDevice_GPIO.c)
+[/package/TemplateDevice/TemplateDevice_GPIO.c](https://github.com/pikastech/pikascript/blob/master/package/TemplateDevice/TemplateDevice_GPIO.c)
 
 ``` c
 const uint32_t GPIO_PA8_EVENT_ID = 0x08;
@@ -91,7 +91,7 @@ void TemplateDevice_GPIO_platformGetEventId(PikaObj* self) {
 
 - Define a callback function `callBack1` that takes an input parameter `signal`, `signal` can receive the incoming signal number.
 
-[/examples/TemplateDevice/gpio_cb.py](https://gitee.com/Lyon1998/pikascript/blob/master/examples/TemplateDevice/gpio_cb.py)
+[/examples/TemplateDevice/gpio_cb.py](https://github.com/pikastech/pikascript/blob/master/examples/TemplateDevice/gpio_cb.py)
 
 ``` python
 import TemplateDevice
@@ -118,7 +118,7 @@ io1.addEventCallBack(callBack1)
 
 Send a signal to `PikaEventListener` when an event callback needs to be triggered.
 
-Example: [/port/linux/test/event-test.cpp](https://gitee.com/Lyon1998/pikascript/blob/master/port/linux/test/event-test.cpp)
+Example: [/port/linux/test/event-test.cpp](https://github.com/pikastech/pikascript/blob/master/port/linux/test/event-test.cpp)
 
 - Get the event listener provided by `PikaStdDevice` via `extern PikaEventListener* g_pika_device_event_listener`.
 
@@ -160,7 +160,7 @@ get falling edg!
 
 For example.
 
-[/package/PikaStdDevice/PikaStdDevice.pyi](https://gitee.com/Lyon1998/pikascript/blob/master/package/PikaStdDevice/PikaStdDevice. pyi)
+[/package/PikaStdDevice/PikaStdDevice.pyi](https://github.com/pikastech/pikascript/blob/master/package/PikaStdDevice/PikaStdDevice.pyi)
 
 ```python
 class BaseDev(TinyObj):
@@ -171,7 +171,7 @@ The type annotation for the event callback function is ``any``.
 
 - Registering events in the C module implementation
 
-Example: [/package/PikaStdDevice/PikaStdDevice_BaseDev.c](https://gitee.com/Lyon1998/pikascript/blob/master/package/PikaStdDevice/ PikaStdDevice_BaseDev.c)
+Example: [/package/PikaStdDevice/PikaStdDevice_BaseDev.c](https://github.com/pikastech/pikascript/blob/master/package/PikaStdDevice/PikaStdDevice_BaseDev.c)
 
 ```c
 PikaEventListener* g_pika_device_event_listener;
@@ -196,6 +196,6 @@ void PikaStdDevice_BaseDev_addEventCallBack(PikaObj* self, Arg* eventCallBack) {
 - Pass `self` as `event handler object` and `evnetCallBack` into `self`.
 - Get `evnetID`.
   - This example gets the `eventID` by calling the `platformGetEventId()` platform function, which requires `BaseDev` inheritance, then rewrites `platformGetEventId()` and sets `self. eventId` in the overridden `platformGetEventId()`.
-  - For example: [/package/TemplateDevice/TemplateDevice_GPIO.c](https://gitee.com/Lyon1998/pikascript/blob/master/package/TemplateDevice/ TemplateDevice_GPIO.c)
+  - For example: [/package/TemplateDevice/TemplateDevice_GPIO.c](https://github.com/pikastech/pikascript/blob/master/package/TemplateDevice/TemplateDevice_GPIO.c)
 - Call `pks_eventLicener_registEvent` to register `eventId` and `self` into the event listener.
 
