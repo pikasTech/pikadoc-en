@@ -42,7 +42,7 @@ def add(a, b):
 
 Next, introduce test.py inside main.py and test the functions mytest() and add() that we defined in test.py
 
-```python
+``` python
 import Device
 import PikaStdLib
 import PikaStdData
@@ -108,7 +108,7 @@ class List(TinyObj):
     # get the length of list
     def len(self) -> int: ...
 ...
-... ```
+```
 
 You can see that there is a `List` class inside.
 
