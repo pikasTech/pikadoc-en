@@ -78,7 +78,7 @@ A C module is a module that is implemented in C at the bottom, but can still be 
 
 A C module named `<module>` usually consists of a `<module>.pyi` file (a python interface file) and the pikascript-lib/\<module\> folder.
 
-PikaScript imports C modules in the same way as Python modules, by directly `importing` and then running a pre-compile.
+PikaScript imports C modules in the same way as Python modules, by directly `import` and then running a pre-compile.
 
 After pre-compilation, some module linking files are automatically generated, all of them are in the pikascript-api folder. Therefore, after introducing the C module, you need to add the following files to the project for compilation.
 
