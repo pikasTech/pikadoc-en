@@ -3,7 +3,7 @@
 In this article, we introduce a way of playing PikaScript without any hardware, i.e. using simulation in MDK. 
 The target board of simulation is stm32f103, and you can experience the fun of pikascript immediately after downloading the project.
 
-### Create project
+## Create project
 Enter pikascript official website [http://pikascript.com](http://pikascript.com)
 
 Select simulation-keil and click "Start Generation"
@@ -38,9 +38,9 @@ Python scripts can be run interactively by typing them directly into the UART wi
 
 With **4 spaces** for indentation.
 
-![image-20220621093047893](assets/image-20220621093047893.png)
+![](assets/image-20220621093047893.png)
 
-### How to Change a different python script
+## How to Change a different python script
 
 Open main.py in any editor, e.g. vscode:
 
