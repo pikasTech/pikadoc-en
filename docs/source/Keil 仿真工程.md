@@ -32,7 +32,16 @@ run and check the output:
 
 ![](https://user-images.githubusercontent.com/88232613/171086180-ddeec7eb-39c6-47ec-bcd2-4d7380e8b703.png)
 
+## REPL
+
+Python scripts can be run interactively by typing them directly into the UART window.
+
+With **4 spaces** for indentation.
+
+![image-20220621093047893](assets/image-20220621093047893.png)
+
 ### How to Change a different python script
+
 Open main.py in any editor, e.g. vscode:
 
 ![](https://user-images.githubusercontent.com/88232613/171086868-3ac1b9f6-c59f-4306-9b43-edf45844a203.png)
