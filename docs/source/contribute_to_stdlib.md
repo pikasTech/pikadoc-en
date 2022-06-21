@@ -34,7 +34,7 @@ cd pikascript/docker
 
 step2: Build the Docker image, then start the container
 ```
-sh build.sh
+bash build.sh
 sh run.sh
 ```
 
