@@ -1,6 +1,6 @@
-## Start with the Docker Development Environment
+# Start with the Docker Development Environment
 
-# # Why use docker development environment
+## Why use docker development environment
 
 PikaScript's kernel and standard libraries are developed in a docker environment, which can be prone to some hard-to-debug problems when developing features that involve the kernel internals, such as
 
