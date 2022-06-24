@@ -12,50 +12,9 @@ The PikaScript standard library is cross-platform, so it can't use the proprieta
 
 PikaScript deploys GoogleTest unit testing framework on linux platform to provide test cases for these standard libraries, GoogleTest can be run on the developer's local machine and also automatically in the cloud (based on Github Actions).
 
-PikaScript's linux development platform needs to install go, rust, GoogleTest, GoogleBenchmark, valgrind and other tools, which is rather tedious, in order to simplify the construction of the development platform, PikaScript provides a Docker-based development environment.
-
-The Docker-based development environment can be installed with one click, and the development environment is guaranteed to be consistent for all developers.
-
 ### Build Docker container
 
-Please make sure you have installed Docker on the host:
-
-- Install Docker directly on Linux platform
-- Install Docker-Desktop on Windows platform
-
-(For windows platform, you can use the following command in wsl.)
-
-step1: Clone the repository
-
-``` shell
-git clone https://gitee.com/lyon1998/pikascript
-cd pikascript/docker 
-```
-
-step2: Build the Docker image, then start the container
-```
-bash build.sh
-sh run.sh
-```
-
-step3: Initialize the port/linux
-
-``` shell	
-cd port/linux
-sh pull-core.sh
-sh init.sh
-```
-
-step4: Run GoogleTest and Benchmark 
-``` shell
-sh gtest.sh
-sh ci_benchmark.sh
-```
-
-step5: Run REPL
-``` shell
-sh run.sh
-```
+[ get start -> get start with docker](https://pikadoc.readthedocs.io/en/latest/get-start_linux.html)
 
 ## Use VSCODE to connect to the container for development
 
