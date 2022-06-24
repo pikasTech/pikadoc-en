@@ -39,26 +39,36 @@ Available configuration items and default configuration are in the ```pika_confi
 Intercept the important part for explanation:
 
 ```` c
-/* default configuration */
-   #define PIKA_LINE_BUFF_SIZE 128
-   #define PIKA_SPRINTF_BUFF_SIZE 128
-   #define PIKA_STACK_BUFF_SIZE 256
-   #define PIKA_NAME_BUFF_SIZE 32
-   #define PIKA_PATH_BUFF_SIZE 64
-   #define PIKA_ARG_ALIGN_ENABLE 1
-   #define PIKA_METHOD_CACHE_ENABLE 0
-          
-/* optimize options */
-   #define PIKA_OPTIMIZE_SIZE 0
-   #define PIKA_OPTIMIZE_SPEED 1
-      
-/* default optimize */
-   #define PIKA_OPTIMIZE PIKA_OPTIMIZE_SIZE
-      
-/* use user config */
-   #ifdef PIKA_CONFIG_ENABLE
-      #include "pika_config.h"
-   #endif
+    /* optimize options */
+        #define PIKA_OPTIMIZE_SIZE 0
+        #define PIKA_OPTIMIZE_SPEED 1
+
+    /* syntax support level */
+        #define PIKA_SYNTAX_LEVEL_MINIMAL 0
+        #define PIKA_SYNTAX_LEVEL_MAXIMAL 1
+
+    /* use user config */
+    #ifdef PIKA_CONFIG_ENABLE
+        #include "pika_config.h"
+    #endif
+
+    /* default optimize */
+    #ifndef PIKA_OPTIMIZE
+        #define PIKA_OPTIMIZE PIKA_OPTIMIZE_SIZE
+    #endif
+
+    /* default syntax support level */
+    #ifndef PIKA_SYNTAX_LEVEL
+        #define PIKA_SYNTAX_LEVEL PIKA_SYNTAX_LEVEL_MAXIMAL
+    #endif
+
+...
+    
+    /* default configuration  */
+    
+	#ifndef PIKA_STACK_BUFF_SIZE
+        #define PIKA_STACK_BUFF_SIZE 256
+    #endif
 ````
 
 ```default configuration``` is the default value of the configuration item. When the ```PIKA_CONFIG_ENABLE``` macro is defined, ```pika_config_valid.h``` will import ```pika_config.h```, so User can override the above default configuration in ```pika_config.h```.
@@ -66,14 +76,12 @@ Intercept the important part for explanation:
 For example, if you want to increase the runtime stack of the PikaScript virtual machine, you can write in ```pika_config.h```
 
 ```` c
-#undef PIKA_STACK_BUFF_SIZE
 #define PIKA_STACK_BUFF_SIZE 512
 ````
 
 As can be seen from ```pika_config_valid.h```, the default optimization option of PikaScript ``` PIKA_OPTIMIZE ``` is ``` PIKA_OPTIMIZE_SIZE ```, if you need to switch to speed optimization, you can write in ```pika_config.h```
 
 ```` c
-#undef PIKA_OPTIMIZE
 #define PIKA_OPTIMIZE PIKA_OPTIMIZE_SPEED
 ````
 ### Sample code
