@@ -1,10 +1,10 @@
 # How to Get Started with PikaScript using KEIL Simulator
 
-In this article, we introduce a way of playing PikaScript without any hardware, i.e. using simulation in MDK. 
+In this article, we introduce a new way of playing PikaScript without hardware, i.e. using simulation in MDK. 
 The target board of simulation is stm32f103, and you can experience the fun of pikascript immediately after downloading the project.
 
 ## Create project
-Enter pikascript official website [http://pikascript.com](http://pikascript.com)
+Open the pikascript official website [http://pikascript.com](http://pikascript.com)
 
 Select simulation-keil and click "Start Generation"
 
@@ -34,19 +34,19 @@ run and check the output:
 
 ## REPL
 
-Python scripts can be run interactively by typing them directly into the UART window.
+Python scripts can be run interactively by typing them directly in the UART window.
 
-With **4 spaces** for indentation.
+**NOTE**: Please use With **4 white-spaces** for indentation.
 
 ![](assets/image-20220621093047893.png)
 
-## How to Change a different python script
+## How to Run a different python script
 
-Open main.py in any editor, e.g. vscode:
+Open the `main.py` in any editor, e.g. vscode:
 
 ![](https://user-images.githubusercontent.com/88232613/171086868-3ac1b9f6-c59f-4306-9b43-edf45844a203.png)
 
-In main.py, you might see something similar:
+In `main.py`, you might see something similar to:
 
 ````python
 # main.py
@@ -68,13 +68,13 @@ print('mem used now:')
 mem.now()
 ````
 
-This script uses standard python3 syntax. Suppose we have updated this script, so how to make it run in the microcontroller?
+This script uses standard python3 syntax. Suppose we have already modified this script, so how to run it on the device?
 
-The interesting part is, pikascript uses a method similar to java, i.e. it is semi-compiled and semi-interpreted. For example, classes and methods are to be compiled, while method-calls and object-creation/destruction are to be interpreted at runtime. .
+The interesting part is, pikascript uses a method similar to java, i.e. it is semi-compiled and semi-interpreted. For example, the pikascript compiler compiles classes and methods, while PikaVM interprets method-calls and object-creation/destruction at runtime.
 
 The pikascript compilation is a two-step process:
-1. Use the pikascript precompiler to compile the .py files into .c and .h files in pikascript-api.
-2. Use the c compiler to compile all the c source files, and then download the generated image into the microcontroller.
+1. Using pikascript compiler to compile the `.py` files into `.c` and `.h` files and store them in the `pikascript-api` folder.
+2. Using the ordinary c compiler to compile all the c source files and generate an executable image for the target device.
 
 Double-click `rust-msc-vxx.yy.zz.exe` to run the pika precompiler which is written in Rust.
 
@@ -82,12 +82,16 @@ Double-click `rust-msc-vxx.yy.zz.exe` to run the pika precompiler which is writt
 
 ![](https://user-images.githubusercontent.com/88232613/171086391-7b6c5ee0-53b1-4800-bfe8-34f586974947.png)
 
-If you want to make sure the updated script is compiled as required, please 1) delete all files in the `pikascript-api` folder, 2) run the precompiler and 3) check whether the .c and .h files have been generated or not. 
+If you want to ensure that the updated script is compiled as expected, please 
+1) delete all files in the `pikascript-api` folder, 
+2) run the precompiler 
+and 
+4) check whether the new `.c` and `.h` files have been generated or not. 
 
 
-**IMPORTANT**: Please do NOT remove the `pikascript-api` folder but the files inside.
+**IMPORTANT**: Please do **NOT** remove the `pikascript-api` folder but only the files inside.
 
-Here is an example shows the \*.c \*h files generated in `pikascript-api`
+Here is an example that shows the `*.c` and `*h` files generated in the `pikascript-api` folder
 
 ![](assets/130750476-eaffce03-caeb-40b3-9841-550034fa191a.png)
 
@@ -120,7 +124,7 @@ print('add new code end')
 # new code end
 ````
 
-As you can see, we have added 4 new lines to main.py. Let's compile and run.
+As you can see, we have added 4 new lines to the `main.py`. Let's compile and run:
 
 Compile `pikascript-api`
 
@@ -131,7 +135,7 @@ Compile the keil project and enter the debugging session:
 ![](assets/130751539-aa0bdb82-750f-4f98-8f6f-02d653dda64a.png)
 
 
-run and watch the output
+run and observe the output
 
 ![](https://user-images.githubusercontent.com/88232613/171086558-7ee7aeca-eb2d-4cd1-ac5a-21aa6e6f9d7e.png)
 
