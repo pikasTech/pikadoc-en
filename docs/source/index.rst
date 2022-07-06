@@ -24,6 +24,6 @@ https://github.com/pikasTech/pikadoc-en
    index_cmodule
    index_coreapi
    index_contribute
-   thrid_part_doc
+   third_part_doc
    商业合作方式
    index_meeting
