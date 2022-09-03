@@ -1,5 +1,4 @@
-
-## Generic parameters Arg
+# Generic parameters Arg
 
 ## Header file
 
