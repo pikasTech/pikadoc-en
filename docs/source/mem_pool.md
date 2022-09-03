@@ -14,7 +14,7 @@ Note that the kernel version must be at least v1.9.0.
 
 ### Enable user configuration
 
-Refer to the [configuration document](https://pikadoc.readthedocs.io/zh/latest/%E4%BC%98%E5%8C%96%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E3%80%81%E9%85%8D%E7%BD% AE%20libc.html)
+Refer to the [configuration document](https://pikadoc.readthedocs.io/en/latest/%E4%BC%98%E5%8C%96%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E3%80%81%E9%85%8D%E7%BD%AE%20libc.html)
 
 ### Add configuration items
 
@@ -32,7 +32,7 @@ Refer to [bsp/stm32g030c8/Booter/pika_config.h](https://gitee.com/Lyon1998/pikas
 
 Initialize the memory pool before `pikaScriptInit()` or `newRootObj()`. 
 
-`` C
+``` C
 mem_pool_init();
 ```
 
