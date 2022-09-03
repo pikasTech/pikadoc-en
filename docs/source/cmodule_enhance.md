@@ -1,15 +1,15 @@
-# C 模块可变参数
+# C module variable parameters
 
-C 模块支持可变参数，使用 `*xxx` 的输入参数即可，在 C 层会将任意个数的参数打包进 `PikaTuple` 数据类型中，使用 `tuple_getSize()` 可以获得可变参数的个数，使用 `tuple_getArg()` 可以根据可变参数的位置得到 `arg`。同样支持 `tuple_get<Type>` api，直接得到指定类型的值。
+The C module supports variable arguments, just use `*xxx` input arguments, any number of arguments will be packed into the `PikaTuple` data type at the C level, use `tuple_getSize()` to get the number of variable arguments, use `tuple_getArg()` to get `arg` based on the position of the variable arguments. The `tuple_get<Type>` api is also supported to get the value of the specified type directly.
 
 
-[注意] 
+[Note] 
 
-- 需要内核版本 `>= v1.10.0`
+- Requires kernel version `>= v1.10.0`
 
-- 可变参数必须放在位置参数的后面
+- Variable arguments must be placed after positional arguments
 
-示例：
+Example.
 
 ``` python
 # test.pyi
@@ -27,7 +27,7 @@ void test_vals(PikaObj* self, int a, PikaTuple* val){
 }
 ```
 
-输出结果:
+Output the result:
 
 ```python
 >>> test.vals(1, 2, 3, 4)
@@ -38,18 +38,18 @@ val[2]: 4
 >>>
 ```
 
-# C 模块关键词参数
+# C module keyword parameters
 
-C 模块支持关键词参数，使用 `**xxx` 的输入参数即可，在 C 层会将任意个数的参数打包进 `PikaDict` 数据类型中，使用 `dict_getArg()` 可以根据关键词得到 `arg`。同样支持 `dict_get<Type>()` api, 直接得到指定类型的值。
+C module supports keyword arguments, just use `**xxx` input arguments, any number of arguments will be packed into `PikaDict` data type at C level, use `dict_getArg()` to get `arg` based on keyword. The `dict_get<Type>()` api is also supported to get the value of the specified type directly.
 
 
-[注意] 
+[Note] 
 
-- 需要内核版本 `>= v1.10.7`
+- Requires kernel version `>= v1.10.7`
 
-- 关键词参数必须放在位置参数和可变参数的后面
+- Keyword arguments must be placed after positional and variable arguments
 
-示例：
+Example.
 
 ``` python
 # test.pyi
@@ -65,7 +65,7 @@ void test_keys(PikaObj* self, int a, PikaDict* keys){
 }
 ```
 
-输出结果:
+Output result:
 
 ```python
 >>> test.keys(1, b=2, c=3)
@@ -75,9 +75,9 @@ keys['c']: 3
 >>>
 ```
 
-# C 模块常量
+# C module constants
 
-C 模块支持在类中或模块中加入常量，可以使用 `val:type` 的语法，这些常量需要在初始化时赋值，因此需要定义 `__init__()` 方法，例如：
+C modules support adding constants to classes or modules, either using the `val:type` syntax. These constants need to be assigned at initialization time, so the `__init__()` method needs to be defined, e.g.
 
 ```python
 class cJSON:
@@ -96,19 +96,19 @@ void pika_cjson_cJSON___init__(PikaObj* self) {
 }
 ```
 
-这些常量可以不创建对象直接使用，即当作类属性来使用。
+These constants can be used directly without creating an object, i.e. as class properties.
 
 ```python
 print(cJSON.cJSON_Invalid)
 ```
 
-需要注意的是，PikaScript 的类属性是只读的，对类属性的所有修改都是无效的。
+Note that PikaScript class properties are read-only, and all modifications to class properties are invalid.
 
-# C 模块初始化
+# C module initialization
 
-直接在 .pyi 中定义 `__init__()` 函数即可执行模块初始化，在模块载入时会触发执行，PikaScript 具有模块延时加载机制，`import` 不会直接触发模块加载，仅仅在第一次真正使用模块时，才会触发加载。
+Define `__init__()` function directly in .pyi to perform module initialization, which will be triggered when the module is loaded, PikaScript has a delayed module loading mechanism, `import` will not trigger module loading directly, but only when the module is actually used for the first time.
 
-例如:
+For example:
 
 ```python
 # test.pyi
@@ -135,7 +135,7 @@ test.hello()
 print('after run test.hello()')
 ```
 
-输出：
+Output.
 
 ```
 before run test.hello()

@@ -48,6 +48,7 @@ step4: Run GoogleTest, BenchMark, and valgrind
 ``` shell
 sh gtest.sh
 sh ci_benchmark.sh
+sh valgrind.sh
 ```
 
 step5: Run REPL

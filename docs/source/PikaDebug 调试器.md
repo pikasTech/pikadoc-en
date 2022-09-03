@@ -7,7 +7,7 @@ The PikaDebug debugger module provides features such as breakpoint debugging.
 Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
 
 ````
-PikaStdLib==v1.6.1
+PikaStdLib==v1.10.0
 ````
 
 Run pikaPackage.exe
@@ -19,7 +19,7 @@ The Debuger class provides the debugger function. By creating an object of the D
 ### Debuger class methods
 
 ````c
-class Debuger(TinyObj):
+class Debuger:
     def __init__(self):
         pass
 

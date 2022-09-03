@@ -1,21 +1,22 @@
-# 泛型参数 Arg
 
-## 头文件
+## Generic parameters Arg
+
+## Header file
 
 ```c
 #include "dataArg.h"
 ```
 
-## 概述
+## Overview
 
-1. arg 泛型参数API是以 arg_ 为前缀的一系列函数。
-1. arg 中可以保存一个任意类型的值。
-1. arg 支持的类型有：int，float，pointer, string, null, bytes。
-1. arg 放入对象后，可以直接在 python 脚本中访问 arg 的值。
+1. arg The generic argument API is a set of functions prefixed with arg_.
+1. arg can hold a value of any type in it.
+The types supported by arg are: int, float, pointer, string, null, bytes. 1.
+1. arg can be put into an object and the value of arg can be accessed directly in the python script.
 
-## 数据类型
+## Data types
 
-泛型参数的数据类型是 Arg。
+The data type of a generic argument is Arg.
 
 ```c
 typedef struct Arg Arg;
@@ -28,20 +29,20 @@ struct Arg {
 };
 ```
 
-泛型参数内部包括头部信息 ( size, type, name_hash )，数据体 (content)，和用于构成链表的指针 (next)。
+The generic arguments internally include header information ( size, type, name_hash ), the data body (content), and a pointer (next) used to form the chain.
 
-**注意不要直接访问arg 内部的成员**，请使用arg  API访问arg 。以获得**最大的向后兼容性**。
+**Be careful not to access the internal members of arg directly**, use the arg API to access arg. for **maximum backward compatibility**.
 
 
-## 泛型参数的新建和销毁
+## Creating and destroying generic arguments
 
-- 新建泛型参数
+- Creating a new generic argument
 
-从堆中新建一个泛型参数，返回泛型参数的指针。
+Creates a new generic argument from the heap and returns a pointer to the generic argument.
 
-**注意新建的泛型参数需要手动销毁来回收内存。不断新建泛型参数但不销毁会导致内存泄漏。**
+**Note that newly created generic parameters need to be manually destroyed to reclaim memory. Constantly creating new generic parameters but not destroying them can lead to memory leaks. **
 
-[注意] 下列 api 需要内核版本不低于 v1.9.2
+[Note] The following api requires a kernel version of at least v1.9.2
 
 ```c
 Arg* arg_newInt(int val);
@@ -52,30 +53,30 @@ Arg* arg_newNull(void);
 Arg* arg_newBytes(uint8_t* src, size_t size);
 ```
 
-新建 arg 传入的参数是 arg 的值。
+New arg The argument passed in is the value of arg.
 
-- 销毁泛型参数。
+- Destroy generic arguments.
 
 ```c
 void arg_deinit(Arg* self);
 ```
 
-- 复制泛型参数
+- Copy generic arguments
 ```c
 Arg* arg_copy(Arg* self);
 ```
 
-传入泛型参数的指针，销毁泛型参数。
+Pass in a pointer to the generic argument and destroy the generic argument.
 
-## 得到泛型参数的值
+## Getting the value of a generic argument
 
-使用以下API可以判断泛型参数的当前类型。
+Use the following API to determine the current type of a generic argument.
 
 ```c
 ArgType arg_getType(Arg* self);
 ```
 
-使用以下的API可以将泛型参数转换为基本类型。
+Use the following API to convert a generic argument to a basic type.
 
 ```c
 int64_t arg_getInt(Arg* self);
@@ -86,28 +87,28 @@ uint8_t* arg_getBytes(Arg* self);
 size_t arg_getBytesSize(Arg* self);
 ```
 
-## 重要注意事项
+## Important Notes
 
-直接使用 arg_new\<Type\>() api **极易引起** 内存泄漏或悬垂引用，导致 **致命缺陷**。
+Direct use of the arg_new\<Type\>() api **is highly likely to cause **memory leaks or dangling references, resulting in **fatal flaws**.
 
-请在 [docker 开发环境](https://pikadoc.readthedocs.io/zh/latest/get-start_linux.html) 下进行开发，确保充足的单元测试和内存检查。
+Please develop under [docker development environment](https://pikadoc.readthedocs.io/zh/latest/get-start_linux.html) to ensure sufficient unit testing and memory checking.
 
-## 案例
+## Case
 
-使用 arg 构建一个字符串列表
+Build a list of strings using arg
 
 ``` C
-#include "PikaStdData_List.h"
+## Include "PikaStdData_List.h"
 ...
-    /* 创建 list 对象 */
+    /* Create a list object */
     PikaObj* list = newNormalObj(New_PikaStdData_List);
-    /* 初始化 list */
+    /* initialize list */
     PikaStdData_List___init__(list);
-    /* 用 arg_new<type> 的 api 创建 arg */
+    /* Create arg with api of arg_new<type> */
     Arg* str_arg1 = arg_newStr("aaa");
-    /* 添加到 list 对象 */
+    /* add to list object */
     PikaStdData_List_append(list, str_arg1);
-    /* 销毁 arg */
+    /* destroy arg */
     arg_deinit(str_arg1);
 ...
 ```

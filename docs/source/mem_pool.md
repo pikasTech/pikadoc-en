@@ -1,22 +1,22 @@
-# 紧凑型内存池
+# Compact Memory Pools
 
-## 概述
+## Overview
 
-PikaScript 内置了供小资源芯片使用的紧凑型内存池，默认不开启。
+PikaScript has a built-in compact memory pool for small resource chips, which is not enabled by default.
 
-紧凑型内存池可以将内存碎片从通常的 20~30% 降低至 5% 以下。
+Compact memory pooling can reduce memory fragmentation from the usual 20-30% to less than 5%.
 
-【注意】 紧凑型内存池会降低运行速度。
+Note] Compact memory pooling can slow down the operation speed.
 
-## 开启方式
+## Enabling method
 
-【注意】 需要内核版本不低于 v1.9.0
+Note that the kernel version must be at least v1.9.0.
 
-### 开启用户配置
+### Enable user configuration
 
-参考 [配置文档](https://pikadoc.readthedocs.io/zh/latest/%E4%BC%98%E5%8C%96%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E3%80%81%E9%85%8D%E7%BD%AE%20libc.html)
+Refer to the [configuration document](https://pikadoc.readthedocs.io/zh/latest/%E4%BC%98%E5%8C%96%E5%86%85%E5%AD%98%E5%8D%A0%E7%94%A8%E3%80%81%E9%85%8D%E7%BD% AE%20libc.html)
 
-### 加入配置项
+### Add configuration items
 
 ```
 /* pika_config.h */
@@ -24,23 +24,23 @@ PikaScript 内置了供小资源芯片使用的紧凑型内存池，默认不开
 #define PIKA_POOL_SIZE 0x1900
 ```
 
-其中 `PIKA_POOL_ENABLE` 表示开启紧凑型内存池，`PIKA_POOL_SIZE` 表示内存池的大小，内存池从 heap 中预先申请内存，请确保 heap 能够申请到该大小。
+Where `PIKA_POOL_ENABLE` means open compact memory pool, `PIKA_POOL_SIZE` means the size of the memory pool, the memory pool pre-apply memory from heap, please make sure the heap can apply to that size.
 
-参考 [bsp/stm32g030c8/Booter/pika_config.h](https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g030c8/Booter/pika_config.h)
+Refer to [bsp/stm32g030c8/Booter/pika_config.h](https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g030c8/Booter/pika_config.h)
 
-### 内存池初始化
+### Memory pool initialization
 
-在 `pikaScriptInit()` 或者 `newRootObj()` 之前初始化内存池。 
+Initialize the memory pool before `pikaScriptInit()` or `newRootObj()`. 
 
-``` C
+`` C
 mem_pool_init();
 ```
 
-参考：[bsp/stm32g030c8/Booter/main.c](https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g030c8/Booter/main.c)
+Reference: [bsp/stm32g030c8/Booter/main.c](https://gitee.com/Lyon1998/pikascript/blob/master/bsp/stm32g030c8/Booter/main.c)
 
-## 释放内存池
+## Freeing the memory pool
 
-如果需要释放内存池，调用
+If the memory pool needs to be freed, call
 
 ``` C
 mem_pool_deinit();

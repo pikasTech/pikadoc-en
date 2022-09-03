@@ -12,15 +12,14 @@ Here is the entire contents of Device.pyi.
 
 ```python
 # Device.pyi
-from PikaObj import *
 
-class LED(TinyObj):
+class LED:
     def on(self):
         pass
     def off(self):
         pass
 
-class Uart(TinyObj):
+class Uart:
     def send(self, data:str):
         pass
     def setName(self, name:str):
@@ -30,7 +29,7 @@ class Uart(TinyObj):
 ```
 
 
-As you can see, there are two classes defined in Device.pyi using pyhon standard syntax, the `LED` class and the `Uart` class, both of which inherit from `TinyObj`.
+As you can see, there are two classes defined in Device.pyi using pyhon standard syntax, the `LED` class and the `Uart` class.
 
 
 The LED class defines two methods, the `on()` method and the `off()` method, while the `Uart` class defines the `send(data:str)` method, the `setName(name:str)` method, and the `printName()` method.
@@ -59,7 +58,6 @@ The content of main.py is as follows
 
 ```python
 # main.py
-from PikaObj import *
 import Device
 import PikaStdLib 
 

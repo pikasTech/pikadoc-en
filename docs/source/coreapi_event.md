@@ -37,13 +37,19 @@ When the `Event Signal` event signal arrives, the event listener will match the 
 
 ![](assets/image-20220619104053576.png)
 
+## Event callback mechanism flow
+
+1. Initialize the event listener
+2. register callback functions in Python
+3. Signal the event listener in C (usually in an interrupt or a callback in C)
+4. the callback function registered in Python is executed
 
 ## Support event callbacks via PikaStdDevice
 
 Inheriting PikaStdDevice is the easiest way to support event callbacks, the ``PikaStdDevice.BaseDev`` device base class already supports the event registration method ``addEventCallBack``.
 
 ```python
-class BaseDev(TinyObj):
+class BaseDev:
     def addEventCallBack(self, eventCallback: any): ...
 
     # need override
@@ -163,7 +169,7 @@ For example.
 [/package/PikaStdDevice/PikaStdDevice.pyi](https://github.com/pikastech/pikascript/blob/master/package/PikaStdDevice/PikaStdDevice.pyi)
 
 ```python
-class BaseDev(TinyObj):
+class BaseDev:
     def addEventCallBack(self, eventCallback: any): ...
 ```
 

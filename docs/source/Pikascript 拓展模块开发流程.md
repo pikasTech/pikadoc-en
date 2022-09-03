@@ -7,58 +7,39 @@ We still use keil's simulation project as an example, if you haven't got the sim
 
 To write a new module, you first need to write a module interface file, for example, to write a math calculation module Math, the first step is to write Math.pyi.
 
-
-If you want to create a new class from the PikaScript base class, you need to import PikaObj module, import PikaObj module should use `from PikaObj import *` way of introduction, actually Pika pre-compiler will not compile the module imported using `from` syntax, this is written just to get smart syntax hints from the python editor, PikaObj is built into the Pika runtime kernel.
-
-
-```python
-# Math.pyi
-from PikaObj import *
-```
-
-
-We can open the PikaObj.pyi file to see the class interfaces inside
-
-```python
-# PikaObj.pyi
-class TinyObj:
-    pass
-class BaseObj(TinyObj):
-    pass
-def print(val: any):
-    pass
-def set(argPath: str, val: any):
-    pass
-```
-
-You can see that there are two classes `TinyObj` and `BaseObj`, which are the basic classes implemented by the PikaScript kernel, and TinyObj is the most basic class without any function, with the least memory usage.
-
-`print(val: any)` means that the input parameters are generic functions, `set(argPath:str, val:any)` are also generic functions, these two functions are implemented by the kernel.
-
 ### Writing class interfaces
 
-Now we can create new classes inside Math.pyi. For example, if we want to create a new `Adder` class to implement the relevant addition operations, we can add the Adder class inside Math.pyi. To save memory, the Adder class inherits from the TinyObj base class.
+Now we can create new classes inside Math.pyi. For example, if we want to create a new `Adder` class to implement the relevant addition operations, we can add the Adder class inside Math.pyi.
 
 Then we want Adder to provide addition operations for plastic and floating-point data, so we can add the byInt and byFloat methods.
 
 ```python
 # Math.pyi
-class Adder(TinyObj):
+class Adder:
     def byInt(self, a:int, b:int)->int:
         pass
     def byFloat(self, a:float, b:float)->float:
         pass
 ```
 
+Use `...` to replace `pass` is also avaliable，for example:
+
+```python
+# Math.pyi
+class Addr:
+    def byInt(self, a:int, b:int)->int:...
+    def byFloat(self, a:float, b:float)->float:...
+```
+
 The above code defines the `Adder` class and adds two method declarations, ```byInt(self, a:int, b:int)->int```, indicating that the method name is ``byInt``, the input parameters are ``a`` and ``b``, the type of ``a`` and ``b`` are both ``int``, and the return value is also ``int``. and the return value is determined by `->int`, which is the standard python syntax for writing with type annotations.
 
 The first argument of a method of a class in python is `self`, which is required by python syntax.
 
-We add a Multiplier class to math.py to implement multiplication, which is written as follows, also inheriting from the `TinyObj` base class.
+We add a Multiplier class to math.py to implement multiplication, which is written as follows.
 
 ```python
 # Math.pyi
-class Multiplier(TinyObj):
+class Multiplier:
     def byInt(self, a:int, b:int)->int:
         pass
     def byFloat(self, a:float, b:float)->float:
@@ -120,7 +101,7 @@ Then we write the method implementation of the class inside these two .c files. 
 This is easy, we open Math_Multiplier.h and Math_Adder.h to find that the implementation functions we need to write have already been declared.
 
 
-```c
+``` C
 /* Math_Multiplier.h */
 /* ******************************** */
 /* Warning! Don't modify this file!
@@ -133,14 +114,14 @@ This is easy, we open Math_Multiplier.h and Math_Adder.h to find that the implem
 
 PikaObj *New_Math_Multiplier(Args *args);
 
-float Math_Multiplier_byFloat(PikaObj *self, float a, float b);
+double Math_Multiplier_byFloat(PikaObj *self, double a, doutlb b);
 int Math_Multiplier_byInt(PikaObj *self, int a, int b);
 
 #endif
 ```
 
 
-```c
+``` c
 /* Math_Adder.h */
 /* ******************************** */
 /* Warning! Don't modify this file!
@@ -153,7 +134,7 @@ int Math_Multiplier_byInt(PikaObj *self, int a, int b);
 
 PikaObj *New_Math_Adder(Args *args);
 
-float Math_Adder_byFloat(PikaObj *self, float a, float b);
+double Math_Adder_byFloat(PikaObj *self, double a, double b);
 int Math_Adder_byInt(PikaObj *self, int a, int b);
 
 #endif
@@ -167,7 +148,7 @@ Then we directly implement these four functions in Math_Adder.c and Math_Multipl
 /* Math_Adder.c */
 #include "pikaScript.h"
 
-float Math_Adder_byFloat(PikaObj *self, float a, float b)
+double Math_Adder_byFloat(PikaObj *self, double a, double b)
 {
 	return a + b;
 }
@@ -183,7 +164,7 @@ int Math_Adder_byInt(PikaObj *self, int a, int b)
 /* Math_Multipler.c */
 #include "pikaScript.h"
 
-float Math_Multiplier_byFloat(PikaObj *self, float a, float b)
+double Math_Multiplier_byFloat(PikaObj *self, double a, double b)
 {
 	return a * b;
 }
@@ -244,7 +225,7 @@ The following table lists all the type declarations supported by PikaScript, and
 | Python type annotations | C native types | description |
 | --------------- | ----------- | -- |
 | int | int | python basic types |
-| float | float | python basic types |
+| float | double | python basic types |
 | str | char * | python basic type |
 | bytes | uint8_t * | python basic type |
 | pointer | void * | PikaScript-specific type annotations |

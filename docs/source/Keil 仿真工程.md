@@ -50,7 +50,6 @@ In `main.py`, you might see something similar to:
 
 ````python
 # main.py
-from PikaObj import *
 import Device
 import PikaStdLib
 
@@ -99,7 +98,6 @@ Here is an example that shows the `*.c` and `*h` files generated in the `pikascr
 Now, let's modify main.py as a practice: 
 
 ````python
-from PikaObj import *
 import Device
 import PikaStdLib
 

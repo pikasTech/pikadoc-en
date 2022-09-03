@@ -95,9 +95,7 @@ We open PikaStdData.pyi to see the classes and functions provided by this C modu
 
 ``` python
 # PikaStdData.pyi
-from PikaObj import *
-
-class List(TinyObj):
+class List:
     def __init__(self): ...
     # add an arg after the end of list
     def append(self, arg: any): ...

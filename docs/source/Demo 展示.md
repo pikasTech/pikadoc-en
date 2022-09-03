@@ -36,7 +36,6 @@ mem = PikaStdLib.MemChecker()
 io1 = machine.GPIO()
 time = machine.Time()
 
-io1.init()
 io1.setPin('PA8')
 io1.setMode('out')
 io1.enable()
@@ -70,7 +69,6 @@ import machine
 
 time = machine.Time()
 uart = machine.UART()
-uart.init()
 uart.setId(1)
 uart.setBaudRate(115200)
 uart.enable()
@@ -98,7 +96,6 @@ import machine
 time = machine.Time()
 adc1 = machine.ADC()
 
-adc1.init()
 adc1.setPin('PA1')
 adc1.enable()
 

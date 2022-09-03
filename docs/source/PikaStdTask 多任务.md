@@ -6,7 +6,7 @@ The PikaStdTask multitasking library provides asynchronous multitasking capabili
 Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
 
 ````
-PikaStdLib==v1.6.1
+PikaStdLib==v1.10.0
 ````
 
 Run pikaPackage.exe
@@ -18,11 +18,10 @@ The Task class provides the task loop function, and a task loop can be created b
 ### Methods of the Task class
 
 ````python
-from PikaObj import *
 import PikaStdData
 
 
-class Task(TinyObj):
+class Task:
     calls = PikaStdData.List()
 
     def __init__(self):

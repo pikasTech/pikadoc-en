@@ -23,7 +23,9 @@ https://github.com/pikasTech/pikadoc-en
    index_stdlib
    index_cmodule
    index_coreapi
+   index_config
    index_contribute
+   index_tutorial
    third_part_doc
    商业合作方式
    index_meeting

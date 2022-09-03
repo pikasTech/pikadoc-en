@@ -1,4 +1,4 @@
-配置和高级功能
+Configuration and advanced features
 ============================
 
 .. toctree::

@@ -6,7 +6,7 @@ PikaStdData data structure library provides List (list), Dict (dictionary) data 
 
 Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
 ````
-PikaStdLib==v1.6.1
+PikaStdLib==v1.10.0
 ````
 
 Run pikaPackage.exe
@@ -35,11 +35,11 @@ list = PikaStdData.List()
         pass
 
     # get an arg by the index
-    def get(self, i: int) -> any:
+    def __getitem__(self, i: int) -> any:
         pass
 
     # set an arg by the index
-    def set(self, i: int, arg: any):
+    def __setitem__(self, i: int, arg: any):
         pass
 
     # get the length of list
@@ -47,11 +47,11 @@ list = PikaStdData.List()
         pass
 ````
 
-Note that the index of the `set()` method cannot exceed the length of the List. If you want to add members of the list, you need to use the `append()` method.
+Note that the index of the `__setitem__()` method cannot exceed the length of the List. If you want to add members of the list, you need to use the `append()` method.
 
 ### Use '[]' brackets to index the list
 
-List objects can be indexed using '[]'. `list[1] = a` is equivalent to `list.set(1, a)`, and `a = list[1]` is equivalent to `a = list.get(1)`.
+List objects can be indexed using '[]'. `list[1] = a` is equivalent to `list.__setitem__(1, a)`, and `a = list[1]` is equivalent to `a = list.__getitem__(1)`.
 
 ### Use for loop to iterate over List
 
@@ -83,11 +83,11 @@ dict = PikaStdData.Dict()
 
 ````python
     # get an arg by the key
-    def get(self, key: str) -> any:
+    def __getitem__(self, key: str) -> any:
         pass
 
     # set an arg by the key
-    def set(self, key: str, arg: any):
+    def __setitem__(self, key: str, arg: any):
         pass
 
     # remove an arg by the key
@@ -97,7 +97,7 @@ dict = PikaStdData.Dict()
 
 ### Index dictionary using '[]' brackets
 
-Dict objects can be indexed using '[]'. `dict['x'] = a` is equivalent to `dict.set('x', a)` and `a = dict['x']` is equivalent to `a = dict.get('x') `.
+Dict objects can be indexed using '[]'. `dict['x'] = a` is equivalent to `dict.set('x', a)` and `a = dict['x']` is equivalent to `a = dict.__getitem__('x') `.
 
 ### Using a for loop to iterate over a Dict
 
@@ -129,17 +129,9 @@ bytes = PikaStdData.ByteArray()
 
 The ByteArray class inherits from the List class and can use the methods of the List class.
 
-### Methods of the ByteArray class
-
-``` python
-    # convert a string to ByteArray
-    def fromString(self, s:str):
-        pass
-````
 Example:
 ``` python
->>> bytes = PikaStdData.ByteArray()
->>> bytes.fromString('test')
+>>> bytes = PikaStdData.ByteArray(b'test')
 >>> for byte in bytes:
 ...     print(byte)
 ...

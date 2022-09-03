@@ -1,5 +1,5 @@
-# STM32F429 PikaScript 实践记录 
+# STM32F429 PikaScript Practice Notes
 
-作者：[Once_day](https://blog.csdn.net/Once_day)
+Author: [Once_day](https://blog.csdn.net/Once_day)
 - [PikaScript实践记录(1)之hello world](https://blog.csdn.net/Once_day/article/details/126552628)
 

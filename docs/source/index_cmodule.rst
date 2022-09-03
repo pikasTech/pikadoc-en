@@ -6,4 +6,5 @@ C Module - bind C code to Python module
 
    PikaScript 模块概述
    Pikascript 拓展模块开发流程
+   cmodule_enhance
    模块裁剪
