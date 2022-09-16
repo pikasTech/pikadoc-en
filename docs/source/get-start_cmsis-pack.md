@@ -4,7 +4,7 @@ Users developing with Keil can use CMSIS-PACK to install PikaScript with one cli
 
 ## Install PikaTech.PikaScript.x.x.x.pack
 
-[ Click to download ](https://gitee.com/Lyon1998/pikascript/attach_files/1175224/download)
+[ Click to download ](https://gitee.com/Lyon1998/pikascript/attach_files/1191795/download)
 
 Just go all the way to Next and install
 
