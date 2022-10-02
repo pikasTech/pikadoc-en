@@ -24,15 +24,15 @@ VSCODE provides tools to connect to containers for development, and the developm
 
 Select Remote, Containers, pikadev in the VSCODE sidebar, then click Open Directory to connect to Docker inside VSCODE.
 
-![](assets/image-20220601001455518.png)
+![](assets/image-20220601001455518-16627321708954.png)
 
 The first time you open it, you need to wait for some plugins to be installed automatically, then you can open it again and start it directly.
 
-![](assets/image-20220601001641800.png)
+![](assets/image-20220601001641800-16627321708956.png)
 
  cd to ~/pikascript/port/linux, then type `code . ` to switch the working path to pikascript/port/linux
 
-![](assets/image-20220601001904516.png)
+![](assets/image-20220601001904516-16627321708955.png)
 
 ### Development
 
@@ -40,11 +40,11 @@ The pyi declaration files for the standard library are in the package/pikascript
 
  The implementation files are in the PikaStdLib folder.
 
-![](assets/image-20220601002350438.png)
+![](assets/image-20220601002350438-16627321708968.png)
 
 Then you can add classes, or functions to the standard library, for example, add a `startswith()` method to the `PikaStdData.String` class by first adding a declaration for the `startswith()` method under the `String` class in PikaStdData.pyi.
 
-![](assets/image-20220601003457155.png)
+![](assets/image-20220601003457155-16627321708967.png)
 
 Then run.
 
@@ -56,11 +56,11 @@ to pre-compile and reconfigure CMake.
 
 Then open ``PikaStdData_String.h`` and you will find the c function declaration for the automatically generated startswith method.
 
-![](assets/image-20220601003545995.png)
+![](assets/image-20220601003545995-16627321708969.png)
 
 Next, implement this function in PikaStdData_String.c.
 
-![](assets/image-20220601003710360.png)
+![](assets/image-20220601003710360-166273217089610.png)
 
 ### Testing
 

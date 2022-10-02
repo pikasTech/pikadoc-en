@@ -7,7 +7,7 @@ PikaCV implements some commonly used image processing algorithms.
 1. Add the dependency of PikaCV to requestment.txt.
 
    ```
-   PikaCV==latest
+   PikaCV
    ```
 
 2. Run pikaPackage.exe

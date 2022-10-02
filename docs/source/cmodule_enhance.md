@@ -75,6 +75,59 @@ keys['c']: 3
 >>>
 ```
 
+# C module returns List/Dict
+
+## List
+
+``` python
+# test.pyi
+def test_list()->list: ...
+```
+
+``` C
+// test.c
+#include "PikaStdData_List.h"
+PikaObj* test_test_list(PikaObj* self){
+    /* Create list object */
+    PikaObj* list = newNormalObj(New_PikaStdData_List).
+    /* Initialize the list */
+    PikaStdData_List___init__(list).
+    /* Create arg */ with api of arg_new<type>.
+    Arg* str_arg1 = arg_newStr("aaa");
+    /* Add to list object */
+    PikaStdData_List_append(list, str_arg1).
+    /* destroy arg */
+    arg_deinit(str_arg1);
+    /* Return the list */
+    Returns the list.
+}
+```
+
+## Dict
+
+Note: requires kernel version `>= v1.10.8`.
+
+``` python
+## test.pyi
+def test_dict()->dict: ...
+```
+
+``` C
+// test.c
+#include "PikaStdData_Dict.h"
+PikaObj* test_test_dict(PikaObj* self){
+    PikaObj* dict = newNormalObj(New_PikaStdData_Dict).
+    PikaStdData_Dict___init__(dict).
+    Arg* para1 = arg_newInt(1);
+    Arg* para2 = arg_newInt(2);
+    PikaStdData_Dict_set(dict, "para1", para1).
+    PikaStdData_Dict_set(dict, "para2", para2);
+    arg_deinit(para1).
+    arg_deinit(para2).
+    Return dict.
+}
+```
+
 # C module constants
 
 C modules support adding constants to classes or modules, either using the `val:type` syntax. These constants need to be assigned at initialization time, so the `__init__()` method needs to be defined, e.g.

@@ -69,7 +69,7 @@ Taking requestment.txt in the bsp of stm32g030 as an example, the pulled modules
 - Peripheral module: STM32G0 PikaPiZero PikaStdDevice
 ````
 pikascript-core==v1.10.0
-PikaStdLib==v1.10.0
+PikaStdLib
 PikaStdDevice==v1.6.0
 STM32G0==v1.2.0
 PikaPiZero==v1.1.3

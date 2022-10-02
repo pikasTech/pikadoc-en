@@ -46,3 +46,12 @@ If the memory pool needs to be freed, call
 mem_pool_deinit();
 ```
 
+# Interrupting a running script
+
+Calling `pks_vm_exit()` forces the interruption of a running script (also in a dead loop), which can be placed in the interrupt function.
+
+> [Note]
+> 
+> Requires kernel version not lower than `v1.11.0`.
+> 
+> After interrupting a running script, only the VM is exited, the root object can still be used and will not be freed, if you need to free memory, you should execute `obj_deinit()` on the root object.

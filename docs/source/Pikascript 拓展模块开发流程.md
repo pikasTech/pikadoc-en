@@ -55,19 +55,15 @@ import Math
 
 Double-click to run the pika precompiler.
 
-![](assets/131119247-ae25276e-f7c9-49ef-81e1-dbddcaffdf6c.png)
+![](assets/image-20220916121255823.png)
 
 Opening the pikascript-api folder shows that our newly written module interface is ready to be compiled.
 
-
-![](assets/131119310-99564d6a-d570-4375-9c01-c2d7cde74655.png)
-
+![](assets/image-20220916121454812.png)
 
 ### Writing the class implementation
 
-
-Let's add the two newly compiled -api.c files we just made to the project and try compiling them.
-
+Try compiling them.
 
 ![](assets/131119636-3c3d52ce-a7c2-48a4-beb4-5498dfd4f279.png)
 
@@ -83,7 +79,7 @@ This is normal because we did not write implementations for the classes of the M
 
 For the convenience of module management, we put all the implementation files in the pikascript-lib folder.
 
-![](https://user-images.githubusercontent.com/88232613/171089246-ebf24d32-53b1-471b-8c3f-594a96943df5.png)
+![](assets/image-20220916121548065.png)
 
 Under the pikascript-lib folder, create a new Math folder to hold the implementation code for the Math module.
 
@@ -225,12 +221,19 @@ The following table lists all the type declarations supported by PikaScript, and
 | Python type annotations | C native types | description |
 | --------------- | ----------- | -- |
 | int | int | python basic types |
+| int64           | int64_t     | 64 bits int |
 | float | double | python basic types |
 | str | char * | python basic type |
 | bytes | uint8_t * | python basic type |
 | pointer | void * | PikaScript-specific type annotations |
 | any | Arg* | PikaScript-provided generic containers |
 | any class | PikaObj * |PikaScript-provided object container|
+
+> **Note** 
+> 1. `str` is returned as `char*` in c. If the string to be returned is a local variable in the function, it needs to be cached with `obj_cacheStr` to avoid dangling references when it goes out of the function scope, e.g.: `return obj_cacheStr(self, res);`.
+> 2. `bytes` as return value returns `Arg*` in c. This is because `bytes` needs to specify the length and returning `uint8_t*` does not meet the requirement. The correct way to return is: `return arg_newBytes(bytes, len);`.
+
+Translated with www.DeepL.com/Translator (free version)
 
 
 ### Publishing modules
@@ -242,10 +245,8 @@ In the spirit of open source, it is very cool and exciting to publish your own m
 All you need to do to publish a module is to publish the class interface and class implementation files.
 
 
-For example, to publish the newly written Math module, you publish the Math.pyi file and the pikascript-lib/Math folder.
+For example, to publish the newly written Math module, you publish the Math.pyi file and the files in pikascript-lib/Math folder.
 
-
-![](assets/131123704-403753d8-2ef1-488e-a02a-08fce33cd6de.png)
-
+![](assets/image-20220916121755609.png)
 
 Please refer to the documentation in the **Participate in Community Contributions** section to distribute the modules you write.

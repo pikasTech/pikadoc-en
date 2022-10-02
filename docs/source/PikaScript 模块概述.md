@@ -4,7 +4,7 @@ We still use keil's simulation project as an example, if you don't get the simul
 ### PikaScript module and module interface
 We open the pikascript folder and find that in addition to main.py, there are Device.pyi, PikaObj.pyi and PikaStdLib.pyi in the root of the folder, which correspond to three PikaScript **C modules** (class package), each .pyi file itself is called the **module interface** (package interface). A C module can contain several classes that are more related.
 
-![](assets/1638582993068-0a8afe28-baa2-41ad-bac1-6626d50192ad.png)
+![](assets/image-20220916120814065.png)
 
 Each PikaScript **C module** consists of two parts: **module interface** and **module implementation** (package implement).
 Let's start by opening Device.pyi to see the contents, we will call Device.pyi the **Device module interface** in the subsequent documentation.
@@ -84,19 +84,19 @@ The call method uses the form `uart.setName('com')`, which is standard Python sy
 
 After writing the module calls in main.py, double-click on rust-msc-v0.5.0.exe to pre-compile the PikaScript project, the pre-compiled output file is in the pikascrip-api folder.
 
-![](assets/1638582989556-feafe97a-037f-44b2-8f2c-55ddf8f041ea.png)
+![](assets/image-20220916121019138.png)
 
-The pika pre-compiler generates .h declaration files and -api.c constructor files for the imported modules. The filenames start with the module name and each class corresponds to one .h file and one -api.c file.
+The pika pre-compiler generates .h declaration files for the imported modules. The filenames start with the module name and each class corresponds to one .h file.
 
-![](https://user-images.githubusercontent.com/88232613/171088787-0e7239ef-0081-434e-9461-59d5c162a6ba.png)
+![](assets/image-20220916121148778.png)
 
-And PikaMain-api.c and PikaMain.h correspond to a special class that is the main PikaScript class, compiled from main.py.
+And PikaMain.h correspond to a special class that is the main PikaScript class, compiled from main.py.
 
 ![](https://user-images.githubusercontent.com/88232613/171088880-83247a92-2b1c-4d3f-a075-b4811132e54e.png)
 
 pikaScript.c and pikaScript.h, on the other hand, are initialization functions compiled from main.py. When the initialization functions are run, the startup script is automatically executed.
 
-![](https://user-images.githubusercontent.com/88232613/171089013-7a690617-3972-436b-966b-75c6e975c497.png)
+![](assets/image-20220916121214655.png)
 
 In the current main.py, the startup script is written in the outermost method call, which is:
 

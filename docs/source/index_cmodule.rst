@@ -1,5 +1,5 @@
 C Module - bind C code to Python module
-============================
+========================================
 
 .. toctree::
    :maxdepth: 1

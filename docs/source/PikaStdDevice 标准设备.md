@@ -5,7 +5,7 @@ PikaStdDevice is an abstract device model that provides a unified peripheral API
 
 - Add PikaStdDevice dependency in requestment.txt.
 ````
-PikaStdDevice==v1.4.3
+PikaStdDevice
 ````
 
 - Run pikaPackage.exe

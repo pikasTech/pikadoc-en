@@ -6,7 +6,7 @@ PikaStdLib is a built-in library of PikaScript, which must be installed. It incl
 Add the dependency of PikaStdLib to requestment.txt. The version number of PikaStdLib should be the same as the version number of the kernel.
 
 ````
-PikaStdLib==v1.10.0
+PikaStdLib
 ````
 
 Run pikaPackage.exe

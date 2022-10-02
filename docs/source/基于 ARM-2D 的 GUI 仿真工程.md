@@ -9,66 +9,7 @@ good news! The Arm2D module and simulation project of pikascript are preliminari
 It is also very simple to deploy and run this simulation project on your own computer, just follow the steps below~
 ## Get the simulation project
 
-
-First enter the code repository of PikaScript
-
-
-[https://github.com/pikastech/pikascript](https://github.com/pikastech/pikascript) (requires scientific Internet access)
-
-
-![](assets/139675132-739ec77b-db22-4ed9-a670-77ec7544d1b9.png)
-
-
-Then click a Star
-
-
-If you can't get in, go in here
-
-
-[https://gitee.com/Lyon1998/pikascript](https://gitee.com/Lyon1998/pikascript) (also available in China)
-
-
-![](assets/139675170-fe0ce449-872f-466e-8780-74465730178a.png)
-
-
-Then also click a Star
-
-
-Well, after you click on Star, we will start the next step.
-
-
-We scroll down from the homepage of the code repository, see Get PikaScript, and then click PikaPackage.exe to download the package manager for pikascript.
-
-
-![](assets/139675454-596829d1-0325-42ab-96c5-f3d3d369d7d4.png)
-
-
-Next, put PikaPackage.exe on the disk where you want to download PikaScript. In order to save your C drive, you can put PikaPackage.exe on the D drive, which can be any location on the D drive.
-
-
-Double-click PikaPackage.exe, and the package manager will automatically download the latest PikaScript to the D:/tmp/pikascript folder for you. (If it is placed on the C drive, it will be downloaded to C:/tmp/pikascript)
-
-
-The download uses domestic resources, does not require scientific Internet access, and the speed should be very good.
-
-
-After downloading, you can delete this pikaPackage.exe.
-
-
-If everything goes well, you can find the downloaded pikascript code repository in the /tmp/pikascript folder.
-
-
-![](assets/139676635-c3f1c6ae-ab44-42a5-ab9a-9bedd2383f31.png)
-
-
-We enter the bsp folder and copy a copy of simulation-rtt-qemu-arm2d out.
-
-
-![](assets/139677151-33c1dbd0-c2f2-4ea3-a5ae-569e5a448cce.png)
-
-
-So far, the project is ready to be ok.
-
+Go to the PikaScript official website: http://pikascript.com, then select `sumulation-rtt-qemu-arm2d` for the platform, and then click Start to generate the project.
 
 ## Install the development environment
 
@@ -93,42 +34,7 @@ You can install rt-thread studio where you like, arm gcc should be installed on 
 
 Once installed, you can start playing arm-2d with python.
 
-
-## Pull the module and precompile
-
-
-We enter the simulation-rtt-qemu-arm2d/packages/pikascrpt directory, which is the pikascrit file.
-
-
-![](assets/139678258-e2cdc50d-475b-435a-af8c-7c19cc3a218d.png)
-
-
-For the convenience of version management, pikascript uses request.txt to manage the version of the kernel and modules, so there is no source code of pikascript in this folder, only a requestment.txt file. If you are familiar with pip, you will find this file and the version used by pip The description file is exactly the same.
-
-
-![](assets/139678404-9b747c0a-6508-4f6d-b0ca-671560f31fbd.png)
-
-
-We double-click to run pikaPackage.exe in this folder, and the kernel and modules of pikascript are pulled down.
-
-
-![](assets/139678437-a77b7278-cafd-485e-b353-94a12302c8cb.png)
-
-
-This is what it looks like after pulling it down.
-
-
-![](assets/139678713-0cd86aef-2996-4898-931d-68c805534312.png)
-
-
-Finally, we run rust-msc-latest-win10.exe to precompile, and it's OK.
-
-
-![](assets/139678750-befc11e9-d812-4fcf-949e-64dd873d0211.png)
-
-
 ## run
-
 
 We open RT-Thread Studio and click Import
 
@@ -233,7 +139,7 @@ Then compile again, enter the simulation, and you can see the effect. This time 
 
 This is the Arm-2D warehouse~ Students who haven't starred remember to add a star~
 
-[https://github.com/ARM-software/EndpointAI](https://github.com/ARM-software/EndpointAI)
+[https://github.com/ARM-software/Arm-2D](https://github.com/ARM-software/Arm-2D)
 
 
 ![](assets/139681272-73a1a8c2-2889-4dab-bd05-7174cb14334c.png)

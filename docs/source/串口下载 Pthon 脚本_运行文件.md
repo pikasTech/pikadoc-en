@@ -1,4 +1,4 @@
-# Serial port download Python script run file
+# Serial port download Python script
 
 The serial port download Python script is very similar to the interactive running, and still uses the obj_run kernel API to run the script. Unlike interactive running, downloading a Python script also requires **storing** of the python script.
 ​
@@ -25,7 +25,7 @@ For specific code examples, please refer to:
 1. bsp/stm32g030c8/Booter/pika_config.h
 
 
-## Running Files Using the File System
+# Running Files Using the File System
 
 When the MCU has a filesystem ported, you can use the file API to run Python script files directly.
 
