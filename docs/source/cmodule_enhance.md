@@ -1,11 +1,11 @@
 # C module variable parameters
 
-The C module supports variable arguments, just use `*xxx` input arguments, any number of arguments will be packed into the `PikaTuple` data type at the C level, use `tuple_getSize()` to get the number of variable arguments, use `tuple_getArg()` to get `arg` based on the position of the variable arguments. The `tuple_get<Type>` api is also supported to get the value of the specified type directly.
+The C module supports variable arguments, just use `*xxx` input arguments, any number of arguments will be packed into the `PikaTuple` data type at the C level, use `pikaTuple_getSize()` to get the number of variable arguments, use `pikaTuple_getArg()` to get `arg` based on the position of the variable arguments. The `pikaTuple_get<Type>` api is also supported to get the value of the specified type directly.
 
 
 [Note] 
 
-- Requires kernel version `>= v1.10.0`
+- Requires kernel version `>= v1.11.7`
 
 - Variable arguments must be placed after positional arguments
 
@@ -20,8 +20,8 @@ def vals(a:int, *val):...
 // test.c
 void test_vals(PikaObj* self, int a, PikaTuple* val){
     printf("a: %d\n", a);
-    for(int i =0; i< tuple_getSize(val); i++){
-        Arg* arg_i = tuple_getArg(val, i);
+    for(int i =0; i< pikaTuple_getSize(val); i++){
+        Arg* arg_i = pikaTuple_getArg(val, i);
         printf("val[%d]: %d\n", i, arg_getInt(arg_i));
     }
 }
@@ -40,12 +40,12 @@ val[2]: 4
 
 # C module keyword parameters
 
-C module supports keyword arguments, just use `**xxx` input arguments, any number of arguments will be packed into `PikaDict` data type at C level, use `dict_getArg()` to get `arg` based on keyword. The `dict_get<Type>()` api is also supported to get the value of the specified type directly.
+C module supports keyword arguments, just use `**xxx` input arguments, any number of arguments will be packed into `PikaDict` data type at C level, use `pikaDict_getArg()` to get `arg` based on keyword. The `pikaDict_get<Type>()` api is also supported to get the value of the specified type directly.
 
 
 [Note] 
 
-- Requires kernel version `>= v1.10.7`
+- Requires kernel version `>= v1.11.7`
 
 - Keyword arguments must be placed after positional and variable arguments
 
@@ -60,8 +60,8 @@ def keys(a:int, **keys):...
 // test.c
 void test_keys(PikaObj* self, int a, PikaDict* keys){
     printf("a: %d\n", a);
-    printf("keys['b']: %d\n", i, dict_getInt(keys, "b"));
-    printf("keys['c']: %d\n", i, dict_getInt(keys, "c"));
+    printf("keys['b']: %d\n", i, pikaDict_getInt(keys, "b"));
+    printf("keys['c']: %d\n", i, pikaDict_getInt(keys, "c"));
 }
 ```
 
