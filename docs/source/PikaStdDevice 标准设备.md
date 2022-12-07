@@ -111,11 +111,11 @@ All devices follow the linux-like file programming model, all types of devices u
 
 - Parameter
 
-    | parameter | type | function | comment |
-    | -------------|--------------- | -------- | ------------------------------------------------------------ |
-    | `dev_type` | `PIKA_HAL_DEV_TYPE ` | Device type | e.g. `PIKA_HAL_GPIO` is `GPIO` device, `PIKA_HAL_SPI` is `SPI` device. | name
-    | `name` | `char* ` | device name | e.g. `PA0`, `SPI2`, etc., `pika_hal_open()`. |
-    | `(return)` | `pika_dev` | device_handle | Returns a pointer to the device handle `pika_dev` if the device is successfully opened, or `NULL` if the opening fails. |## ###
+| parameter | type | function | comment |
+| -------------|--------------- | -------- | ------------------------------------------------------------ |
+| `dev_type` | `PIKA_HAL_DEV_TYPE ` | Device type | e.g. `PIKA_HAL_GPIO` is `GPIO` device, `PIKA_HAL_SPI` is `SPI` device. | name
+| `name` | `char* ` | device name | e.g. `PA0`, `SPI2`, etc., `pika_hal_open()`. |
+| `(return)` | `pika_dev` | device_handle | Returns a pointer to the device handle `pika_dev` if the device is successfully opened, or `NULL` if the opening fails. |## ###
 
 ### `close()`
 
@@ -130,10 +130,10 @@ All devices follow the linux-like file programming model, all types of devices u
   ```
 - Parameters
 
-    | parameter | type | function | note |
-    | --------------- | --|------ | ------------------------------------------------------------ |
-    | `dev` | `pika_dev* ` | Device handle | The handle of the device to be operated. ||dev
-    | `(return)` | `int` | error value | An error value of `0` indicates a successful operation, while other return values indicate a failed operation and the return value is an error code. |
+| parameter | type | function | note |
+| --------------- | --|------ | ------------------------------------------------------------ |
+| `dev` | `pika_dev* ` | Device handle | The handle of the device to be operated. ||dev
+| `(return)` | `int` | error value | An error value of `0` indicates a successful operation, while other return values indicate a failed operation and the return value is an error code. |
 
 ### `ioctl()`
 
@@ -153,12 +153,12 @@ All devices follow the linux-like file programming model, all types of devices u
 
 - Parameter
 
-    | Parameter | Type | Function | Remarks |
-    | -------------------|----- | -------- | ------------------------------------------------------------ |
-    | `dev` | `pika_dev*` | Device handle | The handle of the device to be manipulated. | |pika_dev
-    | `cmd` | `PIKA_HAL_IOCTL_CMD` | ` | Control commands|
-    | `... ` | `(None)/pika_hal_config_XXXX *` | Control parameter | This parameter can be filled or unfilled, depending on the value of `cmd`. When `cmd` is `PIKA_HAL_IOCTL_ENABLE`, `PIKA_HAL_IOCTL_DISABLE`, this parameter is not filled. When `cmd` is `PIKA_HAL_IOCTL_CONFIG`, the parameter is `pika_hal_config_XXXX *cfg`, where `XXXX` is the type of the device, such as `pika_hal_config_GPIO`, `pika_hal_config_SPI`, etc., which should be the same as the type of the device used in `pika_hal_open()`. |
-    | `(return)` | `int ` | error_value | An error value of `0` means the operation succeeded, other return values mean the operation failed and the return value is an error code. |
+| Parameter | Type | Function | Remarks |
+| -------------------|----- | -------- | ------------------------------------------------------------ |
+| `dev` | `pika_dev*` | Device handle | The handle of the device to be manipulated. | |pika_dev
+| `cmd` | `PIKA_HAL_IOCTL_CMD` | ` | Control commands|
+| `... ` | `(None)/pika_hal_config_XXXX \*` | Control parameter | This parameter can be filled or unfilled, depending on the value of `cmd`. When `cmd` is `PIKA_HAL_IOCTL_ENABLE`, `PIKA_HAL_IOCTL_DISABLE`, this parameter is not filled. When `cmd` is `PIKA_HAL_IOCTL_CONFIG`, the parameter is `pika_hal_config_XXXX \*cfg`, where `XXXX` is the type of the device, such as `pika_hal_config_GPIO`, `pika_hal_config_SPI`, etc., which should be the same as the type of the device used in `pika_hal_open()`. |
+| `(return)` | `int ` | error_value | An error value of `0` means the operation succeeded, other return values mean the operation failed and the return value is an error code. |
 
 ### `read()`
 
@@ -173,12 +173,12 @@ All devices follow the linux-like file programming model, all types of devices u
   ```
 - Parameters
 
-    | parameter | type | function | note |
-    | ---------- | ------------ | ------------ | ------------------------------------------------------------ |
-    | `dev` | `pika_dev* ` | Device handle | The handle of the device to be manipulated.                                           | `buf
-    | `buf` | `void*` | read buffer | For devices like `GPIO, ADC` that can only read single data, use `uint32_t` for the buffer. |
-    | `len` | `size_t` | number of bytes to read | For devices like `GPIO, ADC` that can only read single data, the length is `sizeof(uint32_t)`. |
-    | `(return)` | `int` | error_value | An error value of `0` means the operation succeeded, other return values mean the operation failed, and the return value is the error code. |
+| parameter | type | function | note |
+| ---------- | ------------ | ------------ | ------------------------------------------------------------ |
+| `dev` | `pika_dev* ` | Device handle | The handle of the device to be manipulated.                                           | `buf
+| `buf` | `void*` | read buffer | For devices like `GPIO, ADC` that can only read single data, use `uint32_t` for the buffer. |
+| `len` | `size_t` | number of bytes to read | For devices like `GPIO, ADC` that can only read single data, the length is `sizeof(uint32_t)`. |
+| `(return)` | `int` | error_value | An error value of `0` means the operation succeeded, other return values mean the operation failed, and the return value is the error code. |
 
 ### `write()`
 
@@ -193,12 +193,12 @@ All devices follow the linux-like file programming model, all types of devices u
   ```
 - Parameter
 
-    | parameter | type | function | note |
-    | ---------- | ------------ | ------------ | ------------------------------------------------------------ |
-    | `dev` | `pika_dev* ` | Device handle | The handle of the device to be manipulated.                                           | `buf
-    | `buf` | `void*` | write buffer | For devices like `GPIO, DAC` that can only write single data, the buffer uses `uint32_t`. | `len
-    | `len` | `size_t` | Number of bytes written | For devices like `GPIO, DAC` that can only read single data, the length is `sizeof(uint32_t)`. |
-    | `(return)` | `int` | error_value | An error value of `0` means the operation succeeded, other return values mean the operation failed, and the return value is the error code. |
+| parameter | type | function | note |
+| ---------- | ------------ | ------------ | ------------------------------------------------------------ |
+| `dev` | `pika_dev* ` | Device handle | The handle of the device to be manipulated.                                           | `buf
+| `buf` | `void*` | write buffer | For devices like `GPIO, DAC` that can only write single data, the buffer uses `uint32_t`. | `len
+| `len` | `size_t` | Number of bytes written | For devices like `GPIO, DAC` that can only read single data, the length is `sizeof(uint32_t)`. |
+| `(return)` | `int` | error_value | An error value of `0` means the operation succeeded, other return values mean the operation failed, and the return value is the error code. |
 
 ### Driver adaptation
 
