@@ -2,7 +2,7 @@
 
 ### `__init__()`
 
-**介绍：**
+**introduce：**
 
 Instantiate one MQTT Client
 
@@ -25,7 +25,7 @@ Instantiate one MQTT Client
 | -------- | -------- |
 | mqtt event | MQTT     |
 
-**示例：**
+**give a typical example：**
 
 ```python
 # Minimalist creation
@@ -49,17 +49,17 @@ c = MQTT("broker-cn.emqx.io", 8883, username="pikascript123", password="123456",
 Setting clientID overrides the parameters at instantiation time
 **parameter:**
 
-| 序号 | 功能     | 变量类型 | 备注 |
+| serial number | function     | types of variables | comment |
 | ---- | -------- | -------- | ---- |
-| 1    | clientid | string   | 必填 |
+| 1    | clientid | string   | required |
 
-**返回值：**
+****
 
-| 功能                  | 变量类型 |
+| function                  | types of variables |
 | --------------------- | -------- |
-| 成功:true  失败:false | bool     |
+| OK:true  fail:false | bool     |
 
-**示例：**
+**give a typical example：**
 
 ```python
 c.setClientID("pikascript")
@@ -69,23 +69,23 @@ c.setClientID("pikascript")
 
 ### `setUsername()`
 
-**介绍：**
+**introduce：**
 
-设置usrname,会覆盖实例化时的参数
+Setting usrname overrides the instantiation parameters
 
-**参数：**
+**parameter：**
 
-| 序号 | 功能     | 变量类型 | 备注 |
+| serial number | function     | types of variables | cointroducemment |
 | ---- | -------- | -------- | ---- |
-| 1    | username | string   | 必填 |
+| 1    | username | string   | required |
 
-**返回值：**
+**returned value：**
 
-| 功能                  | 变量类型 |
+| function                  | types of variables |
 | --------------------- | -------- |
-| 成功:true  失败:false | bool     |
+| OK:true  fail:false | bool     |
 
-**示例：**
+**give a typical example：**
 
 ```python
 c.setUsername("pikascript")
@@ -95,23 +95,23 @@ c.setUsername("pikascript")
 
 ### `setPassword()`
 
-**介绍：**
+**introduce：**
 
-设置password,会覆盖实例化时的参数
+Setting password overrides the parameter used during instantiation
 
-**参数：**
+**parameter：**
 
-| 序号 | 功能     | 变量类型 | 备注 |
+| serial number | function     | types of variables | comment |
 | ---- | -------- | -------- | ---- |
-| 1    | password | string   | 必填 |
+| 1    | password | string   | required |
 
-**返回值：**
+**returned value：**
 
-| 功能                  | 变量类型 |
+| function                  | types of variables |
 | --------------------- | -------- |
-| 成功:true  失败:false | bool     |
+| OK:true  fail:false | bool     |
 
-**示例：**
+**give a typical example：**
 
 ```python
 c.setPassword("pikascript")
@@ -121,26 +121,26 @@ c.setPassword("pikascript")
 
 ### `setVersion()`
 
-**介绍：**
+**introduce：**
 
-设置mqtt版本,会覆盖实例化时的参数
+Setting the mqtt version overrides the parameter at instantiation time
 
-**参数：**
+**parameter：**
 
-| 序号 | 功能    | 变量类型 | 备注 |
+| serial number | function    | types of variables | comment |
 | ---- | ------- | -------- | ---- |
-| 1    | version | string   | 必填 |
+| 1    | version | string   | required |
 
-**返回值：**
+**returned value：**
 
-| 功能                  | 变量类型 |
+| function                  | types of variables |
 | --------------------- | -------- |
-| 成功:true  失败:false | bool     |
+| OK:true  fail:false | bool     |
 
-**示例：**
+**give a typical example：**
 
 ```python
-# 可选"3.1" "3.1.1"
+# choosable "3.1" "3.1.1"
 c.setVersion("3.1")
 ```
 
@@ -148,25 +148,24 @@ c.setVersion("3.1")
 
 ### `setCa()`
 
-**介绍：**
+**introduce：**
 
-设置ssl证书,会覆盖实例化时的参数
+Setting the ssl certificate overrides the parameter during instantiation
+Once this parameter is in effect, an ssl connection is forced
 
-此参数一旦生效,会强制进行ssl连接
+**parameter：**
 
-**参数：**
-
-| 序号 | 功能 | 变量类型 | 备注 |
+| serial number | function | types of variables | comment |
 | ---- | ---- | -------- | ---- |
-| 1    | ca   | string   | 必填 |
+| 1    | ca   | string   | required |
 
-**返回值：**
+**returned value：**
 
-| 功能                  | 变量类型 |
+| function                  | types of variables |
 | --------------------- | -------- |
-| 成功:true  失败:false | bool     |
+| OK:true  fail:false | bool     |
 
-**示例：**
+**give a typical example：**
 
 ```python
 c.setCa(open(cert_file).read())
@@ -176,26 +175,26 @@ c.setCa(open(cert_file).read())
 
 ### `setKeepAlive()`
 
-**介绍：**
+**introduce：**
 
-设置保活时间,会覆盖实例化时的参数
+Setting the keepalive time overrides the parameter at instantiation time
 
-**参数：**
+**parameter：**
 
-| 序号 | 功能 | 变量类型 | 备注 |
+| serial number | function | types of variables | comment |
 | ---- | ---- | -------- | ---- |
-| 1    | time | int      | 必填 |
+| 1    | time | int      | required |
 
-**返回值：**
+**returned value：**
 
-| 功能                  | 变量类型 |
+| function                  | types of variables |
 | --------------------- | -------- |
-| 成功:true  失败:false | bool     |
+| OK:true  fail:false | bool     |
 
-**示例：**
+**give a typical example：**
 
 ```python
-# 单位 秒
+# cgs unit
 c.setKeepAlive(120)
 ```
 
@@ -203,26 +202,26 @@ c.setKeepAlive(120)
 
 ### `setWill()`
 
-**介绍：**
+**introduce：**
 
-设置遗嘱
+testamentary
 
-**参数：**
+**parameter：**
 
-| 序号 | 功能    | 变量类型 | 备注              |
+| serial number | function    | types of variables | comment              |
 | ---- | ------- | -------- | ----------------- |
-| 1    | topic   | string   | 必填              |
-| 2    | payload | string   | 必填              |
-| 3    | qos     | int      | 非必填，默认QOS0  |
-| 4    | retain  | bool     | 非必填，默认False |
+| 1    | topic   | string   | required              |
+| 2    | payload | string   | required              |
+| 3    | qos     | int      | No required，defaultQOS0  |
+| 4    | retain  | bool     | No required，defaultFalse |
 
-**返回值：**
+**returned value：**
 
-| 功能                  | 变量类型 |
+| function                  | types of variables |
 | --------------------- | -------- |
-| 成功:true  失败:false | bool     |
+| OK:true  fail:false | bool     |
 
-**示例：**
+**give a typical example：**
 
 ```python
 c.setWill("/device/will", "{"name":"pikascript"}")
@@ -232,23 +231,23 @@ c.setWill("/device/will", "{"name":"pikascript"}")
 
 ### `setDisconnectHandler()`
 
-**介绍：**
+**introduce：**
 
-设置断连回调
+Set the disconnection callback
 
-**参数：**
+**parameter：**
 
-| 序号 | 功能     | 变量类型 | 备注          |
+| serial number | function     | types of variables | comment          |
 | ---- | -------- | -------- | ------------- |
-| 1    | callback | any      | 必填 回调函数 |
+| 1    | callback | any      | required callback function |
 
-**返回值：**
+**returned value：**
 
-| 功能                  | 变量类型 |
+| function                  | types of variables |
 | --------------------- | -------- |
-| 成功:true  失败:false | bool     |
+| OK:true  fail:false | bool     |
 
-**示例：**
+**give a typical example：**
 
 ```python
 def disconnect_cb():
@@ -261,21 +260,21 @@ c.setDisconnectHandler(disconnect_cb)
 
 ### `connect()`
 
-**介绍：**
+**introduce：**
 
-连接服务器
+connect to server
 
-**参数：**
+**parameter：**
 
-无
+null
 
-**返回值：**
+**returned value：**
 
-| 功能                | 变量类型 |
+| function                | types of variables |
 | ------------------- | -------- |
-| 成功:0  错误码:附一 | int      |
+| OK:0   | int  Error code: attached one    |
 
-**示例：**
+**give a typical example：**
 
 ```python
 c.connect()
@@ -285,21 +284,21 @@ c.connect()
 
 ### `disconnect()`
 
-**介绍：**
+**introduce：**
 
-断开服务器
+Disconnect server
 
-**参数：**
+**parameter：**
 
-无
+null
 
-**返回值：**
+**returned value：**
 
-| 功能                | 变量类型 |
+| function                | types of variables |
 | ------------------- | -------- |
-| 成功:0  错误码:附一 | int      |
+| OK:0  int  Error code: attached one | int      |
 
-**示例：**
+**give a typical example：**
 
 ```python
 c.disconnect()
@@ -309,25 +308,25 @@ c.disconnect()
 
 ### `subscribe()`
 
-**介绍：**
+**introduce：**
 
-订阅主题
+Subscribe to a subject
 
-**参数：**
+**parameter：**
 
-| 序号 | 功能     | 变量类型 | 备注             |
+| serial number | function     | types of variables | comment             |
 | ---- | -------- | -------- | ---------------- |
-| 1    | topic    | string   | 必填             |
-| 2    | callback | any      | 必填，回调函数   |
-| 3    | qos      | int      | 非必填，默认QOS0 |
+| 1    | topic    | string   | required             |
+| 2    | callback | any      | required，回调函数   |
+| 3    | qos      | int      | 非required，defaultQOS0 |
 
-**返回值：**
+**returned value：**
 
-| 功能                | 变量类型 |
+| function                | types of variables |
 | ------------------- | -------- |
-| 成功:0  错误码:附一 | int      |
+| OK:0  int  Error code: attached one | int      |
 
-**示例：**
+**give a typical example：**
 
 ```python
 def sub_cb(evt):
@@ -340,23 +339,23 @@ c.subscribe("/topic/sub", sub_cb)
 
 ### `unsubscribe()`
 
-**介绍：**
+**introduce：**
 
-取消订阅主题
+Unsubscribe to a topic
 
-**参数：**
+**parameter：**
 
-| 序号 | 功能  | 变量类型 | 备注 |
+| serial number | function  | types of variables | comment |
 | ---- | ----- | -------- | ---- |
-| 1    | topic | string   | 必填 |
+| 1    | topic | string   | required |
 
-**返回值：**
+**returned value**
 
-| 功能                | 变量类型 |
+| function                | types of variables |
 | ------------------- | -------- |
-| 成功:0  错误码:附一 | int      |
+| OK:0   | int Error code: attached one     |
 
-**示例：**
+**give a typical example**
 
 ```python
 c.unsubscribe("/topic/sub")
@@ -366,19 +365,19 @@ c.unsubscribe("/topic/sub")
 
 ### `listSubscribeTopics()`
 
-**介绍：**
+**introduce**
 
-列出当前订阅的主题
+Lists the topics to which you are currently subscribed
 
-**参数：**
+**parameter:**
 
-无
+null
 
-**返回值：**
+**returned value**
 
 | function     | types of variables |
 | -------- | -------- |
-| 主题列表 | tuple    |
+| subject bibliography | tuple    |
 
 **example:**
 
@@ -401,7 +400,7 @@ publish the message
 | ---- | ------- | -------- | ---------------- |
 | 1    | topic   | string   | required             |
 | 2    | payload | string   | required             |
-| 3    | qos     | int      | 非必填，默认QOS0 |
+| 3    | qos     | int      | 非required，defaultQOS0 |
 
 **return values：**
 
