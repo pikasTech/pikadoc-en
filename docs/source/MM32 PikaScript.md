@@ -1,9 +1,9 @@
-# MM32 PikaScript 开发实战
+# MM32 PikaScript Practical development
 
 Author ：[xld0932](https://bbs.21ic.com/icview-3236202-1-1.html)
 
-- [[MM32生态] 基于PikaScript在MM32平台上部署Python开发环境](https://bbs.21ic.com/icview-3232352-1-1.html) 
+- [[MM32 ecology] Based on pikascript on the mm32 platform, the python development environment](https://bbs.21ic.com/icview-3232352-1-1.html) 
 
-- [[MM32生态] 串口下载Python脚本、运行贪吃蛇](https://bbs.21ic.com/icview-3236202-1-1.html) 
+- [[MM32 ecology] Serial port download Python script, run snake](https://bbs.21ic.com/icview-3236202-1-1.html) 
 
 
