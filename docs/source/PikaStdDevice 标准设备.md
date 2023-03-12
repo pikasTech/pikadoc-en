@@ -292,4 +292,4 @@ Then, we implement several main device manipulation functions corresponding to t
 
 ## Contribute
 
-Please refer to the documentation in the [Contribute to the community -> Contribute module](%E5%A6%82%E4%BD%95%E8%B4%A1%E7%8C%AE%20PikaScript%20%E6%A8%A1%E5%9D%97. html) section of the documentation to post the module you have written.
+Please refer to the documentation in the [Contribute to the community -> Contribute module](%E5%A6%82%E4%BD%95%E8%B4%A1%E7%8C%AE%20PikaScript%20%E6%A8%A1%E5%9D%97.html) section of the documentation to post the module you have written.
