@@ -5,4 +5,4 @@ Column Tutorial
    :maxdepth: 1
 
    pikascript 实践记录 
-   MM32 PikaPython
+   MM32 PikaScript
