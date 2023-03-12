@@ -155,11 +155,11 @@ These constants can be used directly without creating an object, i.e. as class p
 print(cJSON.cJSON_Invalid)
 ```
 
-Note that PikaScript class properties are read-only, and all modifications to class properties are invalid.
+Note that PikaPython class properties are read-only, and all modifications to class properties are invalid.
 
 # C module initialization
 
-Define `__init__()` function directly in .pyi to perform module initialization, which will be triggered when the module is loaded, PikaScript has a delayed module loading mechanism, `import` will not trigger module loading directly, but only when the module is actually used for the first time.
+Define `__init__()` function directly in .pyi to perform module initialization, which will be triggered when the module is loaded, PikaPython has a delayed module loading mechanism, `import` will not trigger module loading directly, but only when the module is actually used for the first time.
 
 For example:
 

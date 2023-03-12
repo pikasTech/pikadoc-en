@@ -90,7 +90,7 @@ size_t arg_getBytesSize(Arg* self);
 
 Direct use of the arg_new\<Type\>() api **is highly likely to cause **memory leaks or dangling references, resulting in **fatal flaws**.
 
-Please develop under [docker development environment](https://pikadoc.readthedocs.io/zh/latest/get-start_linux.html) to ensure sufficient unit testing and memory checking.
+Please develop under [docker development environment](get-start_linux.html) to ensure sufficient unit testing and memory checking.
 
 ## Case
 

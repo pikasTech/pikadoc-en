@@ -6,3 +6,4 @@ Introduction
 
    原理简介
    Demo 展示
+   intro_syntax

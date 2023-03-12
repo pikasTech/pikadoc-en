@@ -1,9 +1,9 @@
-# How to contribute to PikaScript BSP
+# How to contribute to PikaPython BSP
 ## Steps to make BSP:
 ### Make pikascript template project
 - The BSP of pikascript is very simple, it is a pikascript template project that can be compiled independently.
 - This project only needs to be able to run pikascript **basically**.
-- You can refer to the **New Platform Porting Guide** to ensure that `print('hello PikaScript!')` in main.py can be run normally.
+- You can refer to the **New Platform Porting Guide** to ensure that `print('hello PikaPython!')` in main.py can be run normally.
 
 ### Clean up project
 

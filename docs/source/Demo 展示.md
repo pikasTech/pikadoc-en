@@ -14,13 +14,13 @@ So? Is there another way to play?
 
 In other words, I want to develop with Keil, debug with Keil, and I want to use the cheapest microcontroller, and it's very easy to develop C modules.
 
-How about trying PikaScript?
+How about trying PikaPython?
 
-What is PikaScript?
+What is PikaPython?
 
-PikaScript provides extremely easy to deploy and extend Python scripting support for resource-constrained mcu. It doesn't require an OS, it runs bare metal, and it doesn't require a filesystem.
+PikaPython provides extremely easy to deploy and extend Python scripting support for resource-constrained mcu. It doesn't require an OS, it runs bare metal, and it doesn't require a filesystem.
 
-PikaScript supports bare-metal operation, at least for mcu with RAM ≥ 4kB and FLASH ≥ 32kB, the recommended configuration is RAM ≥ 10kB and FLASH ≥ 64kB, such as stm32f103c8t6 and stm32g070RBT6, which have no pressure at all and even meet the recommended configuration.
+PikaPython supports bare-metal operation, at least for mcu with RAM ≥ 4kB and FLASH ≥ 32kB, the recommended configuration is RAM ≥ 10kB and FLASH ≥ 64kB, such as stm32f103c8t6 and stm32g070RBT6, which have no pressure at all and even meet the recommended configuration.
 
 And support Keil, IAR, RT-Thread studio, segger embedded studio and other IDE development, zero dependencies, zero configuration, out-of-the-box, extremely easy to integrate into the existing C project.
 
@@ -115,7 +115,7 @@ This is the output result.
 
 The maximum value of RAM occupied by these demos is only 3.56K, including the 1K stack is also 4.56K, the maximum Flash occupation is 30.4K, using the STM32F103C8T6's 20K RAM and 64K Flash as the standard, RAM is only used up less than 25%, Flash is only used up less than 50%, simply more resources do not know how to spend. This is a lot of resources.
 
-Also running Python, we can briefly compare the common chip STM32F405RG for micropython and the chip STM32G070CB for PikaScript.
+Also running Python, we can briefly compare the common chip STM32F405RG for micropython and the chip STM32G070CB for PikaPython.
 
 ## RAM resource comparison
 
@@ -138,12 +138,12 @@ In addition to device drivers, developing custom python script bindings for mcu 
 ## Several rotating suns~
 
 ![](assets/132945107-e473a2cc-9fbc-47f9-aaed-a28d3ad1048c.gif)
-## So, is PikaScript open source?
-Of course, this is the github home page of PikaScript:
+## So, is PikaPython open source?
+Of course, this is the github home page of PikaPython:
 [https://github.com/pikasTech/pikascript](https://github.com/pikasTech/pikascript)
 
 ## Is it difficult to develop?
-PikaScript has prepared rich demos and development guides from shallow to deep for developers, and the guides will continue to be improved and maintained.
+PikaPython has prepared rich demos and development guides from shallow to deep for developers, and the guides will continue to be improved and maintained.
 
 ## Can it be commercialized?
-Of course! PikaScript uses the MIT protocol and allows modifications and commercialization, but be careful to keep the original author's byline.
+Of course! PikaPython uses the MIT protocol and allows modifications and commercialization, but be careful to keep the original author's byline.

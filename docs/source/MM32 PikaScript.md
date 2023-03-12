@@ -1,4 +1,4 @@
-# MM32 PikaScript Practical development
+# MM32 PikaPython Practical development
 
 Author ：[xld0932](https://bbs.21ic.com/icview-3236202-1-1.html)
 

@@ -2,19 +2,19 @@
 
 The embedded environment is significantly different from the PC, in many cases the MCU doesn't even have a file system.
 
-But don't worry, PikaScript already helps you to import modules easily with its official tools, all you need to do is to write a line `import`, just like you do with Python on PC.
+But don't worry, PikaPython already helps you to import modules easily with its official tools, all you need to do is to write a line `import`, just like you do with Python on PC.
 
-The only difference with Python for PC is that you need to run the pre-compiler provided by PikaScript once (no complicated parameters and options, just double-click to run) before you can compile your PikaScript project with the compiler.
+The only difference with Python for PC is that you need to run the pre-compiler provided by PikaPython once (no complicated parameters and options, just double-click to run) before you can compile your PikaPython project with the compiler.
 
 ## Importing Python modules
 
-PikaScript supports importing multiple Python files as modules, and there is no need to port the filesystem inside the MCU (if you want to base it on a filesystem, you can, of course).
+PikaPython supports importing multiple Python files as modules, and there is no need to port the filesystem inside the MCU (if you want to base it on a filesystem, you can, of course).
 
-PikaScript's pre-compiler converts Python files into bytecode and packages them into a library right on the PC development machine, just like C.
+PikaPython's pre-compiler converts Python files into bytecode and packages them into a library right on the PC development machine, just like C.
 
 This eliminates the need for a filesystem in a MCU with few resources (usually 20kB of ROM).
 
-On the other hand, if you want to quickly try PikaScript on a new platform, you don't need to go through the effort of porting the filesystem for the new platform and then interfacing the filesystem with PikaScript.
+On the other hand, if you want to quickly try PikaPython on a new platform, you don't need to go through the effort of porting the filesystem for the new platform and then interfacing the filesystem with PikaPython.
 
 (Note that a kernel version of not less than v1.8.0 is required)
 
@@ -22,7 +22,7 @@ On the other hand, if you want to quickly try PikaScript on a new platform, you 
 
 We still use keil's emulation project as our experiment platform, so that we can experiment quickly without hardware.
 
-First, refer to keil's [emulation project documentation](https://pikadoc.readthedocs.io/en/latest/Keil%20%E4%BB%BF%E7%9C%9F%E5%B7%A5%E7%A8%8B.html) to get the project.
+First, refer to keil's [emulation project documentation](Keil%20%E4%BB%BF%E7%9C%9F%E5%B7%A5%E7%A8%8B.html) to get the project.
 
 Then create a new Python file test.py in the pikascript_simulation-keil/pikascript/ directory (all Python modules should be placed in this directory).
 
@@ -58,11 +58,11 @@ print(test.add(3, 5))
 print('test end...')
 ```
 
-Then, if you compile directly inside the keil project, you will see that the PikaScript Compiler message appears before you start compiling the .c file, including the compiled test.py.
+Then, if you compile directly inside the keil project, you will see that the PikaPython Compiler message appears before you start compiling the .c file, including the compiled test.py.
 
 ![](assets/image-20220620175646395.png)
 
-This is because the PikaScript precompiler has been automatically run, a Keil-supplied setting that executes a script before compilation begins, including running the PikaScript precompiler.
+This is because the PikaPython precompiler has been automatically run, a Keil-supplied setting that executes a script before compilation begins, including running the PikaPython precompiler.
 
 ![](assets/image-20220620175845943.png)
 
@@ -78,7 +78,7 @@ A C module is a module that is implemented in C at the bottom, but can still be 
 
 A C module named `<module>` usually consists of a `<module>.pyi` file (a python interface file) and the pikascript-lib/\<module\> folder.
 
-PikaScript imports C modules in the same way as Python modules, by directly `import` and then running a pre-compile.
+PikaPython imports C modules in the same way as Python modules, by directly `import` and then running a pre-compile.
 
 After pre-compilation, some module linking files are automatically generated, all of them are in the pikascript-api folder. Therefore, after introducing the C module, you need to add the following files to the project for compilation.
 
@@ -131,7 +131,7 @@ print(list.get(2))
 print('test end...')
 ```
 
-When compiling, you can see that the PikaScript pre-compiler binds the PikaStdData C module to the project.
+When compiling, you can see that the PikaPython pre-compiler binds the PikaStdData C module to the project.
 
 ![](assets/image-20220620191019013.png)
 
@@ -141,4 +141,4 @@ Running the simulation you can see the result
 
 You can also make your own C modules, all you need to do is write the \<module\>.pyi Python interface file and the .c implementation file inside pikascript-lib/\<module\>.
 
-Please refer to the [documentation for making C modules](https://pikadoc.readthedocs.io/en/latest/index_cmodule.html) for details.
+Please refer to the [documentation for making C modules](index_cmodule.html) for details.

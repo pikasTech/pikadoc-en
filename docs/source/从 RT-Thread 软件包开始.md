@@ -1,8 +1,8 @@
 # Start with RT-Thread package
 
-PikaScript has been added to the [RT-Thread package](https://packages.rt-thread.org/detail.html?package=pikascript). Under the programming language category, you can quickly use PikaScript by directly adding packages.
+PikaPython has been added to the [RT-Thread package](https://packages.rt-thread.org/detail.html?package=pikascript). Under the programming language category, you can quickly use PikaPython by directly adding packages.
 
-The PikaScript package supports **full RT-Thread BSP**.
+The PikaPython package supports **full RT-Thread BSP**.
 ![](assets/1638840464842-02580253-48dc-4dcc-94a4-e62f1b596b38.png)
 If you encounter compatibility problems during use, you can file an issue at [github](https://github.com/pikasTech/pikascript) or [ Forum](https://whycan.com/f_55.html) to ask questions.
 
@@ -34,7 +34,7 @@ If you encounter compatibility problems during use, you can file an issue at [gi
 
 The latest default [requestment.txt](https://github.com/pikastech/pikascript/blob/master/port/rt-thread/requestment.txt) can be viewed here.
 
-   Type "pika" in msh to **start** PikaScript in a thread.
+   Type "pika" in msh to **start** PikaPython in a thread.
 
 The initial startup will execute the /pikascript-latest/main.py initialization script. After execution, enter pika **interactive running** mode,
 Enter "exit()" to return to msh, enter "pika" again to enter pikascript, and enter directly into interactive mode.
@@ -47,11 +47,11 @@ Enter "exit()" to return to msh, enter "pika" again to enter pikascript, and ent
 
 ![](assets/1639184483048-498f471e-cae7-4b6f-ad94-c1b5149d621c.png)
 
-   Check Enable auto-running PikaScript
+   Check Enable auto-running PikaPython
 
 ![](assets/1639184596044-a85902ac-601c-49b6-b2e5-3d20bd55ce81.png)
 
-   3 After setting, it will automatically start PikaScript, run the main.py script, and then go back to msh
+   3 After setting, it will automatically start PikaPython, run the main.py script, and then go back to msh
 
 Enter **pika** in msh to run interactively.
 
@@ -63,7 +63,7 @@ If you need **custom start**, you can use the following methods to start manuall
 ````c
 #include "pikaScript.h"
 ````
- Start PikaScript:
+ Start PikaPython:
 ````c
 PikaObj * pikaMain = pikaScriptInit();
 ````
@@ -76,7 +76,7 @@ Refer to the **Support Interactive Run** section of the documentation.
 
 Refer to the **Support Serial Port Download Python** part of the document.
 
-### Using the PikaScript module and package manager
+### Using the PikaPython module and package manager
 
    Modify pikascript-latest/requestment.txt, then right-click the project, Sconscripts Update, you can install the module/modify the module version, and precompile.
 

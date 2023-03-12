@@ -181,7 +181,7 @@ result = requests.request("GET", "http://pikascript.com/package", params = {"nam
 - **This will start resolving URL addresses, such as domain names to actual IP addresses**。
 - Write the default standard header section keywords, including
   1. `Host: (自行解析)`
-  2. `User-Agent: PikaScript HTTP Agent`
+  2. `User-Agent: PikaPython HTTP Agent`
   3. `Accept: */*`
 - **Create a socket connection and start communication**。
 -Send the request header portion before sending the data (for POST).

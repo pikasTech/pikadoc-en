@@ -1,20 +1,20 @@
 # How to contribute to the standard library
 
-## What are PikaScript standard libraries?
+## What are PikaPython standard libraries?
 
-PikaScript standard libraries are a set of cross-platform libraries for common tools such as string, time, etc.
+PikaPython standard libraries are a set of cross-platform libraries for common tools such as string, time, etc.
 
 Some of these libraries provide APIs consistent with or similar to CPython, and some provide common tools for MCU development.
 
-## PikaScript standard library development environment construction
+## PikaPython standard library development environment construction
 
-The PikaScript standard library is cross-platform, so it can't use the proprietary resources of the platform (e.g. stm32), to ensure this, the standard library is developed on linux platform.
+The PikaPython standard library is cross-platform, so it can't use the proprietary resources of the platform (e.g. stm32), to ensure this, the standard library is developed on linux platform.
 
-PikaScript deploys GoogleTest unit testing framework on linux platform to provide test cases for these standard libraries, GoogleTest can be run on the developer's local machine and also automatically in the cloud (based on Github Actions).
+PikaPython deploys GoogleTest unit testing framework on linux platform to provide test cases for these standard libraries, GoogleTest can be run on the developer's local machine and also automatically in the cloud (based on Github Actions).
 
 ### Build Docker container
 
-[ get start -> get start with docker](https://pikadoc.readthedocs.io/en/latest/get-start_linux.html)
+[ get start -> get start with docker](get-start_linux.html)
 
 ## Use VSCODE to connect to the container for development
 
@@ -33,6 +33,30 @@ The first time you open it, you need to wait for some plugins to be installed au
  cd to ~/pikascript/port/linux, then type `code . ` to switch the working path to pikascript/port/linux
 
 ![](assets/image-20220601001904516-16627321708955.png)
+
+### Compile and run
+- Initialize
+```
+sh pull-core.sh # Update kernel source code
+```
+- Pre-compile and configure CMake
+```
+sh init.sh
+```
+- Compile
+```
+sh only_make.sh
+```
+- test
+```
+sh gtest.sh # run google test
+sh ci_benchmark.sh # run benchmark
+sh valgrind.sh # run valgrind
+```
+- run
+```
+sh run.sh # Start REPL
+```
 
 ### Development
 
@@ -165,7 +189,7 @@ As you can see, the number of test cases is 331, one more than the previous 330,
 
 Once the test passes, you can commit the changes.
 
-Before committing the changes, you need to fork the PikaScript repository, Gitee and Github are both available.
+Before committing the changes, you need to fork the PikaPython repository, Gitee and Github are both available.
 
 The first time you commit, you need to change your commit information, including your username, email, and the repository address after fork.
 

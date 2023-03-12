@@ -216,8 +216,80 @@ PIKA_WEAK int pika_hal_platform_XXXX_ioctl_config(pika_dev* dev, pika_hal_XXXX_c
 
 Reference adaptation code.
 
-https://gitee.com/Lyon1998/pikascript/tree/master/package/BLIOT
+[https://gitee.com/Lyon1998/pikapython/tree/master/package/BLIOT](https://gitee.com/Lyon1998/pikapython/tree/master/package/BLIOT)
+[https://gitee.com/Lyon1998/pikapython/tree/master/package/STM32G0](https://gitee.com/Lyon1998/pikapython/tree/master/package/STM32G0)
+[https://gitee.com/Lyon1998/pikapython/tree/master/package/ESP32](https://gitee.com/Lyon1998/pikapython/tree/master/package/ESP32)
+
+### Case Tutorial 1 - Adaptation of WIFI devices on ESP32
+[source link](https://gitee.com/Lyon1998/pikapython/blob/master/package/ESP32/pika_hal_ESP32_WIFI.c)
+
+First, we need to include some necessary header files such as pika_hal.h, esp_wifi.h, esp_event.h, etc. These header files provide the definitions and functions related to pika_hal and esp32.
+
+```c
+#include "... /pikascript-lib/pikastddevice/pika_hal.h"
+#include "esp_event.h"
+#include "esp_mac.h"
+#include "esp_netif.h"
+#include "esp_wifi.h"
+#include "freertos/freertos.h"
+#include "freertos/event_groups.h"
+#include "freertos/task.h"
+#include "nvs_flash.h"
+```
+Then, we define some global variables and constants to record the status and configuration information of WIFI. For example, wifi_started indicates whether WIFI has been started, wifi_sta_connect_requested indicates whether a connection to a WIFI hotspot was requested, wifi_sta_disconn_reason indicates the reason for a failed connection, etc.
+
+```c
+static volatile pika_bool wifi_started = pika_false;
+static volatile pika_bool wifi_sta_connect_requested = pika_false;
+static volatile pika_bool wifi_sta_connected = pika_false;
+static volatile pika_hal_wifi_status wifi_sta_disconn_reason = pika_false; static volatile pika_hal_wifi_status wifi_sta_disconn_reason =
+    pika_hal_wifi_status_idle;
+static eventgrouphandle_t wifi_event_group;
+static esp_netif_t* sta_netif = null;
+static esp_netif_t* ap_netif = null;
+```
+
+Next, we define a helper function _ip_str2u32 that converts the IP address in string form to a value of type uint32_t. This function iterates over each number in the string and stores it in an array of type uint8_t, then returns the uint32_t value represented by this array.
+
+```c
+uint32_t _ip_str2u32(char* ip_str) {
+    uint32_t ip = 0;
+    uint8_t* ip_u8 = (uint8_t*)&ip;
+    char* p = ip_str;
+    for (int i = 0; i < 4; i++) {
+        ip_u8[i] = atoi(p);
+        p = strchr(p, '.') ;
+        if (p == null) {
+            break;
+        }
+        p++;
+    }
+    return ip;
+}
+
+```
+Immediately afterwards, we define an event handler function event_handler to respond to events of different types and IDs and to perform the corresponding actions based on the event data. For example, in the WIFI_EVENT_STA_START event, the esp_wifi_connect function is called if a connection to a hotspot is requested; in the IP_EVENT_STA_GOT_IP event, the wifi_sta_connected is set to PIKA_TRUE and the wifi_sta_disconn_reason is set to PIKA_TRUE. disconn_reason to PIKA_HAL_WIFI_STATUS_GOT_IP, etc.
+
+```c
+static void event_handler(void* event_handler_arg,
+                          esp_event_base_t event_base,
+                          int32_t event_id,
+                          void* event_data) {
+    // ...
+}
+```
+
+Then, we implement several main device manipulation functions corresponding to turning on, turning off, configuring and controlling the WIFI device. Each of these functions requires passing a pointer to a device object (pika_dev) and returns the corresponding result or error code, depending on the case.
+- The `pika_hal_platform_WIFI_open` function is used to initialize the NVS (non-volatile storage), the network interface and the event loop, and to create an event group.
+- The `pika_hal_platform_WIFI_close` function is used to deinitialize the NVS, the network interface and the event loop, and to delete the event group.
+- The `pika_hal_platform_WIFI_ioctl_config` function is used to configure the WIFI mode, hotspot information, etc. based on the ioctl_config field (type pika_hal_WIFI_config) in the device object. In case of STA mode, the configuration is not supported; in case of AP mode, the esp_wifi_set_config function is called to set the SSID, password, channel, authentication mode and maximum number of connections of the hotspot, etc.
+- The `pika_hal_platform_WIFI_ioctl_enable` function is used to start or stop the WIFI. first, the mode of the WIFI is determined according to the mode field in the ioctl_config field, and then the esp_wifi_set_mode function is called to set the mode. If WIFI is not yet started, you also need to register the event handler function, create the default network interface, and call the esp_wifi_start function to start WIFI and set wifi_started to PIKA_TRUE; otherwise, you just need to set the mode.
+- The `pika_hal_platform_WIFI_ioctl_disable` function is used to stop or deinitialize WIFI. if WIFI is already started, call the esp_wifi_stop and esp_wifi_deinit functions to stop and deinitialize WIFI and set wifi_started to PIKA_FALSE; otherwise, -1 is returned to indicate an error.
+
+- The `pika_hal_platform_WIFI_ioctl_others` function is used to handle other types of control commands, such as getting the status of the WIFI, whether it is active or not, scanning for nearby hotspots, etc. These commands are specified by the cmd parameter and data is passed or returned by the arg parameter. For example, in the PIKA_HAL_IOCTL_WIFI_GET_STATUS command, the current connection status is determined based on variables like wifi_sta_connect_requested and wifi_sta_connected and assigned to the pika_hal_wifi_ status variable pointed to by arg. status variable.
+
+
 
 ## Contribute
 
-Please refer to the documentation in the [Contribute to the community -> Contribute module](https://pikadoc.readthedocs.io/zh/latest/%E5%A6%82%E4%BD%95%E8%B4%A1%E7%8C%AE%20PikaScript%20%E6%A8%A1%E5%9D%97. html) section of the documentation to post the module you have written.
+Please refer to the documentation in the [Contribute to the community -> Contribute module](%E5%A6%82%E4%BD%95%E8%B4%A1%E7%8C%AE%20PikaScript%20%E6%A8%A1%E5%9D%97. html) section of the documentation to post the module you have written.

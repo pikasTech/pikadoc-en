@@ -2,7 +2,7 @@
 
 ## Overview
 
-The PikaScript kernel provides an event callback mechanism that supports triggering Python defined callback functions in C events/interrupts.
+The PikaPython kernel provides an event callback mechanism that supports triggering Python defined callback functions in C events/interrupts.
 
 Note: requires kernel version no less than: v1.8.7
 
@@ -156,11 +156,27 @@ get rising edge!
 get falling edg!
 ```
 
+### Waiting for the return value
+Event callback functions can have return values, such as returning `signal` directly.
+``` Python
+def callBack1(signal):
+    return signal
+io1.addEventCallBack(callBack1)
+```
+This function requires OS support, and the `__platform_thread_delay()` method needs to be overridden to be able to dispatch events to the main process while waiting for a return value.
+If a return value is required, the trigger event can use ``pks_eventLisener_sendSignalAwaitResult`` to get the return value of the callback function, which is an ``Arg*` type.
+``` C
+Arg* res_123 = pks_eventLisener_sendSignalAwaitResult(
+        g_pika_device_event_listener, GPIO_PA8_EVENT_ID, 123);
+int res = arg_getInt(res_123);
+```
+> Note: requires kernel version `>= v1.11.7`
+
 ## Advanced: Custom event registration functions
 
 - In addition to event callbacks supported by `PikaStdDevice`, you can also customize event registration functions, which is an advanced part.
 
-- Custom event registration requires a better understanding of PikaScript's C-module mechanism and object mechanism.
+- Custom event registration requires a better understanding of PikaPython's C-module mechanism and object mechanism.
 
 - Define a Python interface to a C module that receives incoming event callback functions.
 

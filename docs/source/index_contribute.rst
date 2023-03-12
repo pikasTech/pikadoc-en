@@ -6,6 +6,6 @@ Contribute
 
    如何参与社区贡献
    如何贡献 PikaScrpt BSP
-   如何贡献 PikaScript 模块
+   如何贡献 PikaPython 模块
    contribute_to_stdlib
    如何贡献内核

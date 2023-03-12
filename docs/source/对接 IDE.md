@@ -1,6 +1,6 @@
 # Docking with IDE
 ## Overview
-The toolset that PikaScript needs to interface with the IDE includes:
+The toolset that PikaPython needs to interface with the IDE includes:
 
 Package manager pikaPackage.exe
 
@@ -26,7 +26,7 @@ a. run before each compilation
 ## Project Files
 
    1. After executing the package manager or precompiler, you need to add **all (including subfolders)** .c files and include paths under **pikascript-lib, pikascript-core, pikascript-api** .
-   1. Reset PikaScript project files: After deleting pikascript-lib, pikascript-core, and pikascript-api, re-run pikaPackage.exe and rust-msc-latest-win10.exe.
+   1. Reset PikaPython project files: After deleting pikascript-lib, pikascript-core, and pikascript-api, re-run pikaPackage.exe and rust-msc-latest-win10.exe.
 
 ## example
 

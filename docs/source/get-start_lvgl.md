@@ -1,6 +1,6 @@
 # Start with the LVGL GUI Simulation Project
 
-The LVGL GUI Simulation Project provides an experimental environment for co-simulation of PikaScript and LVGL.
+The LVGL GUI Simulation Project provides an experimental environment for co-simulation of PikaPython and LVGL.
 
 The GUI simulation can be performed on a PC using Visual Studio.
 
@@ -8,7 +8,7 @@ The GUI simulation can be performed on a PC using Visual Studio.
 
 [http://pikascript.com/](http://pikascript.com/)
 
-Select lvgl-vs-simu, a Visual Studio simulation project, from the Project Builder on the official PikaScript website.
+Select lvgl-vs-simu, a Visual Studio simulation project, from the Project Builder on the official PikaPython website.
 
 This project is branched from the [official LVGL Visual Studio simulation project](https://github.com/lvgl/lv_port_win_visual_studio).
 
@@ -90,7 +90,7 @@ print('mem used max: %0.2f kB' % (mem.getMax()))
 print('mem used now: %0.2f kB' % (mem.getNow()))
 ```
 
-After replacing main.py, run PikaScript's pre-compiler
+After replacing main.py, run PikaPython's pre-compiler
 
 ![](assets/image-20220619180151300.png)
 

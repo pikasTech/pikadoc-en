@@ -9,7 +9,7 @@ good news! The Arm2D module and simulation project of pikascript are preliminari
 It is also very simple to deploy and run this simulation project on your own computer, just follow the steps below~
 ## Get the simulation project
 
-Go to the PikaScript official website: http://pikascript.com, then select `sumulation-rtt-qemu-arm2d` for the platform, and then click Start to generate the project.
+Go to the PikaPython official website: http://pikascript.com, then select `sumulation-rtt-qemu-arm2d` for the platform, and then click Start to generate the project.
 
 ## Install the development environment
 

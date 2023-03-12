@@ -25,7 +25,7 @@ The parameter table is internally implemented based on a linked list (Link).
 
 1. Create a new parameter table, create a new parameter table from the heap, and return the pointer of the parameter table. **Note that the newly created parameter table needs to be destroyed manually to reclaim the memory. Constantly creating new parameter tables without destroying them can lead to memory leaks.**
 
-[Note] To avoid memory leaks, please develop under [docker development environment](https://pikadoc.readthedocs.io/en/latest/get-start_linux.html) and ensure sufficient unit tests and memory checks.
+[Note] To avoid memory leaks, please develop under [docker development environment](get-start_linux.html) and ensure sufficient unit tests and memory checks.
 
 
 ````c

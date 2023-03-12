@@ -10,3 +10,5 @@ Standard Library
    PikaStdTask 多任务
    PikaDebug 调试器
    PikaCV 图像库
+   lib_requests 
+   lib_mqtt

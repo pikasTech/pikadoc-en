@@ -38,11 +38,12 @@ PikaObj supports **integer, floating point, pointer, string** four basic types o
 
 | PikaObj attribute type |                         Read/Write API                          | Python type |     |
 | :--------------------: | :-------------------------------------------------------------: | :---------: | --- |
-|          int           |                   `obj_setInt() obj_getInt()`                   |     int     |     |
-|         float          |                 `obj_setFloat() obj_getFloat()`                 |    float    |     |
-|          str           |                   `obj_setStr() obj_getStr()`                   |   string    |     |
-|        pointer         |                   `obj_setPtr() obj_getPtr()`                   |      -      |     |
-|         bytes          |       `obj_setBytes() obj_getBytes() obj_getBytesSize()`        |    bytes    |     |
+|       int        |                  `obj_setInt() obj_getInt()`                   |       int        |
+|      float       |                `obj_setFloat() obj_getFloat()`                 |      float       |
+|       str        |                  `obj_setStr() obj_getStr()`                   |      string      |
+|      bytes       | `obj_setBytes() obj_getBytes() obj_getBytesSize()`             |      bytes       |
+|     struct       |                  `obj_setStruct() obj_getStruct()`             |        -         |
+|     pointer      |                  `obj_setPtr() obj_getPtr()`                   |        -         |
 
 PikaObj objects are **dynamic**, so new properties can be added to the object at any time (the properties of static objects are determined at construction time).
 

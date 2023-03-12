@@ -1,4 +1,4 @@
-# PikaScript kernel advanced
+# PikaPython kernel advanced
 
 [Video link](https://www.bilibili.com/video/BV12Z4y167SP)
 

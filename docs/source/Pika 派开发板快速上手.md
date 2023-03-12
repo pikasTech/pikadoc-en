@@ -21,7 +21,7 @@ Optional:
 - Plus top version: STM32G070 + DAPLink debugger 128k flash 32k ram
 
 ![](assets/1641204913846-15059096-75ac-4aa1-9c5f-27cbde8d77d9.png)
-This development board is officially supported by the PikaScript project and continues to be updated continuously. The latest kernel and latest functions of PikaScript can be experienced on this development board.
+This development board is officially supported by the PikaPython project and continues to be updated continuously. The latest kernel and latest functions of PikaPython can be experienced on this development board.
 
 
 This development board has also been officially adapted by the project with a wealth of peripheral modules, including GPIO, TIME, ADC, IIC, LCD, KEY, PWM and other modules drivers have been developed and can be programmed directly with python.
@@ -43,9 +43,9 @@ When downloading the program, you need to use a serial port assistant tool. We c
 
 ![](assets/200618_b8f264a8_5521445.png)
 
-Select the COM port, then select the baud rate as 115200, and then click to open the serial port. At this time, it is connected to the Pika Pie. Simply send a Pthon script file to download the Python program to Pika Pie. To verify that the download was successful, we use the sample Python scripts in the PikaScript source repository.
+Select the COM port, then select the baud rate as 115200, and then click to open the serial port. At this time, it is connected to the Pika Pie. Simply send a Pthon script file to download the Python program to Pika Pie. To verify that the download was successful, we use the sample Python scripts in the PikaPython source repository.
 
-We enter the code repository of PikaScript
+We enter the code repository of PikaPython
 
 [https://github.com/pikastech/pikascript](https://github.com/pikastech/pikascript)
 
@@ -127,13 +127,13 @@ import machine
 ````
 
 
-The first line is the first and second line, which means that two modules are imported, one is the `PikaStdLib` module and one is the `machine` module. PikaStdLib is the standard library of PikaScript, which has some system functions, such as checking the memory usage. In the fourth line, we create a new mem object whose class is PikaStdLib.MemChecker().
+The first line is the first and second line, which means that two modules are imported, one is the `PikaStdLib` module and one is the `machine` module. PikaStdLib is the standard library of PikaPython, which has some system functions, such as checking the memory usage. In the fourth line, we create a new mem object whose class is PikaStdLib.MemChecker().
 
 ````python
 mem = PikaStdLib.MemChecker()
 ````
 
-This class has a max() method and a now() method. Using these two methods, you can print out the memory size currently used by PikaScript.
+This class has a max() method and a now() method. Using these two methods, you can print out the memory size currently used by PikaPython.
 
 ````python
 print('hello pikascript')

@@ -2,7 +2,7 @@
 
 It is well known that MicroPython supports the Raspberry Pi Pico, and we see there some room to improve, not only about the memory footprint, but also about the way to bind your own c modules. It's not rare to see people in the community complain about the complexity and debugging experience.
 
-The resources and price of the Raspberry Pi Pico are really good, it is fun to play with, not to mention there is a big community behind it. One question for most of the MCU developer is that can we use MDK to develop Raspberry Pi Pico and play with PikaScript? Why not? Thanks to a open-source project called [Pico_Template](https://github.com/GorgonMeducer/Pico_Template), dream becomes reality. Please note that Pico_Template allows you to compile the latest pico-sdk using the Arm Compiler 6, debug without an extra pico and retarget printf to MDK without using any Serial2USB adapter. 
+The resources and price of the Raspberry Pi Pico are really good, it is fun to play with, not to mention there is a big community behind it. One question for most of the MCU developer is that can we use MDK to develop Raspberry Pi Pico and play with PikaPython? Why not? Thanks to a open-source project called [Pico_Template](https://github.com/GorgonMeducer/Pico_Template), dream becomes reality. Please note that Pico_Template allows you to compile the latest pico-sdk using the Arm Compiler 6, debug without an extra pico and retarget printf to MDK without using any Serial2USB adapter. 
 
 For details, see:
 
@@ -10,9 +10,9 @@ For details, see:
 
 As we mentioned before, binding C modules in MicroPython is very complicated and difficult to debug. Is there a more convenient way to do it for python running on MCUs? 
 
-YES! Our answer to this question is PikaScript. PikaScript is a completely rewritten ultra-lightweight python vitual machine, with zero dependency on toolchain, simple configuration, ultra-low memory footprint (i.e. you can use it with less than 4KB of SRAM). Using framework based C module development tools, your API calling written in Python can be automatically connect to the your C modules. Cannot be more simple or convenient, isn't it? No need to manually handle any global tables, macro functions, module registration, etc.
+YES! Our answer to this question is PikaPython. PikaPython is a completely rewritten ultra-lightweight python vitual machine, with zero dependency on toolchain, simple configuration, ultra-low memory footprint (i.e. you can use it with less than 4KB of SRAM). Using framework based C module development tools, your API calling written in Python can be automatically connect to the your C modules. Cannot be more simple or convenient, isn't it? No need to manually handle any global tables, macro functions, module registration, etc.
 
-PikaScript provides MDK projects, hence you can debug C modules with python scripts.  
+PikaPython provides MDK projects, hence you can debug C modules with python scripts.  
 
 For details, see:
 [I'm going to use the cheapest single-chip microcomputer to run python, and I also need to use MDK to develop it, what's the matter](Http://mp.weixin.qq.com/s?__biz=MzU4NzUzMDc1OA==&mid=2247484313&idx=1&sn=2749a27bba09b2fe9c7bc0ad4977c8a6&chksm=fdebd4f0ca9c5de6f9160d42c58aa5d5e072168752c826cbf82f700f1fc301b96a3aaf4cfcfd#rd)
@@ -26,13 +26,13 @@ The very popular ESP32C3, Godson architecture.
 
 ![](assets/1640497097922-8490fdc1-ba88-48a4-888b-3859384ca650.webp)
 
-PikaScript supports both bare-metal but also RTOS enviroment, for example [RT-Thread](https://github.com/RT-Thread/rt-thread), [VSF](https://github.com/vsfteam/vsf), and Linux.
+PikaPython supports both bare-metal but also RTOS enviroment, for example [RT-Thread](https://github.com/RT-Thread/rt-thread), [VSF](https://github.com/vsfteam/vsf), and Linux.
 
-In fact, PikaScript is deeply integrated with rt-thread, it supports rt-thread full series of BSP via software packages. 
+In fact, PikaPython is deeply integrated with rt-thread, it supports rt-thread full series of BSP via software packages. 
 ![](assets/1640497097898-69cdc136-7b7a-4a8c-b79c-0650ae3f5111.webp)
 
 
-Let's see how to play PikaScript on Raspberry Pi pico using MDK:
+Let's see how to play PikaPython on Raspberry Pi pico using MDK:
 
 [https://github.com/pikastech/pikascript/tree/master/bsp/pico#pikascript-in-pico](https://github.com/pikastech/pikascript/tree/master/bsp/pico#pikascript-in-pico)
 

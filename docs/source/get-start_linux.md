@@ -2,15 +2,15 @@
 
 ## Why use docker development environment
 
-PikaScript's kernel and standard libraries are developed in a docker environment, which can be prone to some hard-to-debug problems when developing features that involve the kernel internals, such as
+PikaPython's kernel and standard libraries are developed in a docker environment, which can be prone to some hard-to-debug problems when developing features that involve the kernel internals, such as
 
 - memory leaks
 - memory overruns
 - broken kernel functionality
 
-This problem can be avoided by using PikaScript's docker development environment, which has been installed with **unit testing framework** and **memory checking tool**, so that if there is a memory security problem, it can be quickly found and solved to avoid memory hazards.
+This problem can be avoided by using PikaPython's docker development environment, which has been installed with **unit testing framework** and **memory checking tool**, so that if there is a memory security problem, it can be quickly found and solved to avoid memory hazards.
 
-PikaScript's linux development platform also needs to install go, rust, GoogleTest, GoogleBenchmark, valgrind and other tools, which is rather cumbersome, Docker-based development environment can install these tools in one click, and ensure that all developers' development environment is consistent.
+PikaPython's linux development platform also needs to install go, rust, GoogleTest, GoogleBenchmark, valgrind and other tools, which is rather cumbersome, Docker-based development environment can install these tools in one click, and ensure that all developers' development environment is consistent.
 
 
 ## Build Docker container
@@ -56,5 +56,5 @@ step5: Run REPL
 sh run.sh
 ```
 
-For more development guidelines under Docker, please refer to [ Development Process for Standard Libraries ](https://pikadoc.readthedocs.io/en/latest/contribute_to_stdlib.html).
+For more development guidelines under Docker, please refer to [ Development Process for Standard Libraries ](contribute_to_stdlib.html).
 

@@ -5,7 +5,6 @@ Get Start
    :maxdepth: 1
 
    Keil 仿真工程
-   Pika 派开发板快速上手
    使用 BSP 工程
    从 RT-Thread 软件包开始
    get-start_cmsis-pack

@@ -1,7 +1,7 @@
 # Qinheng RISC-V module development practice
 
 Foreword:
-This is an entry project of the RTT design competition, which realizes the deployment of the PikaScript Python engine based on rt-thread on the CH32V103 RISC-V platform.
+This is an entry project of the RTT design competition, which realizes the deployment of the PikaPython Python engine based on rt-thread on the CH32V103 RISC-V platform.
 Project webpage:
 [http://www.elecfans.com/project/938](http://www.elecfans.com/project/938)​
 (The page also includes a video demonstration)
@@ -10,16 +10,16 @@ The following is the text of the project introduction:
 ​
 
 Project Description
-PikaScript is a completely rewritten ultra-lightweight python engine with a full interpreter, bytecode and virtual machine architecture that can run on less than 4KB of RAM for small resource embedded systems. Compared with similar products, such as MicroPython, LuaOS, etc., the resource consumption is reduced by more than 85%. Selected as the most valuable open source project of Gitee in 2021, adding RT-Thread embedded real-time operating system programming language software package. Completed the deployment of PikaScript on the CH32V103 RISC-V development board, and submitted the PikaSciprt standard BSP and driver module package for CH32V103, and completed the interactive running driver.
+PikaPython is a completely rewritten ultra-lightweight python engine with a full interpreter, bytecode and virtual machine architecture that can run on less than 4KB of RAM for small resource embedded systems. Compared with similar products, such as MicroPython, LuaOS, etc., the resource consumption is reduced by more than 85%. Selected as the most valuable open source project of Gitee in 2021, adding RT-Thread embedded real-time operating system programming language software package. Completed the deployment of PikaPython on the CH32V103 RISC-V development board, and submitted the PikaSciprt standard BSP and driver module package for CH32V103, and completed the interactive running driver.
 
 RT-Thread usage overview:
 
-The technology stack involved in the whole scheme includes: RT-Thread thread and timer, compilation principle, bytecode design, virtual machine design, PikaScript deployment technology and driver module development technology, etc. Through this work, the BSP support list of PikaScript is expanded, the compatibility of PikaScript and rt-thread is verified, and the deployment capability and compatibility of PikaScript in the small-capacity (64Kb) RISC-V architecture are verified.
+The technology stack involved in the whole scheme includes: RT-Thread thread and timer, compilation principle, bytecode design, virtual machine design, PikaPython deployment technology and driver module development technology, etc. Through this work, the BSP support list of PikaPython is expanded, the compatibility of PikaPython and rt-thread is verified, and the deployment capability and compatibility of PikaPython in the small-capacity (64Kb) RISC-V architecture are verified.
 Kernel part: threads and timers are used.
 
 Package:
 
-PikaScript package
+PikaPython package
 
 The hardware uses the CH32V103 development board provided by the RTT competition, and uses the LED resources on the board to indicate the running status of the script. A Python script module is developed for the GPIO hardware to test the script-driven expansion function.
 ![](assets/1638495380404-1b88e98c-4325-48fa-824d-18a45c153b85.webp)
@@ -28,10 +28,10 @@ Software Description
 
 0.Summary
 
-PikaScript is a completely rewritten ultra-lightweight python engine with a full interpreter, bytecode and virtual machine architecture that can run on less than 4KB of RAM for small resource embedded systems. Compared with similar products, such as MicroPython, LuaOS, etc., the resource consumption is reduced by more than 85%.
+PikaPython is a completely rewritten ultra-lightweight python engine with a full interpreter, bytecode and virtual machine architecture that can run on less than 4KB of RAM for small resource embedded systems. Compared with similar products, such as MicroPython, LuaOS, etc., the resource consumption is reduced by more than 85%.
 Selected as the most valuable open source project of Gitee in 2021, adding RT-Thread embedded real-time operating system programming language software package.
 
-This project completed the deployment of PikaScript on the CH32V103 RISC-V development board, submitted the PikaSciprt standard BSP and driver module package for CH32V103, and completed the driver for interactive operation.
+This project completed the deployment of PikaPython on the CH32V103 RISC-V development board, submitted the PikaSciprt standard BSP and driver module package for CH32V103, and completed the driver for interactive operation.
 
 1. Scheme selection - CH32V103 runs Python script, which is not easy to handle
 
@@ -43,34 +43,34 @@ First, exclude the general-purpose Python interpreter CPython, not to mention th
 Secondly, the MicroPython technology that is popular in the embedded field is a possible alternative, but MicroPython requires a minimum volume of 128Kb on the ARM platform, and the optimization maturity of the GCC compiler of the RISC-V platform is not as good as the ARM platform, so the compilation volume will only be larger. Big will not be smaller, so MicroPython cannot be deployed on this CH32V103 platform.
 
 
-Well, let’s not talk about it. The only Python interpreter that can be deployed on the CH32V103 platform is the PikaScript ultra-lightweight Python interpreter that I am currently developing (if there are other solutions, please criticize and correct me, I will modify it). Although PikaScript does not have such complete standard library support compared to MicroPython, basic runtime objects, control flow, and interactive operation are all achievable, and PikaScript's cross-platform capability is very good. Under the extreme dependency management strategy, PikaScript only depends on LibC, there is almost no dependency missing problem on any platform, and it may be able to run in the FPGA soft core (theoretically feasible, not verified).
+Well, let’s not talk about it. The only Python interpreter that can be deployed on the CH32V103 platform is the PikaPython ultra-lightweight Python interpreter that I am currently developing (if there are other solutions, please criticize and correct me, I will modify it). Although PikaPython does not have such complete standard library support compared to MicroPython, basic runtime objects, control flow, and interactive operation are all achievable, and PikaPython's cross-platform capability is very good. Under the extreme dependency management strategy, PikaPython only depends on LibC, there is almost no dependency missing problem on any platform, and it may be able to run in the FPGA soft core (theoretically feasible, not verified).
 
-In addition, thanks to the open source platform provided by Gitee, PikaScript has just been selected by the Gitee judges as GVP - the most valuable open source project, so if you open the Gitee homepage now, there is a high probability that you can see the gold medal of PikaScript.
+In addition, thanks to the open source platform provided by Gitee, PikaPython has just been selected by the Gitee judges as GVP - the most valuable open source project, so if you open the Gitee homepage now, there is a high probability that you can see the gold medal of PikaPython.
 ![](assets/1638495380222-9af9955c-4a80-4325-9d75-2edd40d42320.webp)
 
-PikaScript is also included in the rt-thread package, which is really a very dynamic open source community
+PikaPython is also included in the rt-thread package, which is really a very dynamic open source community
 ![](assets/1638495380395-47352427-5fd7-4a70-b8b4-bf57f6290a49.webp)
 
-PikaScript's strict dependency management strategy makes deployment very easy, which is cross-platform and easy to deploy. But simple deployment is useless. If it is difficult to expand the function, it is just a vase. We know that in the field of MCU development, C language has always dominated the world. The ecology of C language accounts for more than 80% of MCU development. Most MCUs have C language development kits provided by manufacturers. Therefore, the Python interpreter of the MCU platform is the most important The expansion method is to bind the native library of the C language, and bind the C language library to a Python module, which is usually called a Python C module.
+PikaPython's strict dependency management strategy makes deployment very easy, which is cross-platform and easy to deploy. But simple deployment is useless. If it is difficult to expand the function, it is just a vase. We know that in the field of MCU development, C language has always dominated the world. The ecology of C language accounts for more than 80% of MCU development. Most MCUs have C language development kits provided by manufacturers. Therefore, the Python interpreter of the MCU platform is the most important The expansion method is to bind the native library of the C language, and bind the C language library to a Python module, which is usually called a Python C module.
 
 
 Binding C language modules for MicroPython is similar to general CPython. The C library needs to be compiled into a static library and then linked. Many global tables need to be manually registered during linking, and a large number of Linux platform-specific tools need to be used in the process of making C modules. Tools, this is a high threshold for MCU engineers who mainly develop on the Windows platform.
 
 
-PikaScript can complete the development of C modules on the Windos platform that MCU engineers are familiar with. Through the self-developed module precompiler, the registration of modules can be automatically completed. The developers of C modules need to provide only a module written in Python. Just calling the API, the precompiler will automatically precompile the Python file into a C file to complete the linking and registration of the module. As long as the correct naming is used, the native C functions can be automatically registered into the module for the interpreter to call, and there is no need to compile the static library.
+PikaPython can complete the development of C modules on the Windos platform that MCU engineers are familiar with. Through the self-developed module precompiler, the registration of modules can be automatically completed. The developers of C modules need to provide only a module written in Python. Just calling the API, the precompiler will automatically precompile the Python file into a C file to complete the linking and registration of the module. As long as the correct naming is used, the native C functions can be automatically registered into the module for the interpreter to call, and there is no need to compile the static library.
 
 
-Let PikaScript run on CH32V103, which means developing a PikaScript firmware that can run on CH32V103.
+Let PikaPython run on CH32V103, which means developing a PikaPython firmware that can run on CH32V103.
 
 
-Let's first look at what parts a PikaScript firmware has.
+Let's first look at what parts a PikaPython firmware has.
 ![](assets/1638495380538-858d703b-9406-499b-b1e6-8473e2a17b60.webp)
 
 The yellow part in the figure is what we need to make, and the green part is cross-platform. We only need to pull the source code to compile it without modification.
 
-Looking from the bottom up, the first thing is to need a BSP of PikaScript. BSP is the board-level support package, which can usually be obtained by sorting out the standard library of the MCU provided by the manufacturer. Then there's the PikaScript launcher, which contains the firmware entry main.c, and basic device initialization code, including support for printf.
+Looking from the bottom up, the first thing is to need a BSP of PikaPython. BSP is the board-level support package, which can usually be obtained by sorting out the standard library of the MCU provided by the manufacturer. Then there's the PikaPython launcher, which contains the firmware entry main.c, and basic device initialization code, including support for printf.
 
-With the BSP and the launcher, the firmware of PikaScript can already be run, but only the standard library functions provided by PikaScript and the basic syntax of Python can be used, and the peripheral resources mounted on the MCU cannot be used.
+With the BSP and the launcher, the firmware of PikaPython can already be run, but only the standard library functions provided by PikaPython and the basic syntax of Python can be used, and the peripheral resources mounted on the MCU cannot be used.
 
 In order to use the peripheral resources of CH32V103, we also need to develop the driver module of CH32V103. In this project, we developed the driver module of GPIO and the delay module based on rt-thread tick timer.
 
@@ -82,11 +82,11 @@ The top layer is the Python script we want to run. The module precompiler can al
 BSP is usually made with the routine provided by the original factory of the chip. In this project, we use the uart_printf in the official routine of CH32V103 and the rt-thread template generated by MounRiver River Studio to make it. After completing some tailoring of the rt-thread template, add the initialization function of printf, tidy up the project a little, and the BSP part is completed.
 
 
-The creation of the PikaScript launcher is also relatively simple. Add #include "pikaScript.h" to main.c and call the pikaScriptInit() function to start PikaScript. Both pikaScript.h and pikaScriptInit() are automatically generated by the precompiler. Before making the launcher, you need to pull the source code of PikaScript.
+The creation of the PikaPython launcher is also relatively simple. Add #include "pikaScript.h" to main.c and call the pikaScriptInit() function to start PikaPython. Both pikaScript.h and pikaScriptInit() are automatically generated by the precompiler. Before making the launcher, you need to pull the source code of PikaPython.
 
-PikaScript officially (actually, myself) provides a package management tool, just need to write request.txt, you can automatically pull the corresponding version of the source code and modules from gitee. When pulling the kernel source code, the precompiler will also be pulled down automatically. We write import PikaStdLib in main.py, and then precompile with the pulled precompiler to get pikaScriptInit() function.
+PikaPython officially (actually, myself) provides a package management tool, just need to write request.txt, you can automatically pull the corresponding version of the source code and modules from gitee. When pulling the kernel source code, the precompiler will also be pulled down automatically. We write import PikaStdLib in main.py, and then precompile with the pulled precompiler to get pikaScriptInit() function.
 
-The package management tool can not only pull the kernel, but also pull the module, that is to say, the driver module of CH32V103 made by ourselves can also be linked to the PikaScript module library for automatic pulling.
+The package management tool can not only pull the kernel, but also pull the module, that is to say, the driver module of CH32V103 made by ourselves can also be linked to the PikaPython module library for automatic pulling.
 
 I recorded a video tutorial for the production of BSP and launcher. Those who want to know the details or want to make BSP by themselves can watch the video to understand.
 https://www.bilibili.com/video/BV1Cq4y1G7Tj
@@ -96,7 +96,7 @@ https://www.bilibili.com/video/BV1Cq4y1G7Tj
 
 Next, we make the driver module of CH32V103, so that the peripheral resources on CH32V103 can be called by Python script.
 
-In this project, we made a standard device driver for PikaScript. What is a standard device driver? Let's start with other scripting technologies, such as MicroPython, there is no unified peripheral calling API, which makes users need to re-learn the API when using different platforms. For example, the following is the code for MicroPython to drive GPIO on the STM32F4 platform .
+In this project, we made a standard device driver for PikaPython. What is a standard device driver? Let's start with other scripting technologies, such as MicroPython, there is no unified peripheral calling API, which makes users need to re-learn the API when using different platforms. For example, the following is the code for MicroPython to drive GPIO on the STM32F4 platform .
 ![](assets/1638495380966-02a52d33-9986-401c-a7e1-136ce71ad53e.webp)
 
 This is for ESP8266
@@ -123,7 +123,7 @@ And the GPIO module of CH32V103 we want to make is inherited from the standard d
 
 ![](assets/1638495381703-8e227dcc-97d7-4069-8754-4c118deea3fb.webp)
 
-Through this method, we can make the STM32 driver module, CH32 driver module, and ESP32 driver module have exactly the same user API! As long as users are familiar with a set of APIs, they can easily use all platforms that support the PikaScript standard driver module! This is true cross-platform!
+Through this method, we can make the STM32 driver module, CH32 driver module, and ESP32 driver module have exactly the same user API! As long as users are familiar with a set of APIs, they can easily use all platforms that support the PikaPython standard driver module! This is true cross-platform!
 
 
 The following are some of the C native driver functions that are registered in the driver module
@@ -144,7 +144,7 @@ https://www.bilibili.com/video/BV1Jr4y117Z8
 
 4. Support interactive operation
 
-PikaScript does not depend on the file system, it can run as long as a string is passed in, so as long as you make a serial port driver that supports string reading, you can support interactive running!
+PikaPython does not depend on the file system, it can run as long as a string is passed in, so as long as you make a serial port driver that supports string reading, you can support interactive running!
 The following is the driver code that supports interactive operation in this project.
 
 ![](assets/1638495382112-7d45db4b-c1d5-4573-a06e-7b72140a3abf.webp)
@@ -163,11 +163,11 @@ The following is the initialization function generated by the precompiler
 
 project address:
 
-PikaScript-CH32V103 entry project warehouse:
+PikaPython-CH32V103 entry project warehouse:
 
 https://gitee.com/lyon1998/ch32v103-pika
 
-PikaScript main repository:
+PikaPython main repository:
 
 https://gitee.com/lyon1998/pikascript
 

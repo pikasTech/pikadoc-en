@@ -1,6 +1,6 @@
-# PikaScript C module development process
+# PikaPython C module development process
 
-We still use keil's simulation project as an example, if you haven't got the simulation project yet, please refer to [1. Three minutes to get started quickly](https://pikadoc.readthedocs.io/en/latest/Keil%20%E4%BB%BF%E7%9C%9F%E5%B7%A5%E7%A8%8B.html)
+We still use keil's simulation project as an example, if you haven't got the simulation project yet, please refer to [1. Three minutes to get started quickly](Keil%20%E4%BB%BF%E7%9C%9F%E5%B7%A5%E7%A8%8B.html)
 
 ### New module interface
 
@@ -216,7 +216,7 @@ This shows that the module we wrote is working correctly.
 
 ### Available type annotations
 
-The following table lists all the type declarations supported by PikaScript, and how they correspond to the native types of the C language.
+The following table lists all the type declarations supported by PikaPython, and how they correspond to the native types of the C language.
 
 | Python type annotations | C native types | description |
 | --------------- | ----------- | -- |
@@ -225,9 +225,9 @@ The following table lists all the type declarations supported by PikaScript, and
 | float | double | python basic types |
 | str | char * | python basic type |
 | bytes | uint8_t * | python basic type |
-| pointer | void * | PikaScript-specific type annotations |
-| any | Arg* | PikaScript-provided generic containers |
-| any class | PikaObj * |PikaScript-provided object container|
+| pointer | void * | PikaPython-specific type annotations |
+| any | Arg* | PikaPython-provided generic containers |
+| any class | PikaObj * |PikaPython-provided object container|
 
 > **Note** 
 > 1. `str` is returned as `char*` in c. If the string to be returned is a local variable in the function, it needs to be cached with `obj_cacheStr` to avoid dangling references when it goes out of the function scope, e.g.: `return obj_cacheStr(self, res);`.

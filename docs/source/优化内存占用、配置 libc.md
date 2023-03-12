@@ -1,10 +1,10 @@
-# PikaScript configuration manual
+# PikaPython configuration manual
 
 ## When to configure
 
-PikaScript itself is **configuration-free**, so usually you don't need to know this part.
+PikaPython itself is **configuration-free**, so usually you don't need to know this part.
 
-You can consider configuring PikaScript when you have the following requirements:
+You can consider configuring PikaPython when you have the following requirements:
 
 - faster speed
 - Smaller memory footprint
@@ -16,7 +16,7 @@ You can consider configuring PikaScript when you have the following requirements
 
 [Note]: For optimized configuration, the kernel version needs to be at least ```v1.5.4```
 
-Similar to GCC, PikaScript also provides different optimization modes. The currently available optimization modes are:
+Similar to GCC, PikaPython also provides different optimization modes. The currently available optimization modes are:
 
 - ```PIKA_OPTIMIZE_SIZE``` volume mode minimizes running memory
 
@@ -73,13 +73,13 @@ Intercept the important part for explanation:
 
 ```default configuration``` is the default value of the configuration item. When the ```PIKA_CONFIG_ENABLE``` macro is defined, ```pika_config_valid.h``` will import ```pika_config.h```, so User can override the above default configuration in ```pika_config.h```.
 
-For example, if you want to increase the runtime stack of the PikaScript virtual machine, you can write in ```pika_config.h```
+For example, if you want to increase the runtime stack of the PikaPython virtual machine, you can write in ```pika_config.h```
 
 ```` c
 #define PIKA_STACK_BUFF_SIZE 512
 ````
 
-As can be seen from ```pika_config_valid.h```, the default optimization option of PikaScript ``` PIKA_OPTIMIZE ``` is ``` PIKA_OPTIMIZE_SIZE ```, if you need to switch to speed optimization, you can write in ```pika_config.h```
+As can be seen from ```pika_config_valid.h```, the default optimization option of PikaPython ``` PIKA_OPTIMIZE ``` is ``` PIKA_OPTIMIZE_SIZE ```, if you need to switch to speed optimization, you can write in ```pika_config.h```
 
 ```` c
 #define PIKA_OPTIMIZE PIKA_OPTIMIZE_SPEED
@@ -90,7 +90,7 @@ As can be seen from ```pika_config_valid.h```, the default optimization option o
 
 ## Dependency configuration
 
-PikaScript can be configured by creating ``pika_config.c``, rewriting the weak functions in [PikaPlagform.h](https://github.com/pikastech/pikascript/blob/master/src/PikaPlatform.h) 's dependencies.
+PikaPython can be configured by creating ``pika_config.c``, rewriting the weak functions in [PikaPlagform.h](https://github.com/pikastech/pikascript/blob/master/src/PikaPlatform.h) 's dependencies.
 ```` c
 /* interrupt config */
 void __platform_enable_irq_handle(void);
@@ -130,7 +130,7 @@ void __platform_error_handle(void);
 ````
 ### Configuration items:
 
-- Interrupt Protection - Provides an interrupt master switch to protect PikaScript memory safety
+- Interrupt Protection - Provides an interrupt master switch to protect PikaPython memory safety
   
 - libC - select the implementation of libC
   
