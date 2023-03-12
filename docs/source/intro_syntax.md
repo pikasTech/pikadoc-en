@@ -1,6 +1,9 @@
 # Syntax support
+
 Support for a subset of python3 standard syntax.
+
 #### object support
+
 |Syntax|compile-time|Runtime|Shell|
 |--|--|--|--|
 |Module Definition |√|-|-|
@@ -16,11 +19,15 @@ Support for a subset of python3 standard syntax.
 |object destruction |√|√|√|√|
 |object nesting |√|√|√|√|
 |control flow |√|√|√|√|
-#### Operator
-| + | - | * | / | == | > | < | >= | <= | % | ** | // | ! = | & | >> | << | and | or | not | in | += | -= | *= | /= |
 
-|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|
+#### Operator
+
+| + | - | * | / | == | > | < | >= | <= | % | ** | // | != | & | >> | << | and | or | not | in | += | -= | *= | /= |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|√|
+
 #### Control flow
+
 | Syntax | State |
 | --- | --- |
 | if | √ |
@@ -31,7 +38,9 @@ Support for a subset of python3 standard syntax.
 | if elif else | √ | for break/continue | √
 | for break/continue | √ | while break/continue | √
 | while break/continue | √ |
+
 #### Module
+
 | Syntax | Python Module | C Module |
 | --- | --- | --- |
 | import [module] | √ | √ |
@@ -39,14 +48,18 @@ Support for a subset of python3 standard syntax.
 | from [module] import [class/function>]| √ | - |
 | from [module] import [class/function>] as | √ | - |
 | from [module] import * | - | PikaObj Module Only |
+
 #### List/Dict
+
 | Syntax | State |
 | --- | --- |
 | l = list() | √ |
 | l = [a, b, c] | √ |
 | d = dict() | √ |
 | d = {'a':x, 'b':y, 'c':z} | √ |
+
 #### Exception
+
 | Syntax | State |
 | --- | --- |
 |try:| √ |
@@ -57,13 +70,17 @@ Support for a subset of python3 standard syntax.
 |raise:| √ |
 |raise [Exception]:| - |finally:| -
 |finally:| - |
+
 #### Slice
+
 | Syntax | str | bytes | list |
 | --- | --- | --- | --- |
 | test[i] | √ | √ | √ |
 | test[a : b] | √ | √ | √ | √ 
 | test[a :] | √ | √ | √ | √
+
 #### Other keywords/Syntax
+
 | yield | is | comprehensions |
 | --- | --- | --- |
 | - - | √ | - |
