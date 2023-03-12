@@ -24,7 +24,7 @@ There is a way, and it is the PikaStdDevice standard device driver module.
 
 ## Module structure
 
-![](assets/image-20221207125315706.png)assets/image-20221207125315706.png)
+![](assets/image-20221207125315706.png)
 
 - The `PikaStdDevice` module provides the basic peripheral Python modules for `GPIO`, `IIC`, `PWM`, etc.
 - `PikaStdDevice` is based on the `pika_hal` device abstraction layer. `pika_hal` is a pure `c` language device abstraction layer that unifies peripheral operations of different platforms into the same `API` for `PikaStdDevice` to call, so that different platforms (STM32, ESP32, BL602) etc. can use common `Python` code to control the device.
@@ -93,7 +93,7 @@ The sample code for the `PikaStdDevice` module is under the https://gitee.com/Ly
 
 ### Programming model
 
-! [image-20221207132547828](assets/image-20221207132547828.png)
+![](assets/image-20221207132547828.png)
 
 All devices follow the linux-like file programming model, all types of devices use the `pika_dev` structure as a device handle, and all types of devices have and only have the following five control APIs.
 
