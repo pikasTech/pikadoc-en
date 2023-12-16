@@ -4,7 +4,7 @@ Users developing with Keil can use CMSIS-PACK to install PikaPython with one cli
 
 ## Install PikaTech.PikaPython.x.x.x.pack
 
-[ Click to download ](https://gitee.com/Lyon1998/pikascript/attach_files/1191795/download)
+[ Click to download ](https://gitee.com/Lyon1998/pikapython/attach_files/1615398/download)
 
 Just go all the way to Next and install
 
